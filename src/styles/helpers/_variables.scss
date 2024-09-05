@@ -1,0 +1,44 @@
+:root {
+    --ff-title: "MrPalkerDadson";
+    --ff-text: "Circle";
+
+    --primary-bg-color: #fff;
+    --primary-text-color: #000;
+    --primary-border-color: rgba(255, 255, 255, 0.1);
+
+    --c-accent: #E42313;
+    --c-accent-2: #27A536;
+    --c-white: #fff;
+    --c-gray-bg: #F9F5F1;
+    --c-blue-bg: #E9F1FB;
+
+    --tr-time: 0.3s;
+}
+
+$primary-bg-color: var(--primary-bg-color);
+$primary-text-color: var(--primary-text-color);
+$primary-border-color: var(--primary-border-color);
+
+// Fonts
+$ff-title: var(--ff-title);
+$ff-text: var(--ff-text);
+
+// Colors
+$c-accent: var(--c-accent);
+$c-accent-2: var(--c-accent-2);
+$c-white: var(--c-white);
+$c-gray-bg: var(--c-gray-bg);
+$c-blue-bg: var(--c-blue-bg);
+
+
+// Other
+
+$tr-time: var(--tr-time);
+
+/* media */
+$media-list: (
+    'xs': 480,
+    'sm': 640,
+    'md': 960,
+    'lg': 1200,
+);

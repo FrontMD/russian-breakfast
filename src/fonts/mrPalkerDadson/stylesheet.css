@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'MrPalkerDadson Cond';
+    src: url('MrPalkerDadsonCond-Black.eot');
+    src: local('MrPalkerDadson Cond Black'), local('MrPalkerDadsonCond-Black'),
+        url('MrPalkerDadsonCond-Black.eot?#iefix') format('embedded-opentype'),
+        url('MrPalkerDadsonCond-Black.woff2') format('woff2'),
+        url('MrPalkerDadsonCond-Black.woff') format('woff'),
+        url('MrPalkerDadsonCond-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MrPalkerDadson Cond';
+    src: url('MrPalkerDadsonCond-Bold.eot');
+    src: local('MrPalkerDadson Cond Bold'), local('MrPalkerDadsonCond-Bold'),
+        url('MrPalkerDadsonCond-Bold.eot?#iefix') format('embedded-opentype'),
+        url('MrPalkerDadsonCond-Bold.woff2') format('woff2'),
+        url('MrPalkerDadsonCond-Bold.woff') format('woff'),
+        url('MrPalkerDadsonCond-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MrPalkerDadson Cond';
+    src: url('MrPalkerDadsonCond-Light.eot');
+    src: local('MrPalkerDadson Cond Light'), local('MrPalkerDadsonCond-Light'),
+        url('MrPalkerDadsonCond-Light.eot?#iefix') format('embedded-opentype'),
+        url('MrPalkerDadsonCond-Light.woff2') format('woff2'),
+        url('MrPalkerDadsonCond-Light.woff') format('woff'),
+        url('MrPalkerDadsonCond-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MrPalkerDadson Cond';
+    src: url('MrPalkerDadsonCond-DemiBold.eot');
+    src: local('MrPalkerDadson Cond DemiBold'), local('MrPalkerDadsonCond-DemiBold'),
+        url('MrPalkerDadsonCond-DemiBold.eot?#iefix') format('embedded-opentype'),
+        url('MrPalkerDadsonCond-DemiBold.woff2') format('woff2'),
+        url('MrPalkerDadsonCond-DemiBold.woff') format('woff'),
+        url('MrPalkerDadsonCond-DemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MrPalkerDadson Cond';
+    src: url('MrPalkerDadsonCond-Thin.eot');
+    src: local('MrPalkerDadson Cond Thin'), local('MrPalkerDadsonCond-Thin'),
+        url('MrPalkerDadsonCond-Thin.eot?#iefix') format('embedded-opentype'),
+        url('MrPalkerDadsonCond-Thin.woff2') format('woff2'),
+        url('MrPalkerDadsonCond-Thin.woff') format('woff'),
+        url('MrPalkerDadsonCond-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MrPalkerDadson Cond';
+    src: url('MrPalkerDadsonCond-Regular.eot');
+    src: local('MrPalkerDadson Cond Regular'), local('MrPalkerDadsonCond-Regular'),
+        url('MrPalkerDadsonCond-Regular.eot?#iefix') format('embedded-opentype'),
+        url('MrPalkerDadsonCond-Regular.woff2') format('woff2'),
+        url('MrPalkerDadsonCond-Regular.woff') format('woff'),
+        url('MrPalkerDadsonCond-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+

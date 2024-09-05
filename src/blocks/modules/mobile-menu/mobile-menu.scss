@@ -1,0 +1,239 @@
+.hystmodal.mobile-menu {
+    .hystmodal__window {
+        transition: all 0.3s linear;
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+.hystmodal--active.mobile-menu {
+    .hystmodal__window {
+        transition: all 0.3s linear;
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+.mobile-menu {
+    .hystmodal__wrap {
+        flex-flow: row nowrap;
+        align-items: stretch;
+        justify-content: flex-start;
+        margin: 0;
+    }
+    .hystmodal__window {
+        margin: 0;
+        width: 100%;
+        min-width: 100px;
+        background-color: white;
+        @include min(768) {
+            max-width: 375px;
+        }
+    }
+    &__content {
+        position: relative;
+        height: 100%;
+    }
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0px 15px 20px 0px rgba(34, 29, 55, 0.04);
+        @include max(1024) {
+            padding: 17px 20px;
+            min-height: 60px;
+        }
+        @include max(768) {
+            padding: 17px 20px;
+            min-height: 60px;
+        }
+    }
+    &__title {
+        display: block;
+        position: relative;
+        line-height: 1.18;
+        font-weight: 600;
+        color: #221D37;
+        @include max(1024) {
+            font-size: 22px;
+        }
+        @include max(768) {
+            font-size: 22px;
+        }
+    }
+    &__close.btn.btn--icon {
+        z-index: 20;
+        border: none;
+        padding: 0;
+        min-height: auto;
+        @include max(1024) {
+            width: 24px;
+            height: 24px;
+        }
+        @include max(768) {
+            width: 24px;
+            height: 24px;
+        }
+        .btn__icon {
+            @include max(1024) {
+                width: 24px;
+                height: 24px;
+            }
+            @include max(768) {
+                width: 24px;
+                height: 24px;
+            }
+            svg {
+                @include max(1024) {
+                    width: 24px;
+                    height: 24px;
+                }
+                @include max(768) {
+                    width: 24px;
+                    height: 24px;
+                }
+                color: #CBC5C7;
+            }
+        }
+    }
+    &__body {
+        @include max(1024) {
+            padding: 4px 20px 10px;
+        }
+        @include max(768) {
+            padding: 4px 20px 10px;
+        }
+    }
+    &__link.btn {
+        justify-content: space-between;
+        flex-direction: row-reverse;
+        color: #2B3940;
+        min-height: auto;
+        border-bottom: 1px solid #E6E6EA;
+        border-radius: 0;
+        width: 100%;
+        @include max(1024) {
+            padding: 16px 0 16px 10px;
+        }
+        @include max(768) {
+            padding: 16px 0 16px 10px;
+        }
+        .btn__text {
+            @include max(1024) {
+                font-size: 15px;
+                font-weight: 400;
+            }
+            @include max(768) {
+                font-size: 15px;
+                font-weight: 400;
+            }
+        }
+        .btn__icon {
+            @include max(1024) {
+                width: 30px;
+                height: 30px;
+            }
+            @include max(768) {
+                width: 30px;
+                height: 30px;
+            }
+            svg {
+                color: #dadade;
+                @include max(1024) {
+                    width: 25px;
+                    height: 25px;
+                }
+                @include max(768) {
+                    width: 25px;
+                    height: 25px;
+                }
+            }
+        }
+      
+    }
+    @include max(1024) {
+        &__search {
+            margin-top: 30px;
+            @include max(768) {
+                margin-top: 30px;
+            }
+            .search__form {
+                position: relative;
+                max-width: 100%;
+                width: 100%;
+                top: 0;
+                left: 0;
+                opacity: 1;
+                visibility: visible;
+                height: 40px;
+                transform: none;
+                z-index: 5;
+                @include max(768) {
+                    height: 40px;
+                }
+            }
+            .field__input {
+                height: 100%;
+                font-size: 13px;
+                border-radius: 8px;
+                padding: 12px 55px 12px 15px;
+                @include max(768) {
+                    font-size: 13px;
+                    border-radius: 8px;
+                    padding: 12px 55px 12px 15px;
+                }
+            }
+            .search__search.btn {
+                position: absolute;
+                top: 50%;
+                right: 10px;
+                width: 30px;
+                height: 30px;
+                min-height: auto;
+                padding: 0;
+                border: none;
+                transform: translateY(-50%);
+                @include max(768) {
+                    right: 10px;
+                    width: 30px;
+                    height: 30px;
+                }
+                .btn__icon, .btn__icon svg {
+                    width: 15px;
+                    height: 15px;
+                    @include max(768) {
+                        width: 15px;
+                        height: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+a.mobile-menu__title{
+    text-decoration: none;
+    &:before{
+        background: url("../img/sprites/sprite.svg#card_arrow") no-repeat;
+        background-size: contain;
+        background-position: bottom center;
+        width: 22px;
+        height: 22px;
+        margin-right: 14px;
+        transform: rotate(180deg);
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        @include max(1024) {
+            width: 22px;
+            height: 22px;
+            background-size: contain;
+            background-position: bottom center;
+        }
+        @include max(768) {
+            width: 22px;
+            height: 22px;
+            background-size: contain;
+            background-position: bottom center;
+        }
+    }
+}

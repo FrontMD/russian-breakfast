@@ -1,0 +1,230 @@
+.home-page {
+    padding-top: 232px;
+
+    .home-intro {
+
+        &__container {
+            position: relative;
+        }
+
+        &__desc {
+            display: flex;
+            flex-direction: column;
+            gap: 203px;
+            width: 353px;
+        }
+
+        &__title {
+            font-size: 37px;
+            color: $c-accent;
+        }
+
+        &__logo {
+            width: 100%;
+        }
+
+        &__img {
+            position: absolute;
+            left: 353px;
+            top: 0;
+            height: 100%;
+            aspect-ratio: 1 / 0.74;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    .home-about {
+        padding-top: 40px;
+
+        &__container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        &__left {
+            flex: 1 1 50%;
+            max-width: 447px;
+        }
+
+        &__text {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            font-size: 20px;
+            line-height: 1.1;
+            font-weight: 400;
+        }
+
+        &__img {
+            width: 100%;
+            max-width: 289px;
+            margin-left: 6px;
+            margin-top: 90px;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        &__right {
+            padding-top: 16px;
+            flex: 0 0 540px;
+            max-width: 540px;
+        }
+
+        .author-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 60px 50px 66px;
+            border: 1px solid $c-accent;
+            border-radius: 10px;
+            margin-top: 48px;
+
+            &__title {
+                font-family: $ff-title;
+                position: absolute;
+                left: 50%;
+                top: -18px;
+                transform: translateX(-50%);
+                font-size: 37px;
+                font-weight: 400;
+                line-height: 1em;
+                color: $c-accent;
+                text-transform: uppercase;
+                white-space: nowrap;
+                z-index: 5;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: 50%;
+                top: -48px;
+                transform: translateX(-50%);
+                width: 354px;
+                height: 97px;
+                border-radius: 30px;
+                border: 1px solid $c-accent;
+                background-color: #fff;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                left: 50%;
+                top: 0;
+                transform: translateX(-50%);
+                width: 360px;
+                height: 50px;
+                background-color: #fff;
+            }
+
+            &__photo {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            &__name {
+                margin-top: 23px;
+                font-size: 20px;
+                font-weight: 400;
+                line-height: 1em;
+                text-transform: uppercase;
+            }
+
+            &__position {
+                margin-top: 2px;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 0.9em;
+                opacity: 0.5;
+            }
+
+            &__icon {
+                width: 50px;
+                height: 47px;
+                margin-top: 25px;
+
+                svg {
+                    width: 100%;
+                    height: 100%;
+
+                }
+            }
+
+            &__text {
+                margin-top: 16px;
+                font-size: 20px;
+                font-weight: 400;
+                line-height: 1.1em;
+                color: $c-accent;
+            }
+
+        }
+    }
+
+    .home-banner {
+        padding-top: 148px;
+        padding-bottom: 69px;
+
+        &__inner {
+            padding: 13px 69px 45px;
+            border-radius: 10px;
+            border: 1px solid #FF0909;
+            background-image: url(../img/home_banner_bg.png);
+            background-repeat: no-repeat;
+            background-position: top right;
+            background-size: 555px;
+        }
+
+        &__desc {
+            max-width: 496px;
+        }
+
+        &__logo {
+            width: 205px;
+        }
+
+        &__title {
+            color: $c-accent-2;
+            font-size: 62px;
+            margin-top: 12px;
+        }
+
+        &__date {
+            margin-top: 12px;
+            color: $c-accent-2;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 1.2em;
+        }
+
+        &__text {
+            font-family: $ff-title;
+            margin-top: 22px;
+            font-size: 26px;
+            font-weight: 400;
+            line-height: 0.91em;
+        }
+
+        &__btn {
+            margin-top: 18px;
+        }
+    }
+}

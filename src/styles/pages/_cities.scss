@@ -1,0 +1,160 @@
+.cities-page {
+    position: relative;
+    padding-top: 237px;
+    overflow: hidden;
+
+    .cities-intro {
+        &__top {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        &__logo {
+            width: 353px;
+        }
+
+        &__title {
+            margin-top: 42px;
+        }
+
+        &__date {
+            margin-top: 18px;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 1.2em;
+            color: $c-accent;
+        }
+
+        &__bottom {
+            display: flex;
+            align-items: flex-start;
+            max-width: 677px;
+            gap: 24px;
+            margin-top: 72px;
+        }
+
+        &__icon {
+            flex: 0 0 35px;
+            width: 35px;
+            height: 50.17px;
+
+            svg {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        &__text {
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 1.2em;
+        }
+    }
+
+    .cities-list {
+        padding-top: 133px;
+        padding-bottom: 120px;
+
+        &__title {
+            text-align: center;
+        }
+
+        &__list {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 36px 38px;
+            margin-top: 62px;
+        }
+    }
+
+    .cities-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        padding-bottom: 25px;
+        border-radius: 10px;
+        height: 345px;
+        border: 2px solid $c-accent;
+        overflow: hidden;
+
+        &__img {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            height: 273px;
+            z-index: 1;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        &__title {
+            position: relative;
+            z-index: 5;
+            font-family: $ff-title;
+            font-size: 37px;
+            font-weight: 400;
+            line-height: 1.09em;
+            letter-spacing: 0.06em;
+        }
+
+        &__btn {
+            position: relative;
+            width: 171px;
+            height: 35px;
+            padding: 0;
+            margin-top: 11px;
+            background-color: transparent;
+            z-index: 5;
+            background-size: 171px 35px;
+        }
+
+        &:after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 173px;
+            transform: translateX(-50%);
+            width: 120%;
+            background-color: $c-blue-bg;
+            border-radius: 100%;
+            aspect-ratio: 1 / 1;
+            z-index: 3;
+
+        }
+    }
+
+    &__bg {
+        position: absolute;
+
+        &--1 {
+            right: 0;
+            top: 212px;
+            width: 467px;
+        }
+
+        &--2 {
+            width: 387px;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        &--3 {
+            width: 376px;
+            left: 0;
+            bottom: -198px;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}

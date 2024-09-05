@@ -1,0 +1,56 @@
+
+
+@mixin hov(){
+    transition-duration: .3s;
+    cursor: pointer;
+    &:hover{
+        opacity: .7;
+    }
+}
+
+@mixin hover {
+	@media (hover: hover) {
+		&:hover,
+		&:active {
+			@content;
+		}
+	}
+}
+
+@mixin relative_img(){
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+@function _get-media-width($width, $is_max) {
+	@if map-get($media-list, $width) {
+		$width: map-get($media-list, $width);
+
+		@if $is_max {
+			@return $width;
+		} @else {
+			@return $width + 1;
+		}
+	} @else {
+		@return $width;
+	}
+}
+
+@mixin max($width) {
+	$width: _get-media-width($width, true);
+	@media only screen and (max-width: $width + 'px') {
+		@content;
+	}
+}
+
+@mixin min($width) {
+	$width: _get-media-width($width,false);
+	@media only screen and (min-width: $width + 'px') {
+		@content;
+	}
+}

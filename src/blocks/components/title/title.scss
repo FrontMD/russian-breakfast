@@ -1,0 +1,27 @@
+.title {
+    font-family: "MrPalkerDadson";
+    margin: 0;
+    line-height: 1.1em;
+    font-weight: 400;
+    text-transform: uppercase;
+
+    &--h1 {
+        font-size: 62px;
+        line-height: 1em;
+        color: $c-accent-2;
+    }
+
+    &--h2 {
+        font-size: 37px;
+        color: $c-accent;
+        line-height: 1.1em;
+    }
+
+    &--h3 {
+        font-size: 24px;
+    }
+
+    &--h4 {
+        font-size: 20px;
+    }
+}

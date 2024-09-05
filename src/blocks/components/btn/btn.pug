@@ -1,0 +1,65 @@
+-
+    const defaultBtnProps = {
+        type: 'link', 
+        name: 'Button', 
+        link: 'javascript:void(0)',
+        target: '_self',
+        icon: false,
+        iconName: 'vite',
+        positionIcon: 'right',
+        disabled: false,
+        classes: ''
+    }
+
+mixin btn(props = defaultBtnProps, ...dataset)
+    -
+        const checkProps = {
+            type: props.type ? props.type : defaultBtnProps.type, 
+            name: props.name ? props.name : defaultBtnProps.name, 
+            link: props.link ? props.link : defaultBtnProps.link,
+            target: props.target ? props.target : defaultBtnProps.target,
+            icon: props.icon ? props.icon : defaultBtnProps.icon, 
+            iconName: props.iconName ? props.iconName : defaultBtnProps.iconName, 
+            positionIcon: props.positionIcon ? props.positionIcon : defaultBtnProps.positionIcon,
+            disabled: props.disabled ? props.disabled : defaultBtnProps.disabled,
+            classes: props.classes ? props.classes : defaultBtnProps.classes
+        }
+
+    if (checkProps.type === 'button')
+        button.btn(
+            type=checkProps.type,
+            target,
+            class=`${checkProps.classes} ${checkProps.disabled ? 'disabled' : ''}`
+        )&attributes(...dataset)
+            if checkProps.icon
+                if checkProps.positionIcon === 'left'
+                    span.btn__icon
+                        svg
+                            use(xlink:href=`./img/sprites/sprite.svg#${checkProps.iconName}`)
+                span.btn__text= checkProps.name
+                if checkProps.positionIcon === 'right'
+                    span.btn__icon
+                        svg
+                            use(xlink:href=`./img/sprites/sprite.svg#${checkProps.iconName}`)
+            else
+                span.btn__text= checkProps.name
+    else if (checkProps.type === 'link')
+        a.btn(
+            href=checkProps.link,
+            target=checkProps.target === "_self" ? "" : checkProps.target,
+            class=checkProps.disabled ? `${checkProps.classes} disabled` : checkProps.classes
+        )&attributes(...dataset)
+            if checkProps.icon
+                if checkProps.positionIcon === 'left'
+                    span.btn__icon
+                        svg
+                            use(xlink:href=`./img/sprites/sprite.svg#${checkProps.iconName}`)
+                span.btn__text= checkProps.name
+                if checkProps.positionIcon === 'right'
+                    span.btn__icon
+                        svg
+                            use(xlink:href=`./img/sprites/sprite.svg#${checkProps.iconName}`)
+            else
+                span.btn__text= checkProps.name
+    else
+        p Button not found

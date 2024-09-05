@@ -1,0 +1,157 @@
+extends ../layouts/default.pug
+
+block variables
+    - let page = 'city'
+
+block content
+    main.page.city-page
+        .city-page__bg.city-page__bg--1
+            img(src="./img/cities/city_bg_1.png" alt="")
+        .city-page__bg.city-page__bg--2
+            img(src="./img/cities/city_bg_2.png" alt="")         
+        section.city-intro
+            .m-container.city-intro__container
+                .city-intro__img
+                    img(src="./img/cities/city_intro.png" alt="")
+                .city-intro__logo.logo
+                    img(src="./img/logo.svg" alt="Логотип Русский завтрак")
+                .city-intro__desc
+                    +title({
+                        tag: "h1",
+                        classes: "city-intro__title",
+                        text: "фестиваль <br>в гостиницах, <br>кафе и ресторанах"
+                    })
+                    .city-intro__date 1 октября — 30 ноября
+
+        section.city-map
+            .m-container
+                .city-map__inner
+                    .city-map__decor
+                        img(src="./img/cities/city_map.png")
+                    +title({
+                        tag: "h2",
+                        classes: "city-map__title",
+                        text: "Где попробовать «Русский завтрак»?"
+                    })
+                    .city-map__text Если вы собрались поехать в один из ХХ городов, обязательно остановитесь в гостинице с «Русским завтраком». А если захотите узнать о местной кухне, посетите один из ресторанов-участников, где откроете для себя гастрономические традиции региона.
+                    .city-map__map(data-js="cityMap")
+
+        section.city-list
+            .m-container
+                .city-list__header
+                    +title({
+                        tag: "h2",
+                        classes: "city-list__title",
+                        text: "Казань"
+                    })
+                    +btn({
+                        classes: "city-list__back",
+                        name: "Назад",
+                        icon: true,
+                        iconName: 'btn_back_arrow',
+                    })
+
+                .city-list__list(data-js="citiesList")
+                    .city-list__card.city-card 
+                        .city-card__img
+                            img(src="./img/cities/sankt_peterburg.jpg" alt="")
+                        .city-card__title Название заведения
+                        .city-card__text!= "Дополнительный <br>текст"
+                        +btn({
+                            classes: "city-card__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        })
+                    .city-list__card.city-card 
+                        .city-card__img
+                            img(src="./img/cities/sankt_peterburg.jpg" alt="")
+                        .city-card__title Название заведения
+                        .city-card__text!= "Дополнительный <br>текст"
+                        +btn({
+                            classes: "city-card__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        })
+                    .city-list__card.city-card 
+                        .city-card__img
+                            img(src="./img/cities/sankt_peterburg.jpg" alt="")
+                        .city-card__title Название заведения
+                        .city-card__text!= "Дополнительный <br>текст"
+                        +btn({
+                            classes: "city-card__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        })
+                    .city-list__card.city-card 
+                        .city-card__img
+                            img(src="./img/cities/sankt_peterburg.jpg" alt="")
+                        .city-card__title Название заведения
+                        .city-card__text!= "Дополнительный <br>текст"
+                        +btn({
+                            classes: "city-card__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        })
+                    .city-list__card.city-card 
+                        .city-card__img
+                            img(src="./img/cities/sankt_peterburg.jpg" alt="")
+                        .city-card__title Название заведения
+                        .city-card__text!= "Дополнительный <br>текст"
+                        +btn({
+                            classes: "city-card__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        })
+                    .city-list__card.city-card 
+                        .city-card__img
+                            img(src="./img/cities/sankt_peterburg.jpg" alt="")
+                        .city-card__title Название заведения
+                        .city-card__text!= "Дополнительный <br>текст"
+                        +btn({
+                            classes: "city-card__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        })
+                    .city-list__card.city-card 
+                        .city-card__img
+                            img(src="./img/cities/sankt_peterburg.jpg" alt="")
+                        .city-card__title Название заведения
+                        .city-card__text!= "Дополнительный <br>текст"
+                        +btn({
+                            classes: "city-card__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        })
+                    .city-list__card.city-card 
+                        .city-card__img
+                            img(src="./img/cities/sankt_peterburg.jpg" alt="")
+                        .city-card__title Название заведения
+                        .city-card__text!= "Дополнительный <br>текст"
+                        +btn({
+                            classes: "city-card__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        })
+                    .city-list__card.city-card 
+                        .city-card__img
+                            img(src="./img/cities/sankt_peterburg.jpg" alt="")
+                        .city-card__title Название заведения
+                        .city-card__text!= "Дополнительный <br>текст"
+                        +btn({
+                            classes: "city-card__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        })                        
+
+                +pagination({
+                    classes: "city-list__pagination"
+                })

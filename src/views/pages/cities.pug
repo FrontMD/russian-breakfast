@@ -1,0 +1,251 @@
+extends ../layouts/default.pug
+
+block variables
+    - let page = 'cities'
+
+block content
+    main.page.cities-page
+        .cities-page__bg.cities-page__bg--1
+            img(src="./img/cities/cities_bg_1.png" alt="")
+        .cities-page__bg.cities-page__bg--2
+            img(src="./img/cities/cities_bg_2.svg" alt="")
+        .cities-page__bg.cities-page__bg--3
+            img(src="./img/cities/cities_bg_3.svg" alt="")            
+        section.cities-intro
+            .m-container
+                .cities-intro__top
+                    .cities-intro__logo.logo
+                        img(src="./img/logo.svg" alt="Логотип Русский завтрак")
+                    div
+                        +title({
+                            tag: "h1",
+                            classes: "cities-intro__title",
+                            text: "фестиваль <br>в гостиницах, <br>кафе и ресторанах"
+                        })
+                        .cities-intro__date 1 октября — 30 ноября
+
+                .cities-intro__bottom
+                    .cities-intro__icon
+                        svg
+                            use(xlink:href="./img/sprites/sprite.svg#location")
+                    .cities-intro__text Москва, Санкт-Петербург, Краснодар, Сочи, Самара, Ростов-на-Дону, Воронеж, Нижний Новгород, Казань, Уфа, Новосибирск, Екатеринбург, Тюмень, Ярославль, Красноярск, Волгоград, Тула, Калуга, Рязань, Кострома, Астрахань
+
+        section.cities-list
+            .m-container
+                +title({
+                    tag: "h2",
+                    classes: "cities-list__title",
+                    text: "Путеводитель по завтракам в городах"
+                })
+
+                .cities-list__list(data-js="citiesList")
+                    .cities-list__card.cities-card 
+                        .cities-card__img
+                            img(src="./img/cities/sankt_peterburg.jpg" alt="")
+                        .cities-card__title САНКТ-ПЕТЕРБУРГ
+                        +btn({
+                            classes: "cities-card__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        })
+                    .cities-list__card.cities-card 
+                        .cities-card__img
+                            img(src="./img/cities/sankt_peterburg.jpg" alt="")
+                        .cities-card__title САНКТ-ПЕТЕРБУРГ
+                        +btn({
+                            classes: "cities-card__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        }) 
+                    .cities-list__card.cities-card 
+                        .cities-card__img
+                            img(src="./img/cities/sankt_peterburg.jpg" alt="")
+                        .cities-card__title САНКТ-ПЕТЕРБУРГ
+                        +btn({
+                            classes: "cities-card__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        })
+                    .cities-list__card.cities-card 
+                        .cities-card__img
+                            img(src="./img/cities/sankt_peterburg.jpg" alt="")
+                        .cities-card__title САНКТ-ПЕТЕРБУРГ
+                        +btn({
+                            classes: "cities-card__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        })
+                    .cities-list__card.cities-card 
+                        .cities-card__img
+                            img(src="./img/cities/sankt_peterburg.jpg" alt="")
+                        .cities-card__title САНКТ-ПЕТЕРБУРГ
+                        +btn({
+                            classes: "cities-card__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        })
+                    .cities-list__card.cities-card 
+                        .cities-card__img
+                            img(src="./img/cities/sankt_peterburg.jpg" alt="")
+                        .cities-card__title САНКТ-ПЕТЕРБУРГ
+                        +btn({
+                            classes: "cities-card__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        })                                                                                                                       
+                    .cities-list__card.cities-card 
+                        .cities-card__img
+                            img(src="./img/cities/sankt_peterburg.jpg" alt="")
+                        .cities-card__title САНКТ-ПЕТЕРБУРГ
+                        +btn({
+                            classes: "cities-card__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        })
+                    .cities-list__card.cities-card 
+                        .cities-card__img
+                            img(src="./img/cities/sankt_peterburg.jpg" alt="")
+                        .cities-card__title САНКТ-ПЕТЕРБУРГ
+                        +btn({
+                            classes: "cities-card__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        }) 
+                    .cities-list__card.cities-card 
+                        .cities-card__img
+                            img(src="./img/cities/sankt_peterburg.jpg" alt="")
+                        .cities-card__title САНКТ-ПЕТЕРБУРГ
+                        +btn({
+                            classes: "cities-card__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        })
+                    .cities-list__card.cities-card 
+                        .cities-card__img
+                            img(src="./img/cities/sankt_peterburg.jpg" alt="")
+                        .cities-card__title САНКТ-ПЕТЕРБУРГ
+                        +btn({
+                            classes: "cities-card__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        })
+                    .cities-list__card.cities-card 
+                        .cities-card__img
+                            img(src="./img/cities/sankt_peterburg.jpg" alt="")
+                        .cities-card__title САНКТ-ПЕТЕРБУРГ
+                        +btn({
+                            classes: "cities-card__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        })
+                    .cities-list__card.cities-card 
+                        .cities-card__img
+                            img(src="./img/cities/sankt_peterburg.jpg" alt="")
+                        .cities-card__title САНКТ-ПЕТЕРБУРГ
+                        +btn({
+                            classes: "cities-card__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        })
+                    .cities-list__card.cities-card 
+                        .cities-card__img
+                            img(src="./img/cities/sankt_peterburg.jpg" alt="")
+                        .cities-card__title САНКТ-ПЕТЕРБУРГ
+                        +btn({
+                            classes: "cities-card__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        })
+                    .cities-list__card.cities-card 
+                        .cities-card__img
+                            img(src="./img/cities/sankt_peterburg.jpg" alt="")
+                        .cities-card__title САНКТ-ПЕТЕРБУРГ
+                        +btn({
+                            classes: "cities-card__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        }) 
+                    .cities-list__card.cities-card 
+                        .cities-card__img
+                            img(src="./img/cities/sankt_peterburg.jpg" alt="")
+                        .cities-card__title САНКТ-ПЕТЕРБУРГ
+                        +btn({
+                            classes: "cities-card__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        })
+                    .cities-list__card.cities-card 
+                        .cities-card__img
+                            img(src="./img/cities/sankt_peterburg.jpg" alt="")
+                        .cities-card__title САНКТ-ПЕТЕРБУРГ
+                        +btn({
+                            classes: "cities-card__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        })
+                    .cities-list__card.cities-card 
+                        .cities-card__img
+                            img(src="./img/cities/sankt_peterburg.jpg" alt="")
+                        .cities-card__title САНКТ-ПЕТЕРБУРГ
+                        +btn({
+                            classes: "cities-card__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        })
+                    .cities-list__card.cities-card 
+                        .cities-card__img
+                            img(src="./img/cities/sankt_peterburg.jpg" alt="")
+                        .cities-card__title САНКТ-ПЕТЕРБУРГ
+                        +btn({
+                            classes: "cities-card__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        })
+                    .cities-list__card.cities-card 
+                        .cities-card__img
+                            img(src="./img/cities/sankt_peterburg.jpg" alt="")
+                        .cities-card__title САНКТ-ПЕТЕРБУРГ
+                        +btn({
+                            classes: "cities-card__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        })
+                    .cities-list__card.cities-card 
+                        .cities-card__img
+                            img(src="./img/cities/sankt_peterburg.jpg" alt="")
+                        .cities-card__title САНКТ-ПЕТЕРБУРГ
+                        +btn({
+                            classes: "cities-card__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        })
+                    .cities-list__card.cities-card 
+                        .cities-card__img
+                            img(src="./img/cities/sankt_peterburg.jpg" alt="")
+                        .cities-card__title САНКТ-ПЕТЕРБУРГ
+                        +btn({
+                            classes: "cities-card__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        })

@@ -1,0 +1,177 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-wrap: balance;
+}
+
+
+
+
+input,
+button,
+textarea,
+select {
+    font-size: inherit;
+    font-family: inherit;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+div,
+input,
+textarea,
+select,
+button,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+span {
+    outline: none;
+    font-size: inherit;
+    background: transparent;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+}
+
+img,
+picture {
+    display: block;
+    max-width: 100%;
+}
+
+textarea {
+    resize: none;
+}
+
+a {
+    color: inherit;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: $ff-text;
+    font-size: 16px;
+    line-height: 1.2;
+}
+
+.main {
+    flex-grow: 1;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.m-container {
+    width: 100%;
+    max-width: 1179px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.logo {
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+*:focus {
+    outline: none;
+}
+
+.hide {
+    display: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
+
+    -webkit-locale: auto;
+    white-space: normal;
+
+    &.compensate-for-scrollbar {
+        overflow: hidden;
+    }
+}
+
+html {
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -o-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+.site-main {
+    width: 100%;
+    flex-grow: 1;
+}
+
+.with-angles {
+    background-image: url(../img/angles_bg.svg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}

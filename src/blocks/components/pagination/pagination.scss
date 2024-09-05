@@ -1,0 +1,40 @@
+.pagination {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 46px;
+    width: 100%;
+    color: $c-accent;
+
+    &__control {
+        width: 25px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        svg {
+            width: 25px;
+            height: 6px;
+        }
+    }
+
+    &__prev {
+        transform: rotate(-180deg);
+    }
+
+    &__items {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__item {
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1em;
+        padding: 0 8px;
+    }
+}
