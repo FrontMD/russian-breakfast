@@ -1,0 +1,204 @@
+.restaurant-page {
+    position: relative;
+    padding-top: 218px;
+    overflow: hidden;
+
+    .restaurant {
+        padding-top: 108px;
+
+        &__inner {
+            max-width: 1076px;
+            margin: 0 auto;
+            padding: 48px 0 90px;
+            border: 0.82px solid $c-accent;
+            border-radius: 10px;
+        }
+
+        &__back-top {
+            margin: 0 auto;
+            background-color: transparent;
+            padding: 9.1px 29.2px;
+            gap: 7.5px;
+
+            .btn__text {
+                font-size: 14px;
+            }
+
+            .btn__icon {
+                transform: rotate(-180deg);
+            }
+        }
+
+        &__title {
+            text-align: center;
+            margin-top: 43px;
+            color: $c-accent;
+            font-size: 90px;
+            line-height: 1.09em;
+        }
+
+        &__city {
+            text-align: center;
+            margin-top: 17px;
+            color: $c-accent;
+            font-size: 30px;
+            line-height: 1.1em;
+            font-weight: 700;
+        }
+
+        &__slider {
+            position: relative;
+            margin: 63px auto 0;
+            overflow: hidden;
+            max-width: 881px;
+        }
+
+        &__img {
+            max-width: calc(100% - 148px);
+            aspect-ratio: 1.762 / 1;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 auto;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        &__desc {
+            position: relative;
+            max-width: 912px;
+            margin: 90px auto 0;
+            padding-bottom: 60px;
+            border-bottom: 1px solid $c-accent;
+        }
+
+        &__text {
+            max-width: 648px;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 1.1em;
+        }
+
+        &__decor {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 174px;
+            aspect-ratio: 1 / 1;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+
+        &__quote {
+            max-width: 912px;
+            margin: 139px auto 0;
+            padding-bottom: 104px;
+            border-bottom: 1px solid $c-accent;
+        }
+
+        &__menu {
+            margin-top: 94px;
+        }
+
+        &__contacts {
+            display: flex;
+            flex-direction: column;
+            margin-top: 136px;
+            padding: 22px 45px;
+            background-color: $c-accent;
+            color: $c-white;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 1.2em;
+        }
+
+        &__btns {
+            margin: 65px auto 0;
+            max-width: 886px;
+            display: flex;
+            align-items: center;
+            gap: 164px;
+        }
+
+        &__btn {
+            min-width: 240px;
+            min-height: 60px;
+        }
+
+        &__back-bottom {
+            background-color: transparent;
+            padding: 0;
+            color: $c-accent;
+            gap: 12px;
+
+            .btn__icon {
+                width: 88px;
+            }
+        }
+    }
+
+    .restaurant-quote {
+        &__text {
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 1.1em;
+            color: $c-accent;
+        }
+
+        &__author {
+            margin-top: 65px;
+            display: flex;
+            align-items: center;
+            gap: 37px;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 1.1em;
+        }
+
+        &__photo {
+            width: 134px;
+            aspect-ratio: 1 / 1;
+            border-radius: 100%;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        &__name {
+            margin-top: 10px;
+        }
+
+        &__position {
+            font-weight: 700;
+        }
+    }
+
+    .restaurant-menu {
+        text-align: center;
+
+        &__list {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &__item {
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 1.6em;
+
+        }
+    }
+}

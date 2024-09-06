@@ -36,6 +36,16 @@
         font-weight: 400;
         line-height: 1em;
         padding: 0 8px;
+        color: $c-gray-text;
+        transition: color $tr-time linear;
         cursor: pointer;
+
+        &:hover {
+            color: $c-accent;
+        }
+
+        &--active {
+            color: $c-accent;
+        }
     }
 }

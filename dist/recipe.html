@@ -39,8 +39,7 @@
       </div>
     </header>
     <main class="site-main">
-      <main class="page recipes-page">
-        <div class="recipes-page__bg recipes-page__bg--1"><img src="./img/recipes/recipes_bg_1.svg" alt=""></div>
+      <main class="page recipe-page">
             <section class="m-intro">
               <div class="m-container m-intro__container">
                 <div class="m-intro__img"><img src="./img/home_about.png" alt=""></div>
@@ -48,127 +47,75 @@
                 <div class="m-intro__title">ЗАВТРАК КАК ТРАДИЦИЯ, ЗАВТРАК КАК НАСТОЯЩИЙ ПРАЗДНИК</div>
               </div>
             </section>
-        <section class="recipes">
+        <section class="recipe recipe--chef" data-js="recipeContainer">
           <div class="m-container">
-            <div class="recipes__header">
-                  <h1 class="title title--h1 recipes__title">название раздела</h1><a class="btn recipes__back" href="javascript:void(0)" target=""><span class="btn__icon">
+            <div class="recipe__inner"><a class="btn recipe__back-top with-angles" href="javascript:void(0)" target=""><span class="btn__icon">
                       <svg>
-                        <use xlink:href="./img/sprites/sprite.svg#btn_back_arrow"></use>
-                      </svg></span><span class="btn__text">назад</span></a>
-            </div>
-            <div class="recipes__list">
-              <div class="recipes__card recipe-card">
-                <div class="recipe-card__inner">
-                  <div class="recipe-card__img"><img src="./img/recipes/recipe_img.jpg" alt=""></div>
-                      <h2 class="title title--h2 recipe-card__title">название <br>блюда и краткое <br>описание</h2>
-                  <div class="recipe-card__city">город</div><a class="btn recipe-card__btn with-angles" href="javascript:void(0)" target=""><span class="btn__text">узнать рецепт</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                          </svg></span></a>
+                        <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
+                      </svg></span><span class="btn__text">ко всем рецептам</span></a>
+                  <h1 class="title title--h1 recipe__title">Сырники с соусом <br>из ирисок</h1>
+              <div class="recipe__photos">
+                <div class="recipe__photo recipe__photo--chef for-chef"><img src="./img/recipes/chef_photo.jpg" alt="Повар"></div>
+                <div class="recipe__photo recipe__photo--dish"><img src="./img/recipes/dish_photo.jpg" alt="Сырники с соусом из ирисок"></div>
+              </div>
+              <div class="recipe__intro">
+                <div class="recipe__header">
+                  <div>
+                    <div class="recipe__name">Александр Волков-Медведев</div>
+                    <div class="recipe__info">Шеф-повар ресторана Ruski, <br>Москва</div>
+                  </div>
+                  <div class="recipe__stickers for-contestant">
+                    <div class="recipe__sticker recipe__sticker--green">конкурсант</div>
+                    <div class="recipe__sticker recipe__sticker--red">победитель</div>
+                  </div>
+                  <div class="restaurant-logo for-chef"><img src="./img/recipes/recipe_logo.png" alt="логотип заведения"></div>
+                </div>
+                <div class="recipe__desc">«Я приготовлю сырники со вкусом моего детства — с соусом из моих любимых конфет ирисок. Тех самых ирисок легендарной московской кондитерской фабрики „Красный Октябрь“»</div>
+                <div class="recipe__decor"><img src="./img/decor.svg"></div>
+              </div>
+              <div class="recipe__ingredients recipe-ingredients">
+                <div class="recipe-ingredients__title">ИНГРЕДИЕНТЫ</div>
+                <div class="recipe-ingredients__content">
+                  <div class="recipe-ingredients__count"> <span>Количество порций</span><span class="recipe-ingredients__count-line"></span><span>3</span></div>
+                  <div class="recipe-ingredients__subtitle">Для теста</div>
+                  <ul class="recipe-ingredients__list">
+                    <li class="_sponsor">Творог «ЭкоНива» 9% — 500 г</li>
+                    <li>Мука пшеничная высшего сорта — 3 ст. л.</li>
+                    <li>Сахар — 4 ст. л.</li>
+                    <li>Соль — 1 щепотка</li>
+                    <li class="_sponsor">Сливочное масло «ЭкоНива» 82,5% (для обжарки) — 6 ст. л.</li>
+                  </ul>
+                  <div class="recipe-ingredients__subtitle">Для соуса</div>
+                  <ul class="recipe-ingredients__list">
+                    <li class="_sponsor">Сливки «ЭкоНива» 10% — 400 мл</li>
+                    <li>Конфеты «Кис-Кис», «Красный Октябрь» — 200 г</li>
+                    <li>Соль — 1 щепотка</li>
+                    <li>Зелень мяты — 2–3 веточки (для украшения)</li>
+                  </ul>
+                  <div class="recipe-ingredients__img for-chef"><img src="./img/recipes/ingredients.jpg" alt="Ингредиенты"></div><a class="btn recipe-ingredients__btn" href="javascript:void(0)" target=""><span class="btn__text">Купить продукты</span></a>
                 </div>
               </div>
-              <div class="recipes__card recipe-card recipe-card--sticker">
-                <div class="recipe-card__inner">
-                  <div class="recipe-card__img"><img src="./img/recipes/recipe_img.jpg" alt=""></div>
-                      <h2 class="title title--h2 recipe-card__title">название <br>блюда и краткое <br>описание</h2>
-                  <div class="recipe-card__city">город</div><a class="btn recipe-card__btn with-angles" href="javascript:void(0)" target=""><span class="btn__text">узнать рецепт</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                          </svg></span></a>
-                </div>
+              <div class="recipe__process recipe-process">
+                <div class="recipe-process__title">Способ приготовления</div>
+                <ul class="recipe-process__list">
+                  <li>Смешиваем в миске творог, яйцо, муку, сахар и соль.</li>
+                  <li>Вымешиваем тесто до получения однородной консистенции.</li>
+                  <li>Формуем 3 сырника по 60 г каждый. Придаем им цилиндрическую форму.</li>
+                  <li>Присыпаем каждый сырник мукой.</li>
+                  <li>Нагреваем сливочное масло на сковороде, обжариваем сырники с двух сторон до золотистого цвета.</li>
+                  <li>Выкладываем обжаренные сырники на противень с пергаментом и запекаем в духовке при температуре 180 ℃ 10 минут.</li>
+                  <li>Для соуса — доводим сливки до кипения, выкладываем в них ириски (20 штук) и уменьшаем огонь.</li>
+                  <li>Растапливаем ириски на медленном огне до полного растворения. Добавляем в соус щепотку соли.</li>
+                  <li>Выкладываем сырники в центр тарелки, поливаем соусом из ирисок, украшаем веточками мяты.</li>
+                </ul>
               </div>
-              <div class="recipes__card recipe-card">
-                <div class="recipe-card__inner">
-                  <div class="recipe-card__img"><img src="./img/recipes/recipe_img.jpg" alt=""></div>
-                      <h2 class="title title--h2 recipe-card__title">название <br>блюда и краткое <br>описание</h2>
-                  <div class="recipe-card__city">город</div><a class="btn recipe-card__btn with-angles" href="javascript:void(0)" target=""><span class="btn__text">узнать рецепт</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                          </svg></span></a>
-                </div>
-              </div>
-              <div class="recipes__card recipe-card recipe-card--sticker">
-                <div class="recipe-card__inner">
-                  <div class="recipe-card__img"><img src="./img/recipes/recipe_img.jpg" alt=""></div>
-                      <h2 class="title title--h2 recipe-card__title">название <br>блюда и краткое <br>описание</h2>
-                  <div class="recipe-card__city">город</div><a class="btn recipe-card__btn with-angles" href="javascript:void(0)" target=""><span class="btn__text">узнать рецепт</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                          </svg></span></a>
-                </div>
-              </div>
-              <div class="recipes__card recipe-card">
-                <div class="recipe-card__inner">
-                  <div class="recipe-card__img"><img src="./img/recipes/recipe_img.jpg" alt=""></div>
-                      <h2 class="title title--h2 recipe-card__title">название <br>блюда и краткое <br>описание</h2>
-                  <div class="recipe-card__city">город</div><a class="btn recipe-card__btn with-angles" href="javascript:void(0)" target=""><span class="btn__text">узнать рецепт</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                          </svg></span></a>
-                </div>
-              </div>
-              <div class="recipes__card recipe-card recipe-card--sticker">
-                <div class="recipe-card__inner">
-                  <div class="recipe-card__img"><img src="./img/recipes/recipe_img.jpg" alt=""></div>
-                      <h2 class="title title--h2 recipe-card__title">название <br>блюда и краткое <br>описание</h2>
-                  <div class="recipe-card__city">город</div><a class="btn recipe-card__btn with-angles" href="javascript:void(0)" target=""><span class="btn__text">узнать рецепт</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                          </svg></span></a>
-                </div>
-              </div>
-              <div class="recipes__card recipe-card">
-                <div class="recipe-card__inner">
-                  <div class="recipe-card__img"><img src="./img/recipes/recipe_img.jpg" alt=""></div>
-                      <h2 class="title title--h2 recipe-card__title">название <br>блюда и краткое <br>описание</h2>
-                  <div class="recipe-card__city">город</div><a class="btn recipe-card__btn with-angles" href="javascript:void(0)" target=""><span class="btn__text">узнать рецепт</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                          </svg></span></a>
-                </div>
-              </div>
-              <div class="recipes__card recipe-card recipe-card--sticker">
-                <div class="recipe-card__inner">
-                  <div class="recipe-card__img"><img src="./img/recipes/recipe_img.jpg" alt=""></div>
-                      <h2 class="title title--h2 recipe-card__title">название <br>блюда и краткое <br>описание</h2>
-                  <div class="recipe-card__city">город</div><a class="btn recipe-card__btn with-angles" href="javascript:void(0)" target=""><span class="btn__text">узнать рецепт</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                          </svg></span></a>
-                </div>
-              </div>
-              <div class="recipes__card recipe-card recipe-card--sticker">
-                <div class="recipe-card__inner">
-                  <div class="recipe-card__img"><img src="./img/recipes/recipe_img.jpg" alt=""></div>
-                      <h2 class="title title--h2 recipe-card__title">название <br>блюда и краткое <br>описание</h2>
-                  <div class="recipe-card__city">город</div><a class="btn recipe-card__btn with-angles" href="javascript:void(0)" target=""><span class="btn__text">узнать рецепт</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                          </svg></span></a>
-                </div>
+              <div class="recipe__btns"><a class="btn recipe__back-bottom" href="javascript:void(0)" target=""><span class="btn__icon">
+                        <svg>
+                          <use xlink:href="./img/sprites/sprite.svg#btn_long_arrow"></use>
+                        </svg></span><span class="btn__text">назад</span></a>
+                <div class="recipe__logo logo"><img src="./img/logo.svg" alt="Логотип Русский завтрак"></div>
               </div>
             </div>
-                <div class="pagination recipes__pagination">
-                  <div class="pagination__control pagination__prev">
-                    <svg>
-                      <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                    </svg>
-                  </div>
-                  <div class="pagination__items">
-                    <div class="pagination__item pagination__item--active">1</div>
-                    <div class="pagination__item">2</div>
-                    <div class="pagination__item">3</div>
-                    <div class="pagination__item">4</div>
-                    <div class="pagination__item">5</div>
-                    <div class="pagination__item">6</div>
-                    <div class="pagination__item">7</div>
-                  </div>
-                  <div class="pagination__control pagination__next">
-                    <svg>
-                      <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                    </svg>
-                  </div>
-                </div>
           </div>
         </section>
       </main>

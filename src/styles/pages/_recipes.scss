@@ -57,9 +57,12 @@
         &__list {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 23px 22px;
-            max-width: 1066px;
+            gap: 36px 69px;
             margin-top: 23px;
+        }
+
+        &__pagination {
+            margin-top: 101px;
         }
 
     }
@@ -70,22 +73,75 @@
         flex-direction: column;
         align-items: center;
         justify-content: flex-end;
-        padding-bottom: 24px;
+        padding-top: 63px;
         border-radius: 10px;
-        min-height: 283px;
-        overflow: hidden;
+
+        &--sticker::after {
+            content: "рецепт от шефа";
+            position: absolute;
+            right: -40px;
+            top: 25px;
+            width: 83px;
+            height: 83px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 5px 9px;
+            background-color: $c-accent-2;
+            border-radius: 50%;
+            color: $c-white;
+            font-family: $ff-title;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 1.05em;
+            letter-spacing: 0.09em;
+            text-align: center;
+            z-index: 7;
+        }
 
         &__inner {
+            position: relative;
+            width: 100%;
             border: 2px solid $c-accent;
+            padding: 0 28px 24px;
+            border-radius: 10px;
+
+            &:after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                top: 0;
+                transform: translateX(-50%);
+                width: 90%;
+                height: 70px;
+                background-color: $c-white;
+                z-index: 5;
+            }
+
+            &:before {
+                content: "";
+                position: absolute;
+                left: 50%;
+                top: -63px;
+                transform: translateX(-50%);
+                width: 125px;
+                background-color: $c-white;
+                border-radius: 100%;
+                aspect-ratio: 1 / 1;
+                z-index: 3;
+                border-radius: 100%;
+                border: 2px solid $c-accent;
+            }
         }
 
         &__img {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 100%;
-            height: 279px;
-            z-index: 1;
+            position: relative;
+            width: 90px;
+            height: 90px;
+            z-index: 7;
+            border-radius: 50%;
+            margin: -45px auto 0;
+            overflow: hidden;
 
             img {
                 width: 100%;
@@ -96,39 +152,41 @@
 
         &__title {
             position: relative;
-            z-index: 5;
+            z-index: 7;
             font-family: $ff-title;
-            font-size: 37px;
+            font-size: 25px;
             font-weight: 400;
-            line-height: 1.09em;
-            letter-spacing: 0.06em;
+            line-height: 1em;
             text-align: center;
             color: #000;
+            margin: 10px auto 0;
+        }
+
+        &__city {
+            position: relative;
+            z-index: 7;
+            margin: 10px auto 0;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 0.9em;
+            text-align: center;
+            text-transform: uppercase;
+            color: #000;
+            opacity: 0.5;
         }
 
         &__btn {
             position: relative;
-            width: 171px;
+            width: 165px;
             height: 35px;
             padding: 0;
-            margin-top: 11px;
+            margin: 11px auto 0;
             background-color: transparent;
-            z-index: 5;
-            background-size: 171px 35px;
-        }
+            z-index: 7;
 
-        &:after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            top: 173px;
-            transform: translateX(-50%);
-            width: 120%;
-            background-color: $c-blue-bg;
-            border-radius: 100%;
-            aspect-ratio: 1 / 1;
-            z-index: 3;
-
+            .btn__text {
+                font-size: 14px;
+            }
         }
     }
 }
