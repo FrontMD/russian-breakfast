@@ -30,7 +30,7 @@ mixin btn(props = defaultBtnProps, ...dataset)
             type=checkProps.type,
             target,
             class=`${checkProps.classes} ${checkProps.disabled ? 'disabled' : ''}`
-        )&attributes(...dataset)
+        )&attributes(attributes)
             if checkProps.icon
                 if checkProps.positionIcon === 'left'
                     span.btn__icon
@@ -48,7 +48,7 @@ mixin btn(props = defaultBtnProps, ...dataset)
             href=checkProps.link,
             target=checkProps.target === "_self" ? "" : checkProps.target,
             class=checkProps.disabled ? `${checkProps.classes} disabled` : checkProps.classes
-        )&attributes(...dataset)
+        )&attributes(attributes)
             if checkProps.icon
                 if checkProps.positionIcon === 'left'
                     span.btn__icon

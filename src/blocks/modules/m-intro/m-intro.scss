@@ -1,0 +1,28 @@
+.m-intro {
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__img {
+        margin-top: 6.5px;
+        flex: 0 0 227.79px;
+    }
+
+    &__logo {
+        flex: 0 0 256px;
+        margin: 0 30px 0 45px;
+    }
+
+    &__title {
+        flex: 0 0 503px;
+        margin-top: 34px;
+        font-family: $ff-title;
+        font-size: 57px;
+        font-weight: 400;
+        line-height: 1.08em;
+        color: $c-accent-2;
+    }
+
+}

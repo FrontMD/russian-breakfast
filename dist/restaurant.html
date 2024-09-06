@@ -24,7 +24,6 @@
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon-180x180.png">
     <link rel="apple-touch-icon" sizes="1024x1024" href="img/favicons/apple-touch-icon-1024x1024.png">
     <link rel="stylesheet" href="styles/main.min.css">
-    <script src="https://api-maps.yandex.ru/v3/?apikey=ec8353bc-e4c0-44ee-8f5b-822d005a189e&amp;lang=ru_RU"></script>
   </head>
   <body>
     <header class="header" data-js="header">
@@ -40,132 +39,80 @@
       </div>
     </header>
     <main class="site-main">
-      <main class="page city-page">
-        <div class="city-page__bg city-page__bg--1"><img src="./img/cities/city_bg_1.png" alt=""></div>
-        <div class="city-page__bg city-page__bg--2"><img src="./img/cities/city_bg_2.png" alt=""></div>
-        <section class="city-intro">
-          <div class="m-container city-intro__container">
-            <div class="city-intro__img"><img src="./img/cities/city_intro.png" alt=""></div>
-            <div class="city-intro__logo logo"><img src="./img/logo.svg" alt="Логотип Русский завтрак"></div>
-            <div class="city-intro__desc">
-                  <h1 class="title title--h1 city-intro__title">фестиваль <br>в гостиницах, <br>кафе и ресторанах</h1>
-              <div class="city-intro__date">1 октября — 30 ноября</div>
-            </div>
-          </div>
-        </section>
-        <section class="city-map">
+      <main class="page restaurant-page">
+            <section class="m-intro">
+              <div class="m-container m-intro__container">
+                <div class="m-intro__img"><img src="./img/home_about.png" alt=""></div>
+                <div class="m-intro__logo logo"><img src="./img/logo.svg" alt="Логотип Русский завтрак"></div>
+                <div class="m-intro__title">ЗАВТРАК КАК ТРАДИЦИЯ, ЗАВТРАК КАК НАСТОЯЩИЙ ПРАЗДНИК</div>
+              </div>
+            </section>
+        <section class="restaurant">
           <div class="m-container">
-            <div class="city-map__inner">
-              <div class="city-map__decor"><img src="./img/cities/city_map.png"></div>
-                  <h2 class="title title--h2 city-map__title">Где попробовать «Русский завтрак»?</h2>
-              <div class="city-map__text">Если вы собрались поехать в один из ХХ городов, обязательно остановитесь в гостинице с «Русским завтраком». А если захотите узнать о местной кухне, посетите один из ресторанов-участников, где откроете для себя гастрономические традиции региона.</div>
-              <div class="city-map__map" data-js="cityMap"></div>
-            </div>
-          </div>
-        </section>
-        <section class="city-list">
-          <div class="m-container">
-            <div class="city-list__header">
-                  <h2 class="title title--h2 city-list__title">Казань</h2><a class="btn city-list__back" href="javascript:void(0)" target=""><span class="btn__text">Назад</span><span class="btn__icon">
+            <div class="restaurant__inner"><a class="btn restaurant__back-top with-angles" href="javascript:void(0)" target=""><span class="btn__icon">
                       <svg>
-                        <use xlink:href="./img/sprites/sprite.svg#btn_back_arrow"></use>
-                      </svg></span></a>
-            </div>
-            <div class="city-list__list" data-js="restaurantList">
-              <div class="city-list__card restaurant-card">
-                <div class="restaurant-card__img"><img src="./img/cities/sankt_peterburg.jpg" alt=""></div>
-                <div class="restaurant-card__title">Название заведения</div>
-                <div class="restaurant-card__text">Дополнительный <br>текст</div><a class="btn restaurant-card__btn with-angles" href="javascript:void(0)" target="" data-js="openRestaurantBtn"><span class="btn__text">смотреть</span><span class="btn__icon">
-                        <svg>
-                          <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                        </svg></span></a>
-              </div>
-              <div class="city-list__card restaurant-card">
-                <div class="restaurant-card__img"><img src="./img/cities/sankt_peterburg.jpg" alt=""></div>
-                <div class="restaurant-card__title">Название заведения</div>
-                <div class="restaurant-card__text">Дополнительный <br>текст</div><a class="btn restaurant-card__btn with-angles" href="javascript:void(0)" target="" data-js="openRestaurantBtn"><span class="btn__text">смотреть</span><span class="btn__icon">
-                        <svg>
-                          <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                        </svg></span></a>
-              </div>
-              <div class="city-list__card restaurant-card">
-                <div class="restaurant-card__img"><img src="./img/cities/sankt_peterburg.jpg" alt=""></div>
-                <div class="restaurant-card__title">Название заведения</div>
-                <div class="restaurant-card__text">Дополнительный <br>текст</div><a class="btn restaurant-card__btn with-angles" href="javascript:void(0)" target="" data-js="openRestaurantBtn"><span class="btn__text">смотреть</span><span class="btn__icon">
-                        <svg>
-                          <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                        </svg></span></a>
-              </div>
-              <div class="city-list__card restaurant-card">
-                <div class="restaurant-card__img"><img src="./img/cities/sankt_peterburg.jpg" alt=""></div>
-                <div class="restaurant-card__title">Название заведения</div>
-                <div class="restaurant-card__text">Дополнительный <br>текст</div><a class="btn restaurant-card__btn with-angles" href="javascript:void(0)" target="" data-js="openRestaurantBtn"><span class="btn__text">смотреть</span><span class="btn__icon">
-                        <svg>
-                          <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                        </svg></span></a>
-              </div>
-              <div class="city-list__card restaurant-card">
-                <div class="restaurant-card__img"><img src="./img/cities/sankt_peterburg.jpg" alt=""></div>
-                <div class="restaurant-card__title">Название заведения</div>
-                <div class="restaurant-card__text">Дополнительный <br>текст</div><a class="btn restaurant-card__btn with-angles" href="javascript:void(0)" target="" data-js="openRestaurantBtn"><span class="btn__text">смотреть</span><span class="btn__icon">
-                        <svg>
-                          <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                        </svg></span></a>
-              </div>
-              <div class="city-list__card restaurant-card">
-                <div class="restaurant-card__img"><img src="./img/cities/sankt_peterburg.jpg" alt=""></div>
-                <div class="restaurant-card__title">Название заведения</div>
-                <div class="restaurant-card__text">Дополнительный <br>текст</div><a class="btn restaurant-card__btn with-angles" href="javascript:void(0)" target="" data-js="openRestaurantBtn"><span class="btn__text">смотреть</span><span class="btn__icon">
-                        <svg>
-                          <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                        </svg></span></a>
-              </div>
-              <div class="city-list__card restaurant-card">
-                <div class="restaurant-card__img"><img src="./img/cities/sankt_peterburg.jpg" alt=""></div>
-                <div class="restaurant-card__title">Название заведения</div>
-                <div class="restaurant-card__text">Дополнительный <br>текст</div><a class="btn restaurant-card__btn with-angles" href="javascript:void(0)" target="" data-js="openRestaurantBtn"><span class="btn__text">смотреть</span><span class="btn__icon">
-                        <svg>
-                          <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                        </svg></span></a>
-              </div>
-              <div class="city-list__card restaurant-card">
-                <div class="restaurant-card__img"><img src="./img/cities/sankt_peterburg.jpg" alt=""></div>
-                <div class="restaurant-card__title">Название заведения</div>
-                <div class="restaurant-card__text">Дополнительный <br>текст</div><a class="btn restaurant-card__btn with-angles" href="javascript:void(0)" target="" data-js="openRestaurantBtn"><span class="btn__text">смотреть</span><span class="btn__icon">
-                        <svg>
-                          <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                        </svg></span></a>
-              </div>
-              <div class="city-list__card restaurant-card">
-                <div class="restaurant-card__img"><img src="./img/cities/sankt_peterburg.jpg" alt=""></div>
-                <div class="restaurant-card__title">Название заведения</div>
-                <div class="restaurant-card__text">Дополнительный <br>текст</div><a class="btn restaurant-card__btn with-angles" href="javascript:void(0)" target="" data-js="openRestaurantBtn"><span class="btn__text">смотреть</span><span class="btn__icon">
-                        <svg>
-                          <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                        </svg></span></a>
-              </div>
-            </div>
-                <div class="pagination city-list__pagination">
-                  <div class="pagination__control pagination__prev">
+                        <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
+                      </svg></span><span class="btn__text">ко всем ресторанам</span></a>
+                  <h1 class="title title--h1 restaurant__title">Название заведения</h1>
+              <div class="restaurant__city">Город</div>
+              <div class="restaurant__slider" data-js="restaurantSlider">
+                <div class="swiper-wrapper">
+                  <div class="restaurant__slide swiper-slide">
+                    <div class="restaurant__img"><img src="./img/restaurant_img.jpg"></div>
+                  </div>
+                  <div class="restaurant__slide swiper-slide"> 
+                    <div class="restaurant__img"><img src="./img/restaurant_img.jpg"></div>
+                  </div>
+                  <div class="restaurant__slide swiper-slide"> 
+                    <div class="restaurant__img"><img src="./img/restaurant_img.jpg"></div>
+                  </div>
+                </div>
+                <div class="slider-controls"> 
+                  <div class="slider-control slider-control--prev" data-js="sliderControlPrev">
                     <svg>
                       <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
                     </svg>
                   </div>
-                  <div class="pagination__items">
-                    <div class="pagination__item">1</div>
-                    <div class="pagination__item">2</div>
-                    <div class="pagination__item">3</div>
-                    <div class="pagination__item">4</div>
-                    <div class="pagination__item">5</div>
-                    <div class="pagination__item">6</div>
-                    <div class="pagination__item">7</div>
-                  </div>
-                  <div class="pagination__control pagination__next">
+                  <div class="slider-control slider-control--next" data-js="sliderControlNext">
                     <svg>
                       <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
                     </svg>
                   </div>
                 </div>
+              </div>
+              <div class="restaurant__desc">
+                <div class="restaurant__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla justo lectus, dapibus in leo eget, mattis interdum dui. Nullam cursus porttitor feugiat. Etiam sollicitudin semper urna, at tempus nisi pulvinar vel. Donec velit augue, fringilla at auctor quis, elementum id tellus. Aenean ornare tempor enim id volutpat. Nulla molestie tortor sit amet nibh eleifend, ut eleifend elit consectetur. Aliquam quis molestie purus. Donec vitae ipsum neque. In ac fermentum lectus. Vestibulum placerat dolor sit amet ligula pulvinar, sit amet ullamcorper nulla placerat. Nullam luctus tellus eu sem iaculis, pulvinar congue turpis rutrum. Quisque tincidunt fermentum ligula, sed luctus tortor blandit at. Etiam luctus augue eu tortor dictum convallis eu non ante. Proin lectus lorem, pulvinar a tincidunt et, egestas nec risus.</div>
+                <div class="restaurant__decor"><img src="./img/decor.svg"></div>
+              </div>
+              <div class="restaurant__quote restaurant-quote">
+                <div class="restaurant-quote__text">«Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt imperdiet mauris, id placerat libero sodales vitae. Morbi eget turpis ut leo.»</div>
+                <div class="restaurant-quote__author">
+                  <div class="restaurant-quote__photo"><img src="./img/modal_photo.jpg" alt=""></div>
+                  <div>
+                    <div class="restaurant-quote__name">Фамилия Имя</div>
+                    <div class="restaurant-quote__position">шеф-повар</div>
+                  </div>
+                </div>
+              </div>
+              <div class="restaurant__menu restaurant-menu">
+                    <h2 class="title title--h2 .restaurant-menu__title">Меню «Русского завтрака»</h2>
+                <div class="restaurant-menu__list">
+                  <div class="restaurant-menu__item">Блинчики со сморчками и индюшкой</div>
+                  <div class="restaurant-menu__item">Каша «Гурьевская» с брусникой и клюквой моченой</div>
+                  <div class="restaurant-menu__item">Яичница-болтунья в печи с полевыми травами</div>
+                  <div class="restaurant-menu__item">Молочный десерт из парного молочка с желе из морошки</div>
+                </div>
+              </div>
+              <div class="restaurant__contacts">
+                <div class="restaurant__address">Адрес</div>
+                <div class="restaurant__mode">Режим работы</div><a class="restaurant__phone" href="tel:+79000000000">Номер телефона</a><a class="restaurant__site" href="#">Сайт</a>
+              </div>
+              <div class="restaurant__btns"><a class="btn restaurant__back-bottom" href="javascript:void(0)" target=""><span class="btn__icon">
+                        <svg>
+                          <use xlink:href="./img/sprites/sprite.svg#btn_long_arrow"></use>
+                        </svg></span><span class="btn__text">назад</span></a><a class="btn restaurant__btn" href="javascript:void(0)" target=""><span class="btn__text">Перейти на сайт</span></a>
+              </div>
+            </div>
           </div>
         </section>
       </main>

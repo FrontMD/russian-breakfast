@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-    /* карта на странице города */
+    /* КАРТА НА СТРАНИЦЕ ГОРОДА */
+
     async function initMap() {
         // Промис `ymaps3.ready` будет зарезолвлен, когда загрузятся все компоненты основного модуля API
         await ymaps3.ready;
@@ -35,5 +36,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     initMap();
+
+
+
+    /* СЛАЙДЕР НА СТРАНИЦЕ РЕСТОРАНА */
+
+    function restaurantSliderInit() {
+        const restaurantSlider = document.querySelector('[data-js="restaurantSlider"]')
+
+        if(!restaurantSlider) return
+
+        const sliderPrev = restaurantSlider.querySelector('[data-js="sliderControlPrev"]')
+        const sliderNext = restaurantSlider.querySelector('[data-js="sliderControlNext"]')
+
+        const restaurantSliderEx = new Swiper(restaurantSlider, {
+            loop: true,
+            speed: 400,
+            navigation: {
+                nextEl: sliderNext,
+                prevEl: sliderPrev,
+              },
+        });
+    }
+
+    restaurantSliderInit()
 
 })

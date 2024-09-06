@@ -1,0 +1,21 @@
+-
+	const defaultModalProps = {
+		modalId: "myModal",
+		classes: ''
+	}
+
+mixin modal(props = defaultTitleProps)
+	-
+		const checkProps = {
+			modalId: props.modalId ? props.modalId : defaultModalProps.modalId, 
+			classes: props.classes ? props.classes : defaultModalProps.classes
+		}
+
+	.modal.hystmodal(id=checkProps.modalId class=checkProps.classes aria-hidden="true")&attributes(attributes)
+		.hystmodal__wrap
+			.hystmodal__window(role="dialog" aria-modal="true")
+				.modal__content
+					.modal__close(data-hystclose)
+						svg 
+							use(xlink:href=`./img/sprites/sprite.svg#close`)
+					block

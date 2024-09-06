@@ -171,7 +171,41 @@ html {
 }
 
 .with-angles {
-    background-image: url(../img/angles_bg.svg);
-    background-repeat: no-repeat;
+    position: relative;
+    background: url("../img/angles_bg.png");
     background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.slider-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 39px;
+    height: 39px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    border: 1px solid $c-accent;
+    cursor: pointer;
+    z-index: 3;
+
+    svg {
+        color: $c-accent;
+        width: 19.5px;
+    }
+
+    &--prev {
+        left: 0;
+
+        svg {
+            transform: rotate(180deg);
+        }
+    }
+
+    &--next {
+        right: 0;
+    }
 }
