@@ -1,0 +1,102 @@
+extends ../layouts/default.pug
+
+block variables
+    - let page = 'recipe-categories'
+
+block content
+    main.page.recipe-categories-page
+        .recipe-categories-page__bg.recipe-categories-page__bg--1
+            img(src="./img/recipes/recipes_bg_1.svg" alt="")
+        +m-intro
+        section.recipe-categories
+            .m-container
+                +title({
+                    tag: "h1",
+                    classes: "recipe-categories__title",
+                    text: "Что же такое «Русский завтрак»? Какие культурные традиции у него есть в каждом регионе? По каким рецептам и что готовят в разных уголках нашей страны от Владивостока до Мурманска? Узнавайте и экспериментируйте!"
+                })
+                .recipe-categories__list
+                    .recipe-categories__card.recipe-category
+                        .recipe-category__img
+                            img(src="./img/recipes/recipe_category_img.jpg" alt="")
+                        +title({
+                            tag: "h2",
+                            classes: "recipe-category__title",
+                            text: "блюда <br>из творога" 
+                        })
+                        +btn({
+                            classes: "recipe-category__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        }) 
+                    .recipe-categories__card.recipe-category
+                        .recipe-category__img
+                            img(src="./img/recipes/recipe_category_img.jpg" alt="")
+                        +title({
+                            tag: "h2",
+                            classes: "recipe-category__title",
+                            text: "блюда <br>из творога" 
+                        })
+                        +btn({
+                            classes: "recipe-category__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        }) 
+                    .recipe-categories__card.recipe-category
+                        .recipe-category__img
+                            img(src="./img/recipes/recipe_category_img.jpg" alt="")
+                        +title({
+                            tag: "h2",
+                            classes: "recipe-category__title",
+                            text: "блюда <br>из яиц и сыра" 
+                        })
+                        +btn({
+                            classes: "recipe-category__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        }) 
+                    .recipe-categories__card.recipe-category
+                        .recipe-category__img
+                            img(src="./img/recipes/recipe_category_img.jpg" alt="")
+                        +title({
+                            tag: "h2",
+                            classes: "recipe-category__title",
+                            text: "блюда <br>из творога"  
+                        })
+                        +btn({
+                            classes: "recipe-category__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        }) 
+                    .recipe-categories__card.recipe-category
+                        .recipe-category__img
+                            img(src="./img/recipes/recipe_category_img.jpg" alt="")
+                        +title({
+                            tag: "h2",
+                            classes: "recipe-category__title",
+                            text: "блюда <br>из творога"  
+                        })
+                        +btn({
+                            classes: "recipe-category__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        }) 
+                    .recipe-categories__card.recipe-category
+                        .recipe-category__img
+                            img(src="./img/recipes/recipe_category_img.jpg" alt="")
+                        +title({
+                            tag: "h2",
+                            classes: "recipe-category__title",
+                            text: "блюда <br>из творога"  
+                        })
+                        +btn({
+                            classes: "recipe-category__btn with-angles",
+                            name: "смотреть",
+                            icon: true,
+                            iconName: 'btn_arrow',
+                        })                                                                                                                                                

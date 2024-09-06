@@ -1,0 +1,47 @@
+extends ../layouts/default.pug
+
+block variables
+    - let page = 'recipes'
+
+block content
+    main.page.recipes-page
+        .recipes-page__bg.recipes-page__bg--1
+            img(src="./img/recipes/recipes_bg_1.svg" alt="")
+        +m-intro
+        section.recipes
+            .m-container
+                .recipes__header
+                    +title({
+                        tag: "h1",
+                        classes: "recipes__title",
+                        text: "название раздела"
+                    })
+                    +btn({
+                        classes: "recipes__back",
+                        name: "назад",
+                        icon: true,
+                        iconName: 'btn_back_arrow',
+                        positionIcon: "left"
+                    })
+
+                .recipes__list
+                    .recipes__card.recipe-card
+                        .recipe-card__inner
+                            .recipe-card__img
+                                img(src="./img/recipes/recipe_category_img.jpg" alt="")
+                            +title({
+                                tag: "h2",
+                                classes: "recipe-card__title",
+                                text: "блюда <br>из творога" 
+                            })
+                            .recipe-card__city город
+                            +btn({
+                                classes: "recipe-card__btn with-angles",
+                                name: "смотреть",
+                                icon: true,
+                                iconName: 'btn_arrow',
+                            }) 
+
+                +pagination({
+                    classes: "recipes__pagination"
+                })
