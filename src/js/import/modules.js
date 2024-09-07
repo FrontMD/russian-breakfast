@@ -3,5 +3,4 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     headerControllInit()
-    openRestauranModal()
 })

@@ -35,12 +35,12 @@
           <div class="header-images__image"> <img src="./img/metro.svg" alt="Метро"></div>
         </div>
         <div class="header__bottom"> 
-          <nav class="header-nav"><a class="header-nav__item" href="/">о проекте</a><a class="header-nav__item" href="/cities">куда сходить на «Русский завтрак»?</a><a class="header-nav__item" href="/recipes">как приготовить «Русский завтрак»?</a><a class="header-nav__item" href="/partners">партнеры проекта</a></nav>
+          <nav class="header-nav"><a class="header-nav__item" href="/">о проекте</a><a class="header-nav__item" href="cities.html">куда сходить на «Русский завтрак»?</a><a class="header-nav__item" href="recipes.html">как приготовить «Русский завтрак»?</a><a class="header-nav__item" href="partners.html">партнеры проекта</a></nav>
         </div>
       </div>
     </header>
     <main class="site-main">
-      <main class="page city-page">
+      <main class="page city-page" data-js="cityPage">
         <div class="city-page__bg city-page__bg--1"><img src="./img/cities/city_bg_1.png" alt=""></div>
         <div class="city-page__bg city-page__bg--2"><img src="./img/cities/city_bg_2.png" alt=""></div>
         <section class="city-intro">
@@ -66,106 +66,13 @@
         <section class="city-list">
           <div class="m-container">
             <div class="city-list__header">
-                  <h2 class="title title--h2 city-list__title">Казань</h2><a class="btn city-list__back" href="javascript:void(0)" target=""><span class="btn__text">Назад</span><span class="btn__icon">
+                  <h2 class="title title--h2 city-list__title" data-js="cityName">Название города</h2><a class="btn city-list__back" href="cities.html" target=""><span class="btn__text">Назад</span><span class="btn__icon">
                       <svg>
                         <use xlink:href="./img/sprites/sprite.svg#btn_back_arrow"></use>
                       </svg></span></a>
             </div>
-            <div class="city-list__list" data-js="restaurantList">
-              <div class="city-list__card restaurant-card">
-                <div class="restaurant-card__img"><img src="./img/cities/sankt_peterburg.jpg" alt=""></div>
-                <div class="restaurant-card__title">Название заведения</div>
-                <div class="restaurant-card__text">Дополнительный <br>текст</div><a class="btn restaurant-card__btn with-angles" href="javascript:void(0)" target="" data-js="openRestaurantBtn"><span class="btn__text">смотреть</span><span class="btn__icon">
-                        <svg>
-                          <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                        </svg></span></a>
-              </div>
-              <div class="city-list__card restaurant-card">
-                <div class="restaurant-card__img"><img src="./img/cities/sankt_peterburg.jpg" alt=""></div>
-                <div class="restaurant-card__title">Название заведения</div>
-                <div class="restaurant-card__text">Дополнительный <br>текст</div><a class="btn restaurant-card__btn with-angles" href="javascript:void(0)" target="" data-js="openRestaurantBtn"><span class="btn__text">смотреть</span><span class="btn__icon">
-                        <svg>
-                          <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                        </svg></span></a>
-              </div>
-              <div class="city-list__card restaurant-card">
-                <div class="restaurant-card__img"><img src="./img/cities/sankt_peterburg.jpg" alt=""></div>
-                <div class="restaurant-card__title">Название заведения</div>
-                <div class="restaurant-card__text">Дополнительный <br>текст</div><a class="btn restaurant-card__btn with-angles" href="javascript:void(0)" target="" data-js="openRestaurantBtn"><span class="btn__text">смотреть</span><span class="btn__icon">
-                        <svg>
-                          <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                        </svg></span></a>
-              </div>
-              <div class="city-list__card restaurant-card">
-                <div class="restaurant-card__img"><img src="./img/cities/sankt_peterburg.jpg" alt=""></div>
-                <div class="restaurant-card__title">Название заведения</div>
-                <div class="restaurant-card__text">Дополнительный <br>текст</div><a class="btn restaurant-card__btn with-angles" href="javascript:void(0)" target="" data-js="openRestaurantBtn"><span class="btn__text">смотреть</span><span class="btn__icon">
-                        <svg>
-                          <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                        </svg></span></a>
-              </div>
-              <div class="city-list__card restaurant-card">
-                <div class="restaurant-card__img"><img src="./img/cities/sankt_peterburg.jpg" alt=""></div>
-                <div class="restaurant-card__title">Название заведения</div>
-                <div class="restaurant-card__text">Дополнительный <br>текст</div><a class="btn restaurant-card__btn with-angles" href="javascript:void(0)" target="" data-js="openRestaurantBtn"><span class="btn__text">смотреть</span><span class="btn__icon">
-                        <svg>
-                          <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                        </svg></span></a>
-              </div>
-              <div class="city-list__card restaurant-card">
-                <div class="restaurant-card__img"><img src="./img/cities/sankt_peterburg.jpg" alt=""></div>
-                <div class="restaurant-card__title">Название заведения</div>
-                <div class="restaurant-card__text">Дополнительный <br>текст</div><a class="btn restaurant-card__btn with-angles" href="javascript:void(0)" target="" data-js="openRestaurantBtn"><span class="btn__text">смотреть</span><span class="btn__icon">
-                        <svg>
-                          <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                        </svg></span></a>
-              </div>
-              <div class="city-list__card restaurant-card">
-                <div class="restaurant-card__img"><img src="./img/cities/sankt_peterburg.jpg" alt=""></div>
-                <div class="restaurant-card__title">Название заведения</div>
-                <div class="restaurant-card__text">Дополнительный <br>текст</div><a class="btn restaurant-card__btn with-angles" href="javascript:void(0)" target="" data-js="openRestaurantBtn"><span class="btn__text">смотреть</span><span class="btn__icon">
-                        <svg>
-                          <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                        </svg></span></a>
-              </div>
-              <div class="city-list__card restaurant-card">
-                <div class="restaurant-card__img"><img src="./img/cities/sankt_peterburg.jpg" alt=""></div>
-                <div class="restaurant-card__title">Название заведения</div>
-                <div class="restaurant-card__text">Дополнительный <br>текст</div><a class="btn restaurant-card__btn with-angles" href="javascript:void(0)" target="" data-js="openRestaurantBtn"><span class="btn__text">смотреть</span><span class="btn__icon">
-                        <svg>
-                          <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                        </svg></span></a>
-              </div>
-              <div class="city-list__card restaurant-card">
-                <div class="restaurant-card__img"><img src="./img/cities/sankt_peterburg.jpg" alt=""></div>
-                <div class="restaurant-card__title">Название заведения</div>
-                <div class="restaurant-card__text">Дополнительный <br>текст</div><a class="btn restaurant-card__btn with-angles" href="javascript:void(0)" target="" data-js="openRestaurantBtn"><span class="btn__text">смотреть</span><span class="btn__icon">
-                        <svg>
-                          <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                        </svg></span></a>
-              </div>
-            </div>
-                <div class="pagination city-list__pagination">
-                  <div class="pagination__control pagination__prev">
-                    <svg>
-                      <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                    </svg>
-                  </div>
-                  <div class="pagination__items">
-                    <div class="pagination__item pagination__item--active">1</div>
-                    <div class="pagination__item">2</div>
-                    <div class="pagination__item">3</div>
-                    <div class="pagination__item">4</div>
-                    <div class="pagination__item">5</div>
-                    <div class="pagination__item">6</div>
-                    <div class="pagination__item">7</div>
-                  </div>
-                  <div class="pagination__control pagination__next">
-                    <svg>
-                      <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                    </svg>
-                  </div>
-                </div>
+            <div class="city-list__list" data-js="restaurantList"></div>
+                <div class="pagination city-list__pagination" data-js="paginationContainer"></div>
           </div>
         </section>
       </main>
@@ -326,7 +233,7 @@
             </div>
           </div>
         </div>
-            <div class="modal hystmodal restaurant-modal" id="myModal" aria-hidden="true" data-js="restaurantModal" data-id="restaurantId">
+            <div class="modal hystmodal restaurant-modal" id="myModal" aria-hidden="true" data-js="restaurantModal">
               <div class="hystmodal__wrap">
                 <div class="hystmodal__window" role="dialog" aria-modal="true">
                   <div class="modal__content">
@@ -336,17 +243,17 @@
                       </svg>
                     </div>
                     <div class="restaurant-modal__inner">
-                      <div class="restaurant-modal__img"><img src="./img/restaurant_img.jpg" alt=""></div>
-                      <div class="restaurant-modal__title with-angles">Название заведения</div>
-                      <div class="restaurant-modal__text">Название Ресторана - краткое описание заведение одним предложением в 2-3 строки.</div>
-                      <div class="restaurant-modal__quote">«Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt imperdiet mauris, id placerat libero sodales vitae. Morbi eget turpis ut leo.»</div>
+                      <div class="restaurant-modal__img"><img src="./img/restaurant_img.jpg" alt="" data-js="restaurantModalImg"></div>
+                      <div class="restaurant-modal__title with-angles" data-js="restaurantModalTitle">Название заведения</div>
+                      <div class="restaurant-modal__text" data-js="restaurantModalText">Название Ресторана - краткое описание заведение одним предложением в 2-3 строки.</div>
+                      <div class="restaurant-modal__quote" data-js="restaurantModalQuote">«Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt imperdiet mauris, id placerat libero sodales vitae. Morbi eget turpis ut leo.»</div>
                       <div class="restaurant-modal__author">
-                        <div class="restaurant-modal__photo"><img src="./img/modal_photo.jpg" alt=""></div>
+                        <div class="restaurant-modal__photo"><img src="./img/modal_photo.jpg" alt="" data-js="restaurantModalPhoto"></div>
                         <div>
-                          <div class="restaurant-modal__name">Фамилия Имя</div>
-                          <div class="restaurant-modal__position">шеф-повар</div>
+                          <div class="restaurant-modal__name" data-js="restaurantModalName">Фамилия Имя</div>
+                          <div class="restaurant-modal__position" data-js="restaurantModalPosition">шеф-повар</div>
                         </div>
-                      </div><a class="btn restaurant-modal__btn with-angles" href="javascript:void(0)" target="" data-js="moreRestaurant"><span class="btn__text">подробнее</span><span class="btn__icon">
+                      </div><a class="btn restaurant-modal__btn with-angles" href="javascript:void(0)" target="" data-js="restaurantModalBtn"><span class="btn__text">подробнее</span><span class="btn__icon">
                               <svg>
                                 <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
                               </svg></span></a>

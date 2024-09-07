@@ -1,23 +1,23 @@
 noindex
-	div
-		//код модалок сюда
-		include ../mobile-menu/mobile-menu
-		+modal({id:"restaurantModal", classes:"restaurant-modal"})(data-js="restaurantModal" data-id="restaurantId")
-			.restaurant-modal__inner
-				.restaurant-modal__img
-					img(src="./img/restaurant_img.jpg" alt="")
-				.restaurant-modal__title.with-angles Название заведения
-				.restaurant-modal__text Название Ресторана - краткое описание заведение одним предложением в 2-3 строки.
-				.restaurant-modal__quote «Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt imperdiet mauris, id placerat libero sodales vitae. Morbi eget turpis ut leo.»
-				.restaurant-modal__author
-					.restaurant-modal__photo
-						img(src="./img/modal_photo.jpg" alt="")
-					div
-						.restaurant-modal__name Фамилия Имя
-						.restaurant-modal__position шеф-повар
-				+btn({
-					classes: "restaurant-modal__btn with-angles",
-					name: "подробнее",
-					icon: true,
-					iconName: 'btn_arrow',
-				})(data-js="moreRestaurant")
+    div
+        //код модалок сюда
+        include ../mobile-menu/mobile-menu
+        +modal({id:"restaurantModal", classes:"restaurant-modal"})(data-js="restaurantModal")
+            .restaurant-modal__inner
+                .restaurant-modal__img
+                    img(src="./img/restaurant_img.jpg" alt="" data-js="restaurantModalImg")
+                .restaurant-modal__title.with-angles(data-js="restaurantModalTitle") Название заведения
+                .restaurant-modal__text(data-js="restaurantModalText") Название Ресторана - краткое описание заведение одним предложением в 2-3 строки.
+                .restaurant-modal__quote(data-js="restaurantModalQuote") «Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt imperdiet mauris, id placerat libero sodales vitae. Morbi eget turpis ut leo.»
+                .restaurant-modal__author
+                    .restaurant-modal__photo
+                        img(src="./img/modal_photo.jpg" alt="" data-js="restaurantModalPhoto")
+                    div
+                        .restaurant-modal__name(data-js="restaurantModalName") Фамилия Имя
+                        .restaurant-modal__position(data-js="restaurantModalPosition") шеф-повар
+                +btn({
+                    classes: "restaurant-modal__btn with-angles",
+                    name: "подробнее",
+                    icon: true,
+                    iconName: 'btn_arrow',
+                })(data-js="restaurantModalBtn")

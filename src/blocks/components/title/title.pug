@@ -15,12 +15,12 @@ mixin title(props = defaultTitleProps)
 
     case checkProps.tag
         when 'h1'
-            h1.title.title--h1(class=checkProps.classes)!= checkProps.text
+            h1.title.title--h1(class=checkProps.classes)&attributes(attributes)!= checkProps.text
         when 'h2'
-            h2.title.title--h2(class=checkProps.classes)!= checkProps.text
+            h2.title.title--h2(class=checkProps.classes)&attributes(attributes)!= checkProps.text
         when 'h3'
-            h3.title.title--h3(class=checkProps.classes)!= checkProps.text
+            h3.title.title--h3(class=checkProps.classes)&attributes(attributes)!= checkProps.text
         when 'h4'
-            h4.title.title--h4(class=checkProps.classes)!= checkProps.text
+            h4.title.title--h4(class=checkProps.classes)&attributes(attributes)!= checkProps.text
         default
             span Title not found

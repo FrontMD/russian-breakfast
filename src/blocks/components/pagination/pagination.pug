@@ -9,17 +9,17 @@ mixin pagination(props = defaultPaginationProps)
             classes: props.classes ? props.classes : defaultPaginationProps.classes
         }
 
-    .pagination(class= checkProps.classes)&attributes(attributes)
-        .pagination__control.pagination__prev
+    .pagination(class= checkProps.classes data-js="paginationContainer")&attributes(attributes)
+        //-.pagination__control.pagination__prev
             svg
                 use(xlink:href="./img/sprites/sprite.svg#btn_arrow")
 
-        .pagination__items
+        //-.pagination__items
             - let i = 1
             - while(i < 8)
                 .pagination__item(class= i === 1 ? "pagination__item--active" : "")!= i
                 - i++
 
-        .pagination__control.pagination__next
+        //-.pagination__control.pagination__next
             svg
                 use(xlink:href="./img/sprites/sprite.svg#btn_arrow")

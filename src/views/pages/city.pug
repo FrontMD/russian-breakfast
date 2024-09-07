@@ -4,7 +4,7 @@ block variables
     - let page = 'city'
 
 block content
-    main.page.city-page
+    main.page.city-page(data-js="cityPage")
         .city-page__bg.city-page__bg--1
             img(src="./img/cities/city_bg_1.png" alt="")
         .city-page__bg.city-page__bg--2
@@ -42,17 +42,18 @@ block content
                     +title({
                         tag: "h2",
                         classes: "city-list__title",
-                        text: "Казань"
-                    })
+                        text: "Название города"
+                    })(data-js="cityName")
                     +btn({
                         classes: "city-list__back",
+                        link: "cities.html",
                         name: "Назад",
                         icon: true,
                         iconName: 'btn_back_arrow',
                     })
 
                 .city-list__list(data-js="restaurantList")
-                    .city-list__card.restaurant-card
+                    //-.city-list__card.restaurant-card
                         .restaurant-card__img
                             img(src="./img/cities/sankt_peterburg.jpg" alt="")
                         .restaurant-card__title Название заведения
@@ -63,7 +64,7 @@ block content
                             icon: true,
                             iconName: 'btn_arrow',
                         })(data-js="openRestaurantBtn")
-                    .city-list__card.restaurant-card
+                    //-.city-list__card.restaurant-card
                         .restaurant-card__img
                             img(src="./img/cities/sankt_peterburg.jpg" alt="")
                         .restaurant-card__title Название заведения
@@ -74,7 +75,7 @@ block content
                             icon: true,
                             iconName: 'btn_arrow',
                         })(data-js="openRestaurantBtn")
-                    .city-list__card.restaurant-card
+                    //-.city-list__card.restaurant-card
                         .restaurant-card__img
                             img(src="./img/cities/sankt_peterburg.jpg" alt="")
                         .restaurant-card__title Название заведения
@@ -85,7 +86,7 @@ block content
                             icon: true,
                             iconName: 'btn_arrow',
                         })(data-js="openRestaurantBtn")
-                    .city-list__card.restaurant-card
+                    //-.city-list__card.restaurant-card
                         .restaurant-card__img
                             img(src="./img/cities/sankt_peterburg.jpg" alt="")
                         .restaurant-card__title Название заведения
@@ -96,7 +97,7 @@ block content
                             icon: true,
                             iconName: 'btn_arrow',
                         })(data-js="openRestaurantBtn")
-                    .city-list__card.restaurant-card
+                    //-.city-list__card.restaurant-card
                         .restaurant-card__img
                             img(src="./img/cities/sankt_peterburg.jpg" alt="")
                         .restaurant-card__title Название заведения
@@ -107,7 +108,7 @@ block content
                             icon: true,
                             iconName: 'btn_arrow',
                         })(data-js="openRestaurantBtn")
-                    .city-list__card.restaurant-card
+                    //-.city-list__card.restaurant-card
                         .restaurant-card__img
                             img(src="./img/cities/sankt_peterburg.jpg" alt="")
                         .restaurant-card__title Название заведения
@@ -118,7 +119,7 @@ block content
                             icon: true,
                             iconName: 'btn_arrow',
                         })(data-js="openRestaurantBtn")
-                    .city-list__card.restaurant-card
+                    //-.city-list__card.restaurant-card
                         .restaurant-card__img
                             img(src="./img/cities/sankt_peterburg.jpg" alt="")
                         .restaurant-card__title Название заведения
@@ -129,7 +130,7 @@ block content
                             icon: true,
                             iconName: 'btn_arrow',
                         })(data-js="openRestaurantBtn")
-                    .city-list__card.restaurant-card
+                    //-.city-list__card.restaurant-card
                         .restaurant-card__img
                             img(src="./img/cities/sankt_peterburg.jpg" alt="")
                         .restaurant-card__title Название заведения
@@ -140,7 +141,7 @@ block content
                             icon: true,
                             iconName: 'btn_arrow',
                         })(data-js="openRestaurantBtn")
-                    .city-list__card.restaurant-card
+                    //-.city-list__card.restaurant-card
                         .restaurant-card__img
                             img(src="./img/cities/sankt_peterburg.jpg" alt="")
                         .restaurant-card__title Название заведения

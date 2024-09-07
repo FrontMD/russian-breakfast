@@ -4,7 +4,7 @@ block variables
     - let page = 'restaurant'
 
 block content
-    main.page.restaurant-page
+    main.page.restaurant-page(data-js="restaurantPage")
         +m-intro
         section.restaurant
             .m-container
@@ -15,23 +15,23 @@ block content
                         icon: true,
                         iconName: 'btn_arrow',
                         positionIcon: 'left'
-                    })
+                    })(data-js="restaurantBack")
                     +title({
                         tag: "h1",
                         classes: "restaurant__title",
                         text: "Название заведения"
-                    })
-                    .restaurant__city Город
+                    })(data-js="restaurantTitle")
+                    .restaurant__city(data-js="restaurantCity")
 
                     .restaurant__slider(data-js="restaurantSlider")
                         .swiper-wrapper
-                            .restaurant__slide.swiper-slide
+                            //-.restaurant__slide.swiper-slide
                                 .restaurant__img
                                     img(src="./img/restaurant_img.jpg")
-                            .restaurant__slide.swiper-slide 
+                            //-.restaurant__slide.swiper-slide 
                                 .restaurant__img
                                     img(src="./img/restaurant_img.jpg")
-                            .restaurant__slide.swiper-slide 
+                            //-.restaurant__slide.swiper-slide 
                                 .restaurant__img
                                     img(src="./img/restaurant_img.jpg")
                         .slider-controls 
@@ -43,18 +43,18 @@ block content
                                     use(xlink:href="./img/sprites/sprite.svg#btn_arrow")
 
                     .restaurant__desc
-                        .restaurant__text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla justo lectus, dapibus in leo eget, mattis interdum dui. Nullam cursus porttitor feugiat. Etiam sollicitudin semper urna, at tempus nisi pulvinar vel. Donec velit augue, fringilla at auctor quis, elementum id tellus. Aenean ornare tempor enim id volutpat. Nulla molestie tortor sit amet nibh eleifend, ut eleifend elit consectetur. Aliquam quis molestie purus. Donec vitae ipsum neque. In ac fermentum lectus. Vestibulum placerat dolor sit amet ligula pulvinar, sit amet ullamcorper nulla placerat. Nullam luctus tellus eu sem iaculis, pulvinar congue turpis rutrum. Quisque tincidunt fermentum ligula, sed luctus tortor blandit at. Etiam luctus augue eu tortor dictum convallis eu non ante. Proin lectus lorem, pulvinar a tincidunt et, egestas nec risus.
+                        .restaurant__text(data-js="restaurantText")
                         .restaurant__decor
                             img(src="./img/decor.svg")
 
                     .restaurant__quote.restaurant-quote
-                        .restaurant-quote__text «Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt imperdiet mauris, id placerat libero sodales vitae. Morbi eget turpis ut leo.»
+                        .restaurant-quote__text(data-js="restaurantQuote")
                         .restaurant-quote__author
                             .restaurant-quote__photo
-                                img(src="./img/modal_photo.jpg" alt="")
+                                img(src="" alt="" data-js="restaurantPhoto")
                             div
-                                .restaurant-quote__name Фамилия Имя
-                                .restaurant-quote__position шеф-повар
+                                .restaurant-quote__name(data-js="restaurantName")
+                                .restaurant-quote__position(data-js="restaurantPosition")
 
                     .restaurant__menu.restaurant-menu
                         +title({
@@ -62,17 +62,17 @@ block content
                             classes: ".restaurant-menu__title",
                             text: "Меню «Русского завтрака»"
                         })
-                        .restaurant-menu__list
-                            .restaurant-menu__item Блинчики со сморчками и индюшкой
-                            .restaurant-menu__item Каша «Гурьевская» с брусникой и клюквой моченой
-                            .restaurant-menu__item Яичница-болтунья в печи с полевыми травами
-                            .restaurant-menu__item Молочный десерт из парного молочка с желе из морошки
+                        .restaurant-menu__list(data-js="restaurantMenu")
+                            //-.restaurant-menu__item Блинчики со сморчками и индюшкой
+                            //-.restaurant-menu__item Каша «Гурьевская» с брусникой и клюквой моченой
+                            //-.restaurant-menu__item Яичница-болтунья в печи с полевыми травами
+                            //-.restaurant-menu__item Молочный десерт из парного молочка с желе из морошки
 
                     .restaurant__contacts
-                        .restaurant__address Адрес
-                        .restaurant__mode Режим работы
-                        a(href="tel:+79000000000").restaurant__phone Номер телефона
-                        a(href="#").restaurant__site Сайт
+                        .restaurant__address(data-js="restaurantAddress")
+                        .restaurant__mode(data-js="restaurantMode")
+                        a(href="tel:+79000000000").restaurant__phone(data-js="restaurantPhone")
+                        a(href="#").restaurant__site(data-js="restaurantSite")
 
                     .restaurant__btns
                         +btn({
@@ -81,8 +81,8 @@ block content
                             icon: true,
                             iconName: 'btn_long_arrow',
                             positionIcon: 'left'
-                        })
+                        })(data-js="restaurantBack")
                         +btn({
                             classes: "restaurant__btn",
                             name: "Перейти на сайт",
-                        })
+                        })(data-js="restaurantSite")
