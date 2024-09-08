@@ -58,6 +58,10 @@
         }
 
         &__title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 80px;
             position: relative;
             z-index: 5;
             font-family: $ff-title;
@@ -67,6 +71,7 @@
             letter-spacing: 0.06em;
             text-align: center;
             color: #000;
+            max-width: 200px;
         }
 
         &__btn {

@@ -15,17 +15,18 @@ block content
                         tag: "h1",
                         classes: "recipes__title",
                         text: "название раздела"
-                    })
+                    })(data-js="categoryName")
                     +btn({
                         classes: "recipes__back",
                         name: "назад",
+                        link: 'recipe-categories.html',
                         icon: true,
                         iconName: 'btn_back_arrow',
                         positionIcon: "left"
                     })
 
-                .recipes__list
-                    .recipes__card.recipe-card
+                .recipes__list(data-js="recipesList")
+                    //-.recipes__card.recipe-card
                         .recipe-card__inner
                             .recipe-card__img
                                 img(src="./img/recipes/recipe_img.jpg" alt="")
@@ -42,7 +43,7 @@ block content
                                 iconName: 'btn_arrow',
                             })
 
-                    .recipes__card.recipe-card.recipe-card--sticker
+                    //-.recipes__card.recipe-card.recipe-card--sticker
                         .recipe-card__inner
                             .recipe-card__img
                                 img(src="./img/recipes/recipe_img.jpg" alt="")
@@ -59,7 +60,7 @@ block content
                                 iconName: 'btn_arrow',
                             })
 
-                    .recipes__card.recipe-card
+                    //-.recipes__card.recipe-card
                         .recipe-card__inner
                             .recipe-card__img
                                 img(src="./img/recipes/recipe_img.jpg" alt="")
@@ -76,7 +77,7 @@ block content
                                 iconName: 'btn_arrow',
                             })
 
-                    .recipes__card.recipe-card.recipe-card--sticker
+                    //-.recipes__card.recipe-card.recipe-card--sticker
                         .recipe-card__inner
                             .recipe-card__img
                                 img(src="./img/recipes/recipe_img.jpg" alt="")
@@ -93,7 +94,7 @@ block content
                                 iconName: 'btn_arrow',
                             }) 
 
-                    .recipes__card.recipe-card
+                    //-.recipes__card.recipe-card
                         .recipe-card__inner
                             .recipe-card__img
                                 img(src="./img/recipes/recipe_img.jpg" alt="")
@@ -110,7 +111,7 @@ block content
                                 iconName: 'btn_arrow',
                             })
 
-                    .recipes__card.recipe-card.recipe-card--sticker
+                    //-.recipes__card.recipe-card.recipe-card--sticker
                         .recipe-card__inner
                             .recipe-card__img
                                 img(src="./img/recipes/recipe_img.jpg" alt="")
@@ -127,7 +128,7 @@ block content
                                 iconName: 'btn_arrow',
                             })
 
-                    .recipes__card.recipe-card
+                    //-.recipes__card.recipe-card
                         .recipe-card__inner
                             .recipe-card__img
                                 img(src="./img/recipes/recipe_img.jpg" alt="")
@@ -144,7 +145,7 @@ block content
                                 iconName: 'btn_arrow',
                             })
 
-                    .recipes__card.recipe-card.recipe-card--sticker
+                    //-.recipes__card.recipe-card.recipe-card--sticker
                         .recipe-card__inner
                             .recipe-card__img
                                 img(src="./img/recipes/recipe_img.jpg" alt="")
@@ -161,7 +162,7 @@ block content
                                 iconName: 'btn_arrow',
                             })
 
-                    .recipes__card.recipe-card.recipe-card--sticker
+                    //-.recipes__card.recipe-card.recipe-card--sticker
                         .recipe-card__inner
                             .recipe-card__img
                                 img(src="./img/recipes/recipe_img.jpg" alt="")

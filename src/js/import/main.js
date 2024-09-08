@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
     citiesListBuild() // строит список городов
     restaurantsListBuild() // строит список ресторанов города
     restaurantPageBuild() // наполняет страницу ресторана
+    recipeCategoriesListBuild() // строит список категорий рецептов
+    recipesListBuild() // строит список рецептов
+    recipePageBuild() // наполняет страницу рецепта
 
     
     /* КАРТА НА СТРАНИЦЕ ГОРОДА */
@@ -179,8 +182,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if(!restaurantPage) return
 
-        let currentRestaurantId = false
-
         let currentPageParams = window.location.search.slice(1).split("&")
         let currentRestaurantParam = currentPageParams.find(item => /^rest-id=/.test(item));
 
@@ -191,11 +192,11 @@ document.addEventListener("DOMContentLoaded", () => {
         let currentRestaurant = restaurantsListArr[0]
         
         if(currentRestaurantParam !== undefined) {
-            currentRestaurantId = currentRestaurantParam.split("=")[1]
-            currentRestaurant = restaurantsListArr.find(item => item.id == currentRestaurantId)
+            currentRestaurant = restaurantsListArr.find(item => item.id == currentRestaurantParam.split("=")[1])
         }
 
-        let recipesListArr = recipesList
+        let recipesListArr = recipesList.map(item => item.recipes)
+        recipesListArr = [].concat(...recipesListArr)
 
         restaurantPage.querySelectorAll('[data-js="restaurantBack"]').forEach(item => {
             item.setAttribute('href', `city.html?city-id=${currentRestaurant.cityId}`)
@@ -246,6 +247,205 @@ document.addEventListener("DOMContentLoaded", () => {
         })
 
 
+    }
+
+    /* БИЛД СПИСКА КАТЕГОРИЙ РЕЦЕПТОВ */
+    function recipeCategoriesListBuild() {
+        const recipeCategoriesListEl = document.querySelector('[data-js="recipeCategoriesList"]')
+
+        if(!recipeCategoriesListEl) return
+
+        let recipeCategoriesListArr = recipesList
+
+        recipeCategoriesListArr.forEach(category => {
+            let recipeCategoryCard = document.createElement('div')
+            recipeCategoryCard.classList.add('recipe-categories__card', 'recipe-category')
+ 
+            recipeCategoryCard.innerHTML = `                              
+                                    <div class="recipe-category__img"><img src=${category.img} alt=""></div>
+                                    <h2 class="title title--h2 recipe-category__title">${category.name}</h2>
+                                    <a class="btn recipe-category__btn with-angles" href="recipes.html?category-id=${category.id}" target="">
+                                        <span class="btn__text">смотреть</span>
+                                        <span class="btn__icon">
+                                            <svg>
+                                                <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
+                                            </svg>
+                                        </span>
+                                    </a>
+                                `
+
+            recipeCategoriesListEl.appendChild(recipeCategoryCard)
+        })
+    }
+    
+    /* БИЛД СПИСКА РЕЦЕПТОВ В КАТЕГОРИИ */
+    function recipesListBuild() {
+        const recipesListEl = document.querySelector('[data-js="recipesList"]')
+
+        if(!recipesListEl) return
+
+        const cardsOnPage = 9
+
+        let currentCategoryId = false
+        let currentPaginationId = 0
+
+        let currentPageParams = window.location.search.slice(1).split("&")
+        let currentCategoryParam = currentPageParams.find(item => /^category-id=/.test(item));
+        let currentPaginationParam = currentPageParams.find(item => /^pagination=/.test(item));
+
+        if(currentCategoryParam !== undefined) {
+            currentCategoryId = currentCategoryParam.split("=")[1]
+        }
+
+        if(currentPaginationParam !== undefined) {
+            currentPaginationId = currentPaginationParam.split("=")[1]
+        }
+
+        let recipesListArr = recipesList
+        let currentCategoryObj = recipesListArr[0]
+
+        if(currentCategoryId) {
+            currentCategoryObj = recipesListArr.find(item => item.id == currentCategoryId) || recipesListArr[0]
+        }
+
+        
+        // ищем нужные рецепты с учётом пагинации
+        let currentRecipesFullList = currentCategoryObj.recipes
+        let currentRecipesList = currentRecipesFullList.slice(currentPaginationId * cardsOnPage, currentPaginationId * cardsOnPage + cardsOnPage)
+
+
+        //ставим название категории
+        const categoryNameEl = document.querySelector('[data-js=categoryName]')
+        if(categoryNameEl) {
+            categoryNameEl.innerHTML = currentCategoryObj.name
+        }
+
+        // добавляем карточки ресторанов
+        currentRecipesList.forEach(recipe => {
+            let recipeCard = document.createElement('div')
+            if(recipe.author == "chef") {
+                recipeCard.classList.add('recipes__card', 'recipe-card', "recipe-card--sticker")
+            } else {
+                recipeCard.classList.add('recipes__card', 'recipe-card')
+            }
+            
+            recipeCard.innerHTML = `                                          
+                                <div class="recipe-card__inner">
+                                    <div class="recipe-card__img">
+                                        <img src=${recipe.img} alt=""></div>
+                                    <h2 class="title title--h2 recipe-card__title">${recipe.name}</h2>
+                                    <div class="recipe-card__city">${recipe.city}</div>
+                                    <a class="btn recipe-card__btn with-angles" href="recipe.html?recipe-id=${recipe.id}" target="">
+                                        <span class="btn__text">узнать рецепт</span>
+                                        <span class="btn__icon">
+                                            <svg>
+                                                <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
+                                            </svg>
+                                        </span>
+                                    </a>
+                                </div>
+                                `
+
+            recipesListEl.appendChild(recipeCard)
+        })
+
+
+        // формируем пагинацию
+        const paginationContainer = document.querySelector('[data-js="paginationContainer"]')
+        let pagesCount = Math.ceil(currentRecipesFullList.length / cardsOnPage)
+
+        if(paginationContainer && pagesCount > 1) {
+            setPagination(paginationContainer, pagesCount, currentPaginationId, 'recipes.html?category-id=' + currentCategoryId)
+        }
+
+    }
+    
+    /* НАПОЛНЕНИЕ СТРАНИЦЫ РЕЦЕПТА */
+    function recipePageBuild() {
+        const recipePage = document.querySelector('[data-js="recipePage"]');
+
+        if(!recipePage) return
+
+        let currentPageParams = window.location.search.slice(1).split("&")
+        let currentRecipeParam = currentPageParams.find(item => /^recipe-id=/.test(item));
+
+        let recipesListArr = recipesList.map(item => item.recipes)
+        recipesListArr = [].concat(...recipesListArr)
+
+        let currentRecipe = recipesListArr[0]
+        
+        if(currentRecipeParam !== undefined) {
+            currentRecipe = recipesListArr.find(item => item.id == currentRecipeParam.split("=")[1])
+        }
+
+        if(currentRecipe.author == "chef") {
+            recipePage.classList.add('recipe-page--chef')
+        }
+
+        recipePage.querySelectorAll('[data-js="recipeBack"]').forEach(item => {
+            item.setAttribute('href', `recipes.html?category-id=${currentRecipe.categoryId}`)
+        })
+        recipePage.querySelector('[data-js="recipeTitle"]').innerHTML = currentRecipe.name
+        recipePage.querySelector('[data-js="chefPhoto"]').setAttribute('src', currentRecipe.chefPhoto)
+        recipePage.querySelector('[data-js="dishPhoto"]').setAttribute('src', currentRecipe.dishPhoto)
+        recipePage.querySelector('[data-js="recipeAuthorName"]').innerHTML = currentRecipe.authorName
+        recipePage.querySelector('[data-js="recipeAuthorInfo"]').innerHTML = currentRecipe.authorInfo
+
+        let recipeStickers = document.querySelector('[data-js="recipeStickers"]')
+
+        if(currentRecipe.stickers.length > 0) {
+            currentRecipe.stickers.forEach(item => {
+                let sticker = document.createElement('div')
+                sticker.classList.add('recipe__sticker', `recipe__sticker--${item.color}`)
+    
+                sticker.innerHTML = item.text
+    
+                recipeStickers.appendChild(sticker)
+            })
+        }
+
+        recipePage.querySelector('[data-js="restaurantLogo"]').setAttribute('src', currentRecipe.restLogo)
+        recipePage.querySelector('[data-js="recipeDesc"]').innerHTML = currentRecipe.desc
+        recipePage.querySelector('[data-js="recipeCount"]').innerHTML = currentRecipe.count
+
+        let recipeIngredients = document.querySelector('[data-js="recipeIngredients"]')
+
+        currentRecipe.ingredients.forEach(item => {
+            let subtitle = document.createElement('div') 
+            subtitle.classList.add('recipe-ingredients__subtitle')
+            subtitle.innerHTML = item.name
+
+            let list = document.createElement('ul')
+            list.classList.add('recipe-ingredients__list')
+            
+            item.list.forEach(listItem => {
+                let li = document.createElement('li')
+                
+                if(listItem.sponsor) {
+                    li.classList.add("_sponsor")
+                }
+
+                li.innerHTML = listItem.text
+
+                list.appendChild(li)
+            })
+
+            recipeIngredients.appendChild(subtitle)
+            recipeIngredients.appendChild(list)
+        })
+
+        recipePage.querySelector('[data-js="ingredientsPhoto"]').setAttribute('src', currentRecipe.ingredientsPhoto)
+        recipePage.querySelector('[data-js="ingredientsLink"]').setAttribute('href', currentRecipe.ingredientsLink)
+
+        let recipeProcess = document.querySelector('[data-js="recipeProcess"]')
+
+        currentRecipe.process.forEach(item => {
+
+            let li = document.createElement('li')
+            li.innerHTML = item
+
+            recipeProcess.appendChild(li)
+        })
     }
 
 })
@@ -345,7 +545,7 @@ const restaurantsList = [
                     './img/restaurant_img.jpg',
                     './img/restaurant_img.jpg'
                 ],
-                // список id рецептов
+                
                 menu: ['0','1','2','3'],
                 address: 'Адрес',
                 mode: 'Режим работы',
@@ -369,7 +569,6 @@ const restaurantsList = [
                     './img/restaurant_img.jpg',
                     './img/restaurant_img.jpg'
                 ],
-                // список id рецептов
                 menu: ['0','1','2','3'],
                 address: 'Адрес',
                 mode: 'Режим работы',
@@ -393,7 +592,6 @@ const restaurantsList = [
                     './img/restaurant_img.jpg',
                     './img/restaurant_img.jpg'
                 ],
-                // список id рецептов
                 menu: ['0','1','2','3'],
                 address: 'Адрес',
                 mode: 'Режим работы',
@@ -417,7 +615,6 @@ const restaurantsList = [
                     './img/restaurant_img.jpg',
                     './img/restaurant_img.jpg'
                 ],
-                // список id рецептов
                 menu: ['0','1','2','3'],
                 address: 'Адрес',
                 mode: 'Режим работы',
@@ -441,7 +638,6 @@ const restaurantsList = [
                     './img/restaurant_img.jpg',
                     './img/restaurant_img.jpg'
                 ],
-                // список id рецептов
                 menu: ['0','1','2','3'],
                 address: 'Адрес',
                 mode: 'Режим работы',
@@ -465,7 +661,7 @@ const restaurantsList = [
                     './img/restaurant_img.jpg',
                     './img/restaurant_img.jpg'
                 ],
-                // список id рецептов
+                
                 menu: ['0','1','2','3'],
                 address: 'Адрес',
                 mode: 'Режим работы',
@@ -489,7 +685,7 @@ const restaurantsList = [
                     './img/restaurant_img.jpg',
                     './img/restaurant_img.jpg'
                 ],
-                // список id рецептов
+                
                 menu: ['0','1','2','3'],
                 address: 'Адрес',
                 mode: 'Режим работы',
@@ -513,7 +709,7 @@ const restaurantsList = [
                     './img/restaurant_img.jpg',
                     './img/restaurant_img.jpg'
                 ],
-                // список id рецептов
+                
                 menu: ['0','1','2','3'],
                 address: 'Адрес',
                 mode: 'Режим работы',
@@ -537,7 +733,7 @@ const restaurantsList = [
                     './img/restaurant_img.jpg',
                     './img/restaurant_img.jpg'
                 ],
-                // список id рецептов
+                
                 menu: ['0','1','2','3'],
                 address: 'Адрес',
                 mode: 'Режим работы',
@@ -561,7 +757,7 @@ const restaurantsList = [
                     './img/restaurant_img.jpg',
                     './img/restaurant_img.jpg'
                 ],
-                // список id рецептов
+                
                 menu: ['0','1','2','3'],
                 address: 'Адрес',
                 mode: 'Режим работы',
@@ -585,7 +781,7 @@ const restaurantsList = [
                     './img/restaurant_img.jpg',
                     './img/restaurant_img.jpg'
                 ],
-                // список id рецептов
+                
                 menu: ['0','1','2','3'],
                 address: 'Адрес',
                 mode: 'Режим работы',
@@ -609,7 +805,7 @@ const restaurantsList = [
                     './img/restaurant_img.jpg',
                     './img/restaurant_img.jpg'
                 ],
-                // список id рецептов
+                
                 menu: ['0','1','2','3'],
                 address: 'Адрес',
                 mode: 'Режим работы',
@@ -633,7 +829,7 @@ const restaurantsList = [
                     './img/restaurant_img.jpg',
                     './img/restaurant_img.jpg'
                 ],
-                // список id рецептов
+                
                 menu: ['0','1','2','3'],
                 address: 'Адрес',
                 mode: 'Режим работы',
@@ -657,7 +853,7 @@ const restaurantsList = [
                     './img/restaurant_img.jpg',
                     './img/restaurant_img.jpg'
                 ],
-                // список id рецептов
+                
                 menu: ['0','1','2','3'],
                 address: 'Адрес',
                 mode: 'Режим работы',
@@ -681,7 +877,7 @@ const restaurantsList = [
                     './img/restaurant_img.jpg',
                     './img/restaurant_img.jpg'
                 ],
-                // список id рецептов
+                
                 menu: ['0','1','2','3'],
                 address: 'Адрес',
                 mode: 'Режим работы',
@@ -705,7 +901,7 @@ const restaurantsList = [
                     './img/restaurant_img.jpg',
                     './img/restaurant_img.jpg'
                 ],
-                // список id рецептов
+                
                 menu: ['0','1','2','3'],
                 address: 'Адрес',
                 mode: 'Режим работы',
@@ -729,7 +925,7 @@ const restaurantsList = [
                     './img/restaurant_img.jpg',
                     './img/restaurant_img.jpg'
                 ],
-                // список id рецептов
+                
                 menu: ['0','1','2','3'],
                 address: 'Адрес',
                 mode: 'Режим работы',
@@ -760,7 +956,7 @@ const restaurantsList = [
                     './img/restaurant_img.jpg',
                     './img/restaurant_img.jpg'
                 ],
-                // список id рецептов
+                
                 menu: ['0','1','2','3'],
                 address: 'Адрес',
                 mode: 'Режим работы',
@@ -784,7 +980,7 @@ const restaurantsList = [
                     './img/restaurant_img.jpg',
                     './img/restaurant_img.jpg'
                 ],
-                // список id рецептов
+                
                 menu: ['0','1','2','3'],
                 address: 'Адрес',
                 mode: 'Режим работы',
@@ -808,7 +1004,7 @@ const restaurantsList = [
                     './img/restaurant_img.jpg',
                     './img/restaurant_img.jpg'
                 ],
-                // список id рецептов
+                
                 menu: ['0','1','2','3'],
                 address: 'Адрес',
                 mode: 'Режим работы',
@@ -832,7 +1028,7 @@ const restaurantsList = [
                     './img/restaurant_img.jpg',
                     './img/restaurant_img.jpg'
                 ],
-                // список id рецептов
+                
                 menu: ['0','1','2','3'],
                 address: 'Адрес',
                 mode: 'Режим работы',
@@ -856,7 +1052,7 @@ const restaurantsList = [
                     './img/restaurant_img.jpg',
                     './img/restaurant_img.jpg'
                 ],
-                // список id рецептов
+                
                 menu: ['0','1','2','3'],
                 address: 'Адрес',
                 mode: 'Режим работы',
@@ -880,7 +1076,7 @@ const restaurantsList = [
                     './img/restaurant_img.jpg',
                     './img/restaurant_img.jpg'
                 ],
-                // список id рецептов
+                
                 menu: ['0','1','2','3'],
                 address: 'Адрес',
                 mode: 'Режим работы',
@@ -904,7 +1100,7 @@ const restaurantsList = [
                     './img/restaurant_img.jpg',
                     './img/restaurant_img.jpg'
                 ],
-                // список id рецептов
+                
                 menu: ['0','1','2','3'],
                 address: 'Адрес',
                 mode: 'Режим работы',
@@ -1035,19 +1231,453 @@ const restaurantsList = [
 const recipesList = [
     {
         id: "0",
-        name: "Блинчики со сморчками и индюшкой"
+        name: "блюда из&nbsp;творога",
+        img: "./img/recipes/recipe_category_img.jpg",
+        recipes: [
+            {
+                id: "0",
+                categoryId: "0",
+                name: "Сырники с соусом <br>из ирисок",
+                img: "./img/recipes/recipe_img.jpg",
+                chefPhoto: "./img/recipes/chef_photo.jpg",
+                dishPhoto: "./img/recipes/dish_photo.jpg",
+                city: "город",
+                author: "chef",
+                authorName: "Александр Волков-Медведев",
+                authorInfo: "Шеф-повар ресторана Ruski, <br>Москва",
+                stickers: [],
+                restLogo: "./img/recipes/recipe_logo.png",
+                desc: "«Я приготовлю сырники со вкусом моего детства — с соусом из моих любимых конфет ирисок. Тех самых ирисок легендарной московской кондитерской фабрики „Красный Октябрь“»",
+                count: "3",
+                ingredients: [
+                    {
+                        name: "Для теста",
+                        list: [
+                            {
+                                text: "Творог «ЭкоНива» 9% — 500 г",
+                                sponsor: true
+                            },
+                            {
+                                text: "Мука пшеничная высшего сорта — 3 ст. л.",
+                                sponsor: false
+                            },
+                            {
+                                text: "Сахар — 4 ст. л.",
+                                sponsor: false
+                            },
+                            {
+                                text: "Соль — 1 щепотка",
+                                sponsor: false
+                            },
+                            {
+                                text: "Сливочное масло «ЭкоНива» 82,5% (для обжарки) — 6 ст. л.",
+                                sponsor: true
+                            },
+                        ]
+                    },
+                    {
+                        name: "Для соуса",
+                        list: [
+                            {
+                                text: "Сливки «ЭкоНива» 10% — 400 мл",
+                                sponsor: true
+                            },
+                            {
+                                text: "Конфеты «Кис-Кис», «Красный Октябрь» — 200 г",
+                                sponsor: false
+                            },
+                            {
+                                text: "Соль — 1 щепотка",
+                                sponsor: false
+                            },
+                            {
+                                text: "Зелень мяты — 2–3 веточки (для украшения)",
+                                sponsor: false
+                            }
+                        ]
+                    }
+                ],
+                ingredientsPhoto: "./img/recipes/ingredients.jpg",
+                ingredientsLink: "#",
+                process: [
+                    "Смешиваем в миске творог, яйцо, муку, сахар и соль.",
+                    "Вымешиваем тесто до получения однородной консистенции.",
+                    "Формуем 3 сырника по 60 г каждый. Придаем им цилиндрическую форму.",
+                    "Присыпаем каждый сырник мукой.",
+                    "Нагреваем сливочное масло на сковороде, обжариваем сырники с двух сторон до золотистого цвета.",
+                    "Выкладываем обжаренные сырники на противень с пергаментом и запекаем в духовке при температуре 180 ℃ 10 минут.",
+                    "Для соуса — доводим сливки до кипения, выкладываем в них ириски (20 штук) и уменьшаем огонь.",
+                    "Растапливаем ириски на медленном огне до полного растворения. Добавляем в соус щепотку соли.",
+                    "Выкладываем сырники в центр тарелки, поливаем соусом из ирисок, украшаем веточками мяты.",
+                ]
+
+            },
+            {
+                id: "1",
+                categoryId: "0",
+                name: "Блинчики со сморчками и индюшкой",
+                img: "./img/recipes/recipe_img.jpg",
+                chefPhoto: "",
+                dishPhoto: "./img/recipes/dish_photo.jpg",
+                city: "город",
+                author: "member",
+                authorName: "Александр Волков-Медведев",
+                authorInfo: "Москва",
+                stickers: [
+                    {
+                        text: "конкурсант",
+                        color: "green"
+                    },
+                    {
+                        text: "победитель",
+                        color: "red"
+                    },
+                ],
+                restLogo: "",
+                desc: "«Я приготовлю сырники со вкусом моего детства — с соусом из моих любимых конфет ирисок. Тех самых ирисок легендарной московской кондитерской фабрики „Красный Октябрь“»",
+                count: "3",
+                ingredients: [
+                    {
+                        name: "Для теста",
+                        list: [
+                            {
+                                text: "Творог «ЭкоНива» 9% — 500 г",
+                                sponsor: true
+                            },
+                            {
+                                text: "Мука пшеничная высшего сорта — 3 ст. л.",
+                                sponsor: false
+                            },
+                            {
+                                text: "Сахар — 4 ст. л.",
+                                sponsor: false
+                            },
+                            {
+                                text: "Соль — 1 щепотка",
+                                sponsor: false
+                            },
+                            {
+                                text: "Сливочное масло «ЭкоНива» 82,5% (для обжарки) — 6 ст. л.",
+                                sponsor: true
+                            },
+                        ]
+                    },
+                    {
+                        name: "Для соуса",
+                        list: [
+                            {
+                                text: "Сливки «ЭкоНива» 10% — 400 мл",
+                                sponsor: true
+                            },
+                            {
+                                text: "Конфеты «Кис-Кис», «Красный Октябрь» — 200 г",
+                                sponsor: false
+                            },
+                            {
+                                text: "Соль — 1 щепотка",
+                                sponsor: false
+                            },
+                            {
+                                text: "Зелень мяты — 2–3 веточки (для украшения)",
+                                sponsor: false
+                            }
+                        ]
+                    }
+                ],
+                ingredientsPhoto: "",
+                ingredientsLink: "#",
+                process: [
+                    "Смешиваем в миске творог, яйцо, муку, сахар и соль.",
+                    "Вымешиваем тесто до получения однородной консистенции.",
+                    "Формуем 3 сырника по 60 г каждый. Придаем им цилиндрическую форму.",
+                    "Присыпаем каждый сырник мукой.",
+                    "Нагреваем сливочное масло на сковороде, обжариваем сырники с двух сторон до золотистого цвета.",
+                    "Выкладываем обжаренные сырники на противень с пергаментом и запекаем в духовке при температуре 180 ℃ 10 минут.",
+                    "Для соуса — доводим сливки до кипения, выкладываем в них ириски (20 штук) и уменьшаем огонь.",
+                    "Растапливаем ириски на медленном огне до полного растворения. Добавляем в соус щепотку соли.",
+                    "Выкладываем сырники в центр тарелки, поливаем соусом из ирисок, украшаем веточками мяты.",
+                ]
+            },
+            {
+                id: "2",
+                categoryId: "0",
+                name: "Каша «Гурьевская» с брусникой и клюквой моченой",
+                img: "./img/recipes/recipe_img.jpg",
+                chefPhoto: "",
+                dishPhoto: "./img/recipes/dish_photo.jpg",
+                city: "город",
+                author: "member",
+                authorName: "Александр Волков-Медведев",
+                authorInfo: "Москва",
+                stickers: [
+                    {
+                        text: "конкурсант",
+                        color: "green"
+                    },
+                    {
+                        text: "победитель",
+                        color: "red"
+                    },
+                ],
+                restLogo: "",
+                desc: "«Я приготовлю сырники со вкусом моего детства — с соусом из моих любимых конфет ирисок. Тех самых ирисок легендарной московской кондитерской фабрики „Красный Октябрь“»",
+                count: "3",
+                ingredients: [
+                    {
+                        name: "Для теста",
+                        list: [
+                            {
+                                text: "Творог «ЭкоНива» 9% — 500 г",
+                                sponsor: true
+                            },
+                            {
+                                text: "Мука пшеничная высшего сорта — 3 ст. л.",
+                                sponsor: false
+                            },
+                            {
+                                text: "Сахар — 4 ст. л.",
+                                sponsor: false
+                            },
+                            {
+                                text: "Соль — 1 щепотка",
+                                sponsor: false
+                            },
+                            {
+                                text: "Сливочное масло «ЭкоНива» 82,5% (для обжарки) — 6 ст. л.",
+                                sponsor: true
+                            },
+                        ]
+                    },
+                    {
+                        name: "Для соуса",
+                        list: [
+                            {
+                                text: "Сливки «ЭкоНива» 10% — 400 мл",
+                                sponsor: true
+                            },
+                            {
+                                text: "Конфеты «Кис-Кис», «Красный Октябрь» — 200 г",
+                                sponsor: false
+                            },
+                            {
+                                text: "Соль — 1 щепотка",
+                                sponsor: false
+                            },
+                            {
+                                text: "Зелень мяты — 2–3 веточки (для украшения)",
+                                sponsor: false
+                            }
+                        ]
+                    }
+                ],
+                ingredientsPhoto: "",
+                ingredientsLink: "#",
+                process: [
+                    "Смешиваем в миске творог, яйцо, муку, сахар и соль.",
+                    "Вымешиваем тесто до получения однородной консистенции.",
+                    "Формуем 3 сырника по 60 г каждый. Придаем им цилиндрическую форму.",
+                    "Присыпаем каждый сырник мукой.",
+                    "Нагреваем сливочное масло на сковороде, обжариваем сырники с двух сторон до золотистого цвета.",
+                    "Выкладываем обжаренные сырники на противень с пергаментом и запекаем в духовке при температуре 180 ℃ 10 минут.",
+                    "Для соуса — доводим сливки до кипения, выкладываем в них ириски (20 штук) и уменьшаем огонь.",
+                    "Растапливаем ириски на медленном огне до полного растворения. Добавляем в соус щепотку соли.",
+                    "Выкладываем сырники в центр тарелки, поливаем соусом из ирисок, украшаем веточками мяты.",
+                ]
+            },
+            {
+                id: "3",
+                categoryId: "0",
+                name: "Яичница-болтунья в печи с полевыми травами",
+                img: "./img/recipes/recipe_img.jpg",
+                chefPhoto: "./img/recipes/chef_photo.jpg",
+                dishPhoto: "./img/recipes/dish_photo.jpg",
+                city: "город",
+                author: "chef",
+                authorName: "Александр Волков-Медведев",
+                authorInfo: "Шеф-повар ресторана Ruski, <br>Москва",
+                stickers: [],
+                restLogo: "./img/recipes/recipe_logo.png",
+                desc: "«Я приготовлю сырники со вкусом моего детства — с соусом из моих любимых конфет ирисок. Тех самых ирисок легендарной московской кондитерской фабрики „Красный Октябрь“»",
+                count: "3",
+                ingredients: [
+                    {
+                        name: "Для теста",
+                        list: [
+                            {
+                                text: "Творог «ЭкоНива» 9% — 500 г",
+                                sponsor: true
+                            },
+                            {
+                                text: "Мука пшеничная высшего сорта — 3 ст. л.",
+                                sponsor: false
+                            },
+                            {
+                                text: "Сахар — 4 ст. л.",
+                                sponsor: false
+                            },
+                            {
+                                text: "Соль — 1 щепотка",
+                                sponsor: false
+                            },
+                            {
+                                text: "Сливочное масло «ЭкоНива» 82,5% (для обжарки) — 6 ст. л.",
+                                sponsor: true
+                            },
+                        ]
+                    },
+                    {
+                        name: "Для соуса",
+                        list: [
+                            {
+                                text: "Сливки «ЭкоНива» 10% — 400 мл",
+                                sponsor: true
+                            },
+                            {
+                                text: "Конфеты «Кис-Кис», «Красный Октябрь» — 200 г",
+                                sponsor: false
+                            },
+                            {
+                                text: "Соль — 1 щепотка",
+                                sponsor: false
+                            },
+                            {
+                                text: "Зелень мяты — 2–3 веточки (для украшения)",
+                                sponsor: false
+                            }
+                        ]
+                    }
+                ],
+                ingredientsPhoto: "./img/recipes/ingredients.jpg",
+                ingredientsLink: "#",
+                process: [
+                    "Смешиваем в миске творог, яйцо, муку, сахар и соль.",
+                    "Вымешиваем тесто до получения однородной консистенции.",
+                    "Формуем 3 сырника по 60 г каждый. Придаем им цилиндрическую форму.",
+                    "Присыпаем каждый сырник мукой.",
+                    "Нагреваем сливочное масло на сковороде, обжариваем сырники с двух сторон до золотистого цвета.",
+                    "Выкладываем обжаренные сырники на противень с пергаментом и запекаем в духовке при температуре 180 ℃ 10 минут.",
+                    "Для соуса — доводим сливки до кипения, выкладываем в них ириски (20 штук) и уменьшаем огонь.",
+                    "Растапливаем ириски на медленном огне до полного растворения. Добавляем в соус щепотку соли.",
+                    "Выкладываем сырники в центр тарелки, поливаем соусом из ирисок, украшаем веточками мяты.",
+                ]
+            },
+            {
+                id: "4",
+                categoryId: "0",
+                name: "Молочный десерт из парного молочка с желе из морошки",
+                img: "./img/recipes/recipe_img.jpg",
+                chefPhoto: "",
+                dishPhoto: "./img/recipes/dish_photo.jpg",
+                city: "город",
+                author: "member",
+                authorName: "Александр Волков-Медведев",
+                authorInfo: "Москва",
+                stickers: [
+                    {
+                        text: "конкурсант",
+                        color: "green"
+                    },
+                    {
+                        text: "победитель",
+                        color: "red"
+                    },
+                ],
+                restLogo: "",
+                desc: "«Я приготовлю сырники со вкусом моего детства — с соусом из моих любимых конфет ирисок. Тех самых ирисок легендарной московской кондитерской фабрики „Красный Октябрь“»",
+                count: "3",
+                ingredients: [
+                    {
+                        name: "Для теста",
+                        list: [
+                            {
+                                text: "Творог «ЭкоНива» 9% — 500 г",
+                                sponsor: true
+                            },
+                            {
+                                text: "Мука пшеничная высшего сорта — 3 ст. л.",
+                                sponsor: false
+                            },
+                            {
+                                text: "Сахар — 4 ст. л.",
+                                sponsor: false
+                            },
+                            {
+                                text: "Соль — 1 щепотка",
+                                sponsor: false
+                            },
+                            {
+                                text: "Сливочное масло «ЭкоНива» 82,5% (для обжарки) — 6 ст. л.",
+                                sponsor: true
+                            },
+                        ]
+                    },
+                    {
+                        name: "Для соуса",
+                        list: [
+                            {
+                                text: "Сливки «ЭкоНива» 10% — 400 мл",
+                                sponsor: true
+                            },
+                            {
+                                text: "Конфеты «Кис-Кис», «Красный Октябрь» — 200 г",
+                                sponsor: false
+                            },
+                            {
+                                text: "Соль — 1 щепотка",
+                                sponsor: false
+                            },
+                            {
+                                text: "Зелень мяты — 2–3 веточки (для украшения)",
+                                sponsor: false
+                            }
+                        ]
+                    }
+                ],
+                ingredientsPhoto: "",
+                ingredientsLink: "#",
+                process: [
+                    "Смешиваем в миске творог, яйцо, муку, сахар и соль.",
+                    "Вымешиваем тесто до получения однородной консистенции.",
+                    "Формуем 3 сырника по 60 г каждый. Придаем им цилиндрическую форму.",
+                    "Присыпаем каждый сырник мукой.",
+                    "Нагреваем сливочное масло на сковороде, обжариваем сырники с двух сторон до золотистого цвета.",
+                    "Выкладываем обжаренные сырники на противень с пергаментом и запекаем в духовке при температуре 180 ℃ 10 минут.",
+                    "Для соуса — доводим сливки до кипения, выкладываем в них ириски (20 штук) и уменьшаем огонь.",
+                    "Растапливаем ириски на медленном огне до полного растворения. Добавляем в соус щепотку соли.",
+                    "Выкладываем сырники в центр тарелки, поливаем соусом из ирисок, украшаем веточками мяты.",
+                ]
+            },
+        ]
     },
     {
         id: "1",
-        name: "Каша «Гурьевская» с брусникой и клюквой моченой"
+        name: "Каши",
+        img: "./img/recipes/recipe_category_img.jpg",
+        recipes: []
     },
     {
         id: "2",
-        name: "Яичница-болтунья в печи с полевыми травами"
+        name: "блюда из&nbsp;яиц&nbsp;и&nbsp;сыра",
+        img: "./img/recipes/recipe_category_img.jpg",
+        recipes: []
     },
     {
         id: "3",
-        name: "Молочный десерт из парного молочка с желе из морошки"
+        name: "Молочные десерты",
+        img: "./img/recipes/recipe_category_img.jpg",
+        recipes: []
+    },
+    {
+        id: "4",
+        name: "блюда на&nbsp;Масленицу",
+        img: "./img/recipes/recipe_category_img.jpg",
+        recipes: []
+    },
+    {
+        id: "5",
+        name: "блюда на&nbsp;пасху",
+        img: "./img/recipes/recipe_category_img.jpg",
+        recipes: []
     },
 ]
 

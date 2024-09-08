@@ -51,11 +51,15 @@
             flex: 1 1 50%;
 
             &--chef {
+                display: none;
                 max-width: 540px;
             }
 
             &--dish {
+                border: 2px solid $c-accent;
+                border-radius: 10px;
                 max-width: 460px;
+                overflow: hidden;
             }
 
             img {
@@ -77,6 +81,7 @@
         }
 
         .restaurant-logo {
+            display: none;
             margin-left: auto;
             flex: 0 0 90px;
             width: 90px;
@@ -282,6 +287,7 @@
         }
 
         &__img {
+            display: none;
             margin-top: 46px;
             width: 100%;
 
@@ -354,6 +360,32 @@
 
                 }
             }
+        }
+    }
+
+}
+
+.recipe-page.recipe-page--chef {
+    .recipe {
+        &__photo {
+            &--chef {
+                display: block;
+            }
+
+            &--dish {
+                border: none;
+                border-radius: none;
+            }
+        }
+
+        .restaurant-logo {
+            display: block;
+        }
+    }
+
+    .recipe-ingredients {
+        &__img {
+            display: block;
         }
     }
 
