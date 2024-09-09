@@ -4,14 +4,28 @@
     padding-bottom: 36px;
     overflow: hidden;
 
+    @include max(1099) {
+        padding-top: 75px;
+        padding-bottom: 77px;
+    }
+
     &__bg {
         position: absolute;
         top: 225px;
         right: 0;
+        z-index: -1;
+
+        @include max(1023) {
+            display: none;
+        }
     }
 
     .recipes {
         padding-top: 98px;
+
+        @include max(767) {
+            padding-top: 29px;
+        }
 
         &__header {
             position: relative;
@@ -40,6 +54,10 @@
                     height: 6px;
                 }
             }
+
+            @include max(767) {
+                display: none;
+            }
         }
 
         &__title {
@@ -60,10 +78,73 @@
             grid-auto-rows: 1fr;
             gap: 36px 69px;
             margin-top: 23px;
+
+            @include max(1023) {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            @include max(767) {
+                position: relative;
+                display: block;
+                margin-top: 96px;
+            }
+
+            .swiper-wrapper {
+                display: contents;
+
+                @include max(767) {
+                    display: flex;
+                    align-items: stretch;
+                }
+
+            }
+
+            .slider-controls {
+                display: none;
+
+                @include max(767) {
+                    display: block;
+
+                }
+            }
+
+            .slider-control {
+                background-color: $c-white;
+                width: 88px;
+                height: 18px;
+                border: none;
+                border-radius: 0;
+                top: -32px;
+
+                svg {
+                    width: 88px;
+                }
+
+                &--prev {
+                    left: 49px;
+
+                    svg {
+                        transform: rotate(0);
+                    }
+                }
+
+                &--next {
+                    right: 49px;
+
+                    svg {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
         }
 
         &__pagination {
             margin-top: 101px;
+
+
+            @include max(767) {
+                display: none;
+            }
         }
 
     }
@@ -76,6 +157,10 @@
         justify-content: flex-end;
         padding-top: 63px;
         border-radius: 10px;
+
+        @include max(767) {
+            height: auto;
+        }
 
         &--sticker::after {
             content: "рецепт от шефа";
@@ -98,6 +183,11 @@
             letter-spacing: 0.09em;
             text-align: center;
             z-index: 7;
+
+            @include max(767) {
+                right: -9px;
+                top: 10px;
+            }
         }
 
         &__inner {
