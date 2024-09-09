@@ -1,3 +1,6 @@
+const restaurantsListPath = 'https://raw.githubusercontent.com/FrontMD/russian-breakfast/master/dist/data/restaurantsList.json';
+const recipesListPath = 'https://raw.githubusercontent.com/FrontMD/russian-breakfast/master/dist/data/recipesList.json';
+
 document.addEventListener("DOMContentLoaded", () => {
     restaurantSliderInit() // строит слайдер на странице заведения
     citiesListBuild() // строит список городов
@@ -63,36 +66,40 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-
     /* БИЛД СПИСКА ГОРОДОВ */
     function citiesListBuild() {
         const citiesList = document.querySelector('[data-js="citiesList"]')
 
         if(!citiesList) return
 
-        let citiesListArr = restaurantsList
-
-        citiesListArr.forEach(city => {
-            let cityCard = document.createElement('div')
-            cityCard.classList.add('cities-list__card', 'cities-card')
-            
-            cityCard.innerHTML = `                              
-                                    <div class="cities-card__img">
-                                        <img src="${city.photo}" alt="${city.name}">
-                                    </div>
-                                    <div class="cities-card__title">${city.name}</div>
-                                    <a class="btn cities-card__btn with-angles" href="city.html?city-id=${city.id}" target="">
-                                        <span class="btn__text">смотреть</span>
-                                        <span class="btn__icon">
-                                            <svg>
-                                                <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                                            </svg>
-                                        </span>
-                                    </a> 
-                                `
-
-            citiesList.appendChild(cityCard)
+        fetch(restaurantsListPath, {
+            method: 'get'
+        }).then(response => response.json()).then(json => {
+            let citiesListArr = json
+    
+            citiesListArr.forEach(city => {
+                let cityCard = document.createElement('div')
+                cityCard.classList.add('cities-list__card', 'cities-card')
+                
+                cityCard.innerHTML = `                              
+                                        <div class="cities-card__img">
+                                            <img src="${city.photo}" alt="${city.name}">
+                                        </div>
+                                        <div class="cities-card__title">${city.name}</div>
+                                        <a class="btn cities-card__btn with-angles" href="city.html?city-id=${city.id}" target="">
+                                            <span class="btn__text">смотреть</span>
+                                            <span class="btn__icon">
+                                                <svg>
+                                                    <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
+                                                </svg>
+                                            </span>
+                                        </a> 
+                                    `
+    
+                citiesList.appendChild(cityCard)
+            })
         })
+
     }
 
     /* БИЛД СПИСКА ЗАВЕДЕНИЙ */
@@ -118,62 +125,67 @@ document.addEventListener("DOMContentLoaded", () => {
             currentPaginationId = currentPaginationParam.split("=")[1]
         }
 
-        let restaurantListArr = restaurantsList
-        let currentCityObj = restaurantListArr[0]
+        fetch(restaurantsListPath, {
+            method: 'get'
+        }).then(response => response.json()).then(json => {
 
-        if(currentCityId) {
-            currentCityObj = restaurantListArr.find(item => item.id == currentCityId) || restaurantListArr[0]
-        }
+            let restaurantListArr = json
+            let currentCityObj = restaurantListArr[0]
 
-        
-        // ищем нужные рестораны с учётом пагинации
-        let currentRestaurantFullList = currentCityObj.restaurants
-        let currentRestaurantList = currentRestaurantFullList.slice(currentPaginationId * cardsOnPage, currentPaginationId * cardsOnPage + cardsOnPage)
+            if(currentCityId) {
+                currentCityObj = restaurantListArr.find(item => item.id == currentCityId) || restaurantListArr[0]
+            }
 
-
-        //ставим название города
-        const cityNameEl = document.querySelector('[data-js=cityName]')
-        if(cityNameEl) {
-            cityNameEl.innerHTML = currentCityObj.name
-        }
-
-        // добавляем карточки ресторанов
-        currentRestaurantList.forEach(restaurant => {
-            let restaurantCard = document.createElement('div')
-            restaurantCard.classList.add('city-list__card', 'restaurant-card')
             
-            restaurantCard.innerHTML = `                              
-                                    <div class="restaurant-card__img">
-                                        <img src="${restaurant.photos[0]}" alt="">
-                                    </div>
-                                    <div class="restaurant-card__title">${restaurant.name}</div>
-                                    <div class="restaurant-card__text">${restaurant.shortText}</div>
-                                    <button class="btn restaurant-card__btn with-angles" data-id="${restaurant.id}" target="" data-js="openRestaurantBtn">
-                                        <span class="btn__text">смотреть</span>
-                                        <span class="btn__icon">
-                                            <svg>
-                                                <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                                            </svg>
-                                        </span>
-                                    </button>
-                                `
+            // ищем нужные рестораны с учётом пагинации
+            let currentRestaurantFullList = currentCityObj.restaurants
+            let currentRestaurantList = currentRestaurantFullList.slice(currentPaginationId * cardsOnPage, currentPaginationId * cardsOnPage + cardsOnPage)
 
-            restaurantsListEl.appendChild(restaurantCard)
+
+            //ставим название города
+            const cityNameEl = document.querySelector('[data-js=cityName]')
+            if(cityNameEl) {
+                cityNameEl.innerHTML = currentCityObj.name
+            }
+
+            // добавляем карточки ресторанов
+            currentRestaurantList.forEach(restaurant => {
+                let restaurantCard = document.createElement('div')
+                restaurantCard.classList.add('city-list__card', 'restaurant-card')
+                
+                restaurantCard.innerHTML = `                              
+                                        <div class="restaurant-card__img">
+                                            <img src="${restaurant.photos[0]}" alt="">
+                                        </div>
+                                        <div class="restaurant-card__title">${restaurant.name}</div>
+                                        <div class="restaurant-card__text">${restaurant.shortText}</div>
+                                        <button class="btn restaurant-card__btn with-angles" data-id="${restaurant.id}" target="" data-js="openRestaurantBtn">
+                                            <span class="btn__text">смотреть</span>
+                                            <span class="btn__icon">
+                                                <svg>
+                                                    <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    `
+
+                restaurantsListEl.appendChild(restaurantCard)
+            })
+
+
+            // формируем пагинацию
+            const paginationContainer = document.querySelector('[data-js="paginationContainer"]')
+            let pagesCount = Math.ceil(currentRestaurantFullList.length / cardsOnPage)
+
+            if(paginationContainer && pagesCount > 1) {
+                setPagination(paginationContainer, pagesCount, currentPaginationId, 'city.html?city-id=' + currentCityId)
+            }
+
+            openRestauranModal(currentRestaurantList)
+
+            // строим карту
+            initMap(currentRestaurantList);
         })
-
-
-        // формируем пагинацию
-        const paginationContainer = document.querySelector('[data-js="paginationContainer"]')
-        let pagesCount = Math.ceil(currentRestaurantFullList.length / cardsOnPage)
-
-        if(paginationContainer && pagesCount > 1) {
-            setPagination(paginationContainer, pagesCount, currentPaginationId, 'city.html?city-id=' + currentCityId)
-        }
-
-        openRestauranModal(currentRestaurantList)
-
-        // строим карту
-        initMap(currentRestaurantList);
     }
 
     /* НАПОЛНЕНИЕ СТРАНИЦЫ РЕСТОРАНА */
@@ -185,67 +197,75 @@ document.addEventListener("DOMContentLoaded", () => {
         let currentPageParams = window.location.search.slice(1).split("&")
         let currentRestaurantParam = currentPageParams.find(item => /^rest-id=/.test(item));
 
-        const citiesListArr = restaurantsList
-        let restaurantsListArr = citiesListArr.map(item => item.restaurants)
-        restaurantsListArr = [].concat(...restaurantsListArr)
-
-        let currentRestaurant = restaurantsListArr[0]
-        
-        if(currentRestaurantParam !== undefined) {
-            currentRestaurant = restaurantsListArr.find(item => item.id == currentRestaurantParam.split("=")[1])
-        }
-
-        let recipesListArr = recipesList.map(item => item.recipes)
-        recipesListArr = [].concat(...recipesListArr)
-
-        restaurantPage.querySelectorAll('[data-js="restaurantBack"]').forEach(item => {
-            item.setAttribute('href', `city.html?city-id=${currentRestaurant.cityId}`)
-        })
-        restaurantPage.querySelector('[data-js="restaurantTitle"]').innerHTML = currentRestaurant.name
-        restaurantPage.querySelector('[data-js="restaurantCity"]').innerHTML = citiesListArr.find(item => item.id = currentRestaurant.cityId).name
-
-        let restaurantSlider = document.querySelector('[data-js="restaurantSlider"] .swiper-wrapper')
-        currentRestaurant.photos.forEach(item => {
-            let slide = document.createElement('div')
-            slide.classList.add('restaurant__slide', 'swiper-slide')
-
-            slide.innerHTML = `
-                                <div class="restaurant__img">
-                                    <img src=${item} alt="фото ресторана">
-                                </div>
-                            `
-
-            restaurantSlider.appendChild(slide)
-        })
-
-        restaurantPage.querySelector('[data-js="restaurantText"]').innerHTML = currentRestaurant.modalText
-        restaurantPage.querySelector('[data-js="restaurantQuote"]').innerHTML = currentRestaurant.quote
-        restaurantPage.querySelector('[data-js="restaurantPhoto"]').setAttribute('src', currentRestaurant.authorPhoto)
-        restaurantPage.querySelector('[data-js="restaurantName"]').innerHTML = currentRestaurant.authorName
-        restaurantPage.querySelector('[data-js="restaurantPosition"]').innerHTML = currentRestaurant.authorPosition
-
-        let restaurantMenu = document.querySelector('[data-js="restaurantMenu"]')
-        currentRestaurant.menu.forEach(item => {
-            let menuItem = document.createElement('div')
-            menuItem.classList.add('restaurant-menu__item')
-
-            menuItem.innerHTML = recipesListArr.find(recipe => recipe.id == item).name
-
-            restaurantMenu.appendChild(menuItem)
-        })
-
-
-        restaurantPage.querySelector('[data-js="restaurantAddress"]').innerHTML = currentRestaurant.address
-        restaurantPage.querySelector('[data-js="restaurantMode"]').innerHTML = currentRestaurant.mode
-        restaurantPage.querySelector('[data-js="restaurantPhone"]').setAttribute('href', 'tel:' + currentRestaurant.phone.replace(/[^+\d]/g, ""))
-        restaurantPage.querySelector('[data-js="restaurantPhone"]').innerHTML = currentRestaurant.phone
-        restaurantPage.querySelectorAll('[data-js="restaurantSite"]').forEach(item => {
-            item.setAttribute('href', currentRestaurant.site)
-            if(item.classList.contains('restaurant__site')) {
-                item.innerHTML = currentRestaurant.site
+        fetch(restaurantsListPath, {
+            method: 'get'
+        }).then(response => response.json()).then(json => {
+            const citiesListArr = json
+    
+            let restaurantsListArr = citiesListArr.map(item => item.restaurants)
+            restaurantsListArr = [].concat(...restaurantsListArr)
+    
+            let currentRestaurant = restaurantsListArr[0]
+            
+            if(currentRestaurantParam !== undefined) {
+                currentRestaurant = restaurantsListArr.find(item => item.id == currentRestaurantParam.split("=")[1])
             }
-        })
+    
+            restaurantPage.querySelectorAll('[data-js="restaurantBack"]').forEach(item => {
+                item.setAttribute('href', `city.html?city-id=${currentRestaurant.cityId}`)
+            })
+            restaurantPage.querySelector('[data-js="restaurantTitle"]').innerHTML = currentRestaurant.name
+            restaurantPage.querySelector('[data-js="restaurantCity"]').innerHTML = citiesListArr.find(item => item.id = currentRestaurant.cityId).name
+    
+            let restaurantSlider = document.querySelector('[data-js="restaurantSlider"] .swiper-wrapper')
+            currentRestaurant.photos.forEach(item => {
+                let slide = document.createElement('div')
+                slide.classList.add('restaurant__slide', 'swiper-slide')
+    
+                slide.innerHTML = `
+                                    <div class="restaurant__img">
+                                        <img src=${item} alt="фото ресторана">
+                                    </div>
+                                `
+    
+                restaurantSlider.appendChild(slide)
+            })
+    
+            restaurantPage.querySelector('[data-js="restaurantText"]').innerHTML = currentRestaurant.modalText
+            restaurantPage.querySelector('[data-js="restaurantQuote"]').innerHTML = currentRestaurant.quote
+            restaurantPage.querySelector('[data-js="restaurantPhoto"]').setAttribute('src', currentRestaurant.authorPhoto)
+            restaurantPage.querySelector('[data-js="restaurantName"]').innerHTML = currentRestaurant.authorName
+            restaurantPage.querySelector('[data-js="restaurantPosition"]').innerHTML = currentRestaurant.authorPosition
 
+            fetch(recipesListPath, {
+                method: 'get'
+            }).then(response => response.json()).then(json => {
+
+                let recipesListArr = json.map(item => item.recipes)
+                recipesListArr = [].concat(...recipesListArr)
+        
+                let restaurantMenu = document.querySelector('[data-js="restaurantMenu"]')
+                currentRestaurant.menu.forEach(item => {
+                    let menuItem = document.createElement('div')
+                    menuItem.classList.add('restaurant-menu__item')
+        
+                    menuItem.innerHTML = recipesListArr.find(recipe => recipe.id == item).name
+        
+                    restaurantMenu.appendChild(menuItem)
+                })
+            })
+
+            restaurantPage.querySelector('[data-js="restaurantAddress"]').innerHTML = currentRestaurant.address
+            restaurantPage.querySelector('[data-js="restaurantMode"]').innerHTML = currentRestaurant.mode
+            restaurantPage.querySelector('[data-js="restaurantPhone"]').setAttribute('href', 'tel:' + currentRestaurant.phone.replace(/[^+\d]/g, ""))
+            restaurantPage.querySelector('[data-js="restaurantPhone"]').innerHTML = currentRestaurant.phone
+            restaurantPage.querySelectorAll('[data-js="restaurantSite"]').forEach(item => {
+                item.setAttribute('href', currentRestaurant.site)
+                if(item.classList.contains('restaurant__site')) {
+                    item.innerHTML = currentRestaurant.site
+                }
+            })
+        })
 
     }
 
@@ -255,26 +275,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if(!recipeCategoriesListEl) return
 
-        let recipeCategoriesListArr = recipesList
+        fetch(recipesListPath, {
+            method: 'get'
+        }).then(response => response.json()).then(json => {
 
-        recipeCategoriesListArr.forEach(category => {
-            let recipeCategoryCard = document.createElement('div')
-            recipeCategoryCard.classList.add('recipe-categories__card', 'recipe-category')
- 
-            recipeCategoryCard.innerHTML = `                              
-                                    <div class="recipe-category__img"><img src=${category.img} alt=""></div>
-                                    <h2 class="title title--h2 recipe-category__title">${category.name}</h2>
-                                    <a class="btn recipe-category__btn with-angles" href="recipes.html?category-id=${category.id}" target="">
-                                        <span class="btn__text">смотреть</span>
-                                        <span class="btn__icon">
-                                            <svg>
-                                                <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                                            </svg>
-                                        </span>
-                                    </a>
-                                `
+            let recipeCategoriesListArr = json
 
-            recipeCategoriesListEl.appendChild(recipeCategoryCard)
+            recipeCategoriesListArr.forEach(category => {
+                let recipeCategoryCard = document.createElement('div')
+                recipeCategoryCard.classList.add('recipe-categories__card', 'recipe-category')
+    
+                recipeCategoryCard.innerHTML = `                              
+                                        <div class="recipe-category__img"><img src=${category.img} alt=""></div>
+                                        <h2 class="title title--h2 recipe-category__title">${category.name}</h2>
+                                        <a class="btn recipe-category__btn with-angles" href="recipes.html?category-id=${category.id}" target="">
+                                            <span class="btn__text">смотреть</span>
+                                            <span class="btn__icon">
+                                                <svg>
+                                                    <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    `
+
+                recipeCategoriesListEl.appendChild(recipeCategoryCard)
+            })
         })
     }
     
@@ -301,62 +326,67 @@ document.addEventListener("DOMContentLoaded", () => {
             currentPaginationId = currentPaginationParam.split("=")[1]
         }
 
-        let recipesListArr = recipesList
-        let currentCategoryObj = recipesListArr[0]
+        fetch(recipesListPath, {
+            method: 'get'
+        }).then(response => response.json()).then(json => {
 
-        if(currentCategoryId) {
-            currentCategoryObj = recipesListArr.find(item => item.id == currentCategoryId) || recipesListArr[0]
-        }
+            let recipesListArr = json
+            let currentCategoryObj = recipesListArr[0]
 
-        
-        // ищем нужные рецепты с учётом пагинации
-        let currentRecipesFullList = currentCategoryObj.recipes
-        let currentRecipesList = currentRecipesFullList.slice(currentPaginationId * cardsOnPage, currentPaginationId * cardsOnPage + cardsOnPage)
-
-
-        //ставим название категории
-        const categoryNameEl = document.querySelector('[data-js=categoryName]')
-        if(categoryNameEl) {
-            categoryNameEl.innerHTML = currentCategoryObj.name
-        }
-
-        // добавляем карточки ресторанов
-        currentRecipesList.forEach(recipe => {
-            let recipeCard = document.createElement('div')
-            if(recipe.author == "chef") {
-                recipeCard.classList.add('recipes__card', 'recipe-card', "recipe-card--sticker")
-            } else {
-                recipeCard.classList.add('recipes__card', 'recipe-card')
+            if(currentCategoryId) {
+                currentCategoryObj = recipesListArr.find(item => item.id == currentCategoryId) || recipesListArr[0]
             }
+
             
-            recipeCard.innerHTML = `                                          
-                                <div class="recipe-card__inner">
-                                    <div class="recipe-card__img">
-                                        <img src=${recipe.img} alt=""></div>
-                                    <h2 class="title title--h2 recipe-card__title">${recipe.name}</h2>
-                                    <div class="recipe-card__city">${recipe.city}</div>
-                                    <a class="btn recipe-card__btn with-angles" href="recipe.html?recipe-id=${recipe.id}" target="">
-                                        <span class="btn__text">узнать рецепт</span>
-                                        <span class="btn__icon">
-                                            <svg>
-                                                <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                                            </svg>
-                                        </span>
-                                    </a>
-                                </div>
-                                `
+            // ищем нужные рецепты с учётом пагинации
+            let currentRecipesFullList = currentCategoryObj.recipes
+            let currentRecipesList = currentRecipesFullList.slice(currentPaginationId * cardsOnPage, currentPaginationId * cardsOnPage + cardsOnPage)
 
-            recipesListEl.appendChild(recipeCard)
+
+            //ставим название категории
+            const categoryNameEl = document.querySelector('[data-js=categoryName]')
+            if(categoryNameEl) {
+                categoryNameEl.innerHTML = currentCategoryObj.name
+            }
+
+            // добавляем карточки ресторанов
+            currentRecipesList.forEach(recipe => {
+                let recipeCard = document.createElement('div')
+                if(recipe.author == "chef") {
+                    recipeCard.classList.add('recipes__card', 'recipe-card', "recipe-card--sticker")
+                } else {
+                    recipeCard.classList.add('recipes__card', 'recipe-card')
+                }
+                
+                recipeCard.innerHTML = `                                          
+                                    <div class="recipe-card__inner">
+                                        <div class="recipe-card__img">
+                                            <img src=${recipe.img} alt=""></div>
+                                        <h2 class="title title--h2 recipe-card__title">${recipe.name}</h2>
+                                        <div class="recipe-card__city">${recipe.city}</div>
+                                        <a class="btn recipe-card__btn with-angles" href="recipe.html?recipe-id=${recipe.id}" target="">
+                                            <span class="btn__text">узнать рецепт</span>
+                                            <span class="btn__icon">
+                                                <svg>
+                                                    <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    `
+
+                recipesListEl.appendChild(recipeCard)
+            })
+
+
+            // формируем пагинацию
+            const paginationContainer = document.querySelector('[data-js="paginationContainer"]')
+            let pagesCount = Math.ceil(currentRecipesFullList.length / cardsOnPage)
+
+            if(paginationContainer && pagesCount > 1) {
+                setPagination(paginationContainer, pagesCount, currentPaginationId, 'recipes.html?category-id=' + currentCategoryId)
+            }
         })
-
-
-        // формируем пагинацию
-        const paginationContainer = document.querySelector('[data-js="paginationContainer"]')
-        let pagesCount = Math.ceil(currentRecipesFullList.length / cardsOnPage)
-
-        if(paginationContainer && pagesCount > 1) {
-            setPagination(paginationContainer, pagesCount, currentPaginationId, 'recipes.html?category-id=' + currentCategoryId)
-        }
 
     }
     
@@ -369,82 +399,87 @@ document.addEventListener("DOMContentLoaded", () => {
         let currentPageParams = window.location.search.slice(1).split("&")
         let currentRecipeParam = currentPageParams.find(item => /^recipe-id=/.test(item));
 
-        let recipesListArr = recipesList.map(item => item.recipes)
-        recipesListArr = [].concat(...recipesListArr)
+        fetch(recipesListPath, {
+            method: 'get'
+        }).then(response => response.json()).then(json => {
 
-        let currentRecipe = recipesListArr[0]
-        
-        if(currentRecipeParam !== undefined) {
-            currentRecipe = recipesListArr.find(item => item.id == currentRecipeParam.split("=")[1])
-        }
+            let recipesListArr = json.map(item => item.recipes)
+            recipesListArr = [].concat(...recipesListArr)
 
-        if(currentRecipe.author == "chef") {
-            recipePage.classList.add('recipe-page--chef')
-        }
-
-        recipePage.querySelectorAll('[data-js="recipeBack"]').forEach(item => {
-            item.setAttribute('href', `recipes.html?category-id=${currentRecipe.categoryId}`)
-        })
-        recipePage.querySelector('[data-js="recipeTitle"]').innerHTML = currentRecipe.name
-        recipePage.querySelector('[data-js="chefPhoto"]').setAttribute('src', currentRecipe.chefPhoto)
-        recipePage.querySelector('[data-js="dishPhoto"]').setAttribute('src', currentRecipe.dishPhoto)
-        recipePage.querySelector('[data-js="recipeAuthorName"]').innerHTML = currentRecipe.authorName
-        recipePage.querySelector('[data-js="recipeAuthorInfo"]').innerHTML = currentRecipe.authorInfo
-
-        let recipeStickers = document.querySelector('[data-js="recipeStickers"]')
-
-        if(currentRecipe.stickers.length > 0) {
-            currentRecipe.stickers.forEach(item => {
-                let sticker = document.createElement('div')
-                sticker.classList.add('recipe__sticker', `recipe__sticker--${item.color}`)
-    
-                sticker.innerHTML = item.text
-    
-                recipeStickers.appendChild(sticker)
-            })
-        }
-
-        recipePage.querySelector('[data-js="restaurantLogo"]').setAttribute('src', currentRecipe.restLogo)
-        recipePage.querySelector('[data-js="recipeDesc"]').innerHTML = currentRecipe.desc
-        recipePage.querySelector('[data-js="recipeCount"]').innerHTML = currentRecipe.count
-
-        let recipeIngredients = document.querySelector('[data-js="recipeIngredients"]')
-
-        currentRecipe.ingredients.forEach(item => {
-            let subtitle = document.createElement('div') 
-            subtitle.classList.add('recipe-ingredients__subtitle')
-            subtitle.innerHTML = item.name
-
-            let list = document.createElement('ul')
-            list.classList.add('recipe-ingredients__list')
+            let currentRecipe = recipesListArr[0]
             
-            item.list.forEach(listItem => {
-                let li = document.createElement('li')
+            if(currentRecipeParam !== undefined) {
+                currentRecipe = recipesListArr.find(item => item.id == currentRecipeParam.split("=")[1])
+            }
+
+            if(currentRecipe.author == "chef") {
+                recipePage.classList.add('recipe-page--chef')
+            }
+
+            recipePage.querySelectorAll('[data-js="recipeBack"]').forEach(item => {
+                item.setAttribute('href', `recipes.html?category-id=${currentRecipe.categoryId}`)
+            })
+            recipePage.querySelector('[data-js="recipeTitle"]').innerHTML = currentRecipe.name
+            recipePage.querySelector('[data-js="chefPhoto"]').setAttribute('src', currentRecipe.chefPhoto)
+            recipePage.querySelector('[data-js="dishPhoto"]').setAttribute('src', currentRecipe.dishPhoto)
+            recipePage.querySelector('[data-js="recipeAuthorName"]').innerHTML = currentRecipe.authorName
+            recipePage.querySelector('[data-js="recipeAuthorInfo"]').innerHTML = currentRecipe.authorInfo
+
+            let recipeStickers = document.querySelector('[data-js="recipeStickers"]')
+
+            if(currentRecipe.stickers.length > 0) {
+                currentRecipe.stickers.forEach(item => {
+                    let sticker = document.createElement('div')
+                    sticker.classList.add('recipe__sticker', `recipe__sticker--${item.color}`)
+        
+                    sticker.innerHTML = item.text
+        
+                    recipeStickers.appendChild(sticker)
+                })
+            }
+
+            recipePage.querySelector('[data-js="restaurantLogo"]').setAttribute('src', currentRecipe.restLogo)
+            recipePage.querySelector('[data-js="recipeDesc"]').innerHTML = currentRecipe.desc
+            recipePage.querySelector('[data-js="recipeCount"]').innerHTML = currentRecipe.count
+
+            let recipeIngredients = document.querySelector('[data-js="recipeIngredients"]')
+
+            currentRecipe.ingredients.forEach(item => {
+                let subtitle = document.createElement('div') 
+                subtitle.classList.add('recipe-ingredients__subtitle')
+                subtitle.innerHTML = item.name
+
+                let list = document.createElement('ul')
+                list.classList.add('recipe-ingredients__list')
                 
-                if(listItem.sponsor) {
-                    li.classList.add("_sponsor")
-                }
+                item.list.forEach(listItem => {
+                    let li = document.createElement('li')
+                    
+                    if(listItem.sponsor) {
+                        li.classList.add("_sponsor")
+                    }
 
-                li.innerHTML = listItem.text
+                    li.innerHTML = listItem.text
 
-                list.appendChild(li)
+                    list.appendChild(li)
+                })
+
+                recipeIngredients.appendChild(subtitle)
+                recipeIngredients.appendChild(list)
             })
 
-            recipeIngredients.appendChild(subtitle)
-            recipeIngredients.appendChild(list)
-        })
+            recipePage.querySelector('[data-js="ingredientsPhoto"]').setAttribute('src', currentRecipe.ingredientsPhoto)
+            recipePage.querySelector('[data-js="ingredientsLink"]').setAttribute('href', currentRecipe.ingredientsLink)
 
-        recipePage.querySelector('[data-js="ingredientsPhoto"]').setAttribute('src', currentRecipe.ingredientsPhoto)
-        recipePage.querySelector('[data-js="ingredientsLink"]').setAttribute('href', currentRecipe.ingredientsLink)
+            let recipeProcess = document.querySelector('[data-js="recipeProcess"]')
 
-        let recipeProcess = document.querySelector('[data-js="recipeProcess"]')
+            currentRecipe.process.forEach(item => {
 
-        currentRecipe.process.forEach(item => {
+                let li = document.createElement('li')
+                li.innerHTML = item
 
-            let li = document.createElement('li')
-            li.innerHTML = item
-
-            recipeProcess.appendChild(li)
+                recipeProcess.appendChild(li)
+            })
         })
     }
 
@@ -523,7 +558,7 @@ function openRestauranModal(currentRestaurantList) {
     })
 }
 
-const restaurantsList = [
+/*const restaurantsList = [
     {
         id: '0',
         name: 'Москва',
@@ -1226,9 +1261,9 @@ const restaurantsList = [
         photo: './img/cities/rostov-na-donu.jpg',
         restaurants: []
     },
-]
+]*/
 
-const recipesList = [
+/*const recipesList = [
     {
         id: "0",
         name: "блюда из&nbsp;творога",
@@ -1679,5 +1714,5 @@ const recipesList = [
         img: "./img/recipes/recipe_category_img.jpg",
         recipes: []
     },
-]
+]*/
 

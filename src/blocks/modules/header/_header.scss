@@ -9,6 +9,10 @@
     background-color: #fff;
     transition: top $tr-time linear;
 
+    @include max(1099) {
+        padding: 15px 0;
+    }
+
     &__container {
         display: flex;
         flex-direction: column;
@@ -19,6 +23,23 @@
         width: 100%;
     }
 
+    &__burger {
+        display: none;
+
+        @include max(1099) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+
+            svg {
+                width: 20px;
+                height: 8px;
+            }
+        }
+    }
+
 }
 
 .header-images {
@@ -26,6 +47,33 @@
     align-items: center;
     gap: 46px;
     padding-bottom: 36px;
+
+    @include max(1099) {
+        justify-content: center;
+        position: absolute;
+        width: 100%;
+        bottom: 15px;
+        left: 0;
+        gap: 16px;
+        padding-bottom: 0;
+        background-color: $c-white;
+        transition: bottom $tr-time linear;
+    }
+
+    &__image {
+        max-width: 153px;
+        max-height: 99px;
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        @include max(1099) {
+            max-width: 72px;
+            max-height: 45.43px;
+        }
+    }
 }
 
 .header-nav {
@@ -34,6 +82,17 @@
     justify-content: space-between;
     gap: 20px;
     min-width: 100%;
+
+    @include max(1099) {
+        flex-direction: column;
+        padding: 100px 0 150px;
+        padding-top: 0;
+        padding-bottom: 0;
+        overflow: hidden;
+        gap: 50px;
+        max-height: 0;
+        transition: all $tr-time linear;
+    }
 
     &__item {
         font-size: 20px;
@@ -56,5 +115,13 @@
 .header {
     &--small {
         top: -135px;
+
+        @include max(1099) {
+            top: 0;
+
+            .header-images {
+                bottom: 105%;
+            }
+        }
     }
 }

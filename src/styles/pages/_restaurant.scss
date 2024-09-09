@@ -203,6 +203,9 @@
             font-weight: 400;
             line-height: 1.6em;
 
+            br {
+                display: none;
+            }
         }
     }
 }

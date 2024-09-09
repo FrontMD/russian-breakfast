@@ -7,7 +7,10 @@ header.header(data-js="header")
                 img(src="./img/ekoniva.svg" alt="Эконива")
             .header-images__image 
                 img(src="./img/metro.svg" alt="Метро")                                
-        .header__bottom 
+        .header__bottom
+            .header__burger
+                svg
+                    use(xlink:href=`./img/sprites/sprite.svg#burger`)
             nav.header-nav
                 a.header-nav__item(href="/" class = page=='main' ? 'header-nav__item--active' : "") о проекте
                 a.header-nav__item(href="cities.html" class = page=='cities' ? 'header-nav__item--active' : "") куда сходить на «Русский завтрак»?

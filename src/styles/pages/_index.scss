@@ -12,6 +12,10 @@
             flex-direction: column;
             gap: 203px;
             width: 353px;
+
+            @include max(1359) {
+                gap: 60px
+            }
         }
 
         &__title {
