@@ -16,13 +16,21 @@ block content
                 .cities-intro__top
                     .cities-intro__logo.logo
                         img(src="./img/logo.svg" alt="Логотип Русский завтрак")
-                    div
+                    div.cities-intro__titleblock
                         +title({
                             tag: "h1",
                             classes: "cities-intro__title",
                             text: "фестиваль <br>в гостиницах, <br>кафе и ресторанах"
                         })
                         .cities-intro__date 1 октября — 30 ноября
+                        .cities-intro__offer Станьте новой точкой на карте всероссийского Культурно-гастрономического проекта
+                        a.cities-intro__link(href="#")
+                            img(src="./img/decor.svg")
+                            span На сайт Русского завтрака
+                            svg
+                                use(xlink:href=`./img/sprites/sprite.svg#btn_arrow`)
+
+
 
                 .cities-intro__bottom
                     .cities-intro__icon

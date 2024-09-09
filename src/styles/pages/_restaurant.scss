@@ -1,10 +1,19 @@
 .restaurant-page {
     position: relative;
     padding-top: 218px;
+    padding-bottom: 64px;
     overflow: hidden;
+
+    @include max(1099) {
+        padding-top: 75px;
+    }
 
     .restaurant {
         padding-top: 108px;
+
+        @include max(767) {
+            padding-top: 83px;
+        }
 
         &__inner {
             max-width: 1076px;
@@ -12,6 +21,10 @@
             padding: 48px 0 90px;
             border: 0.82px solid $c-accent;
             border-radius: 10px;
+
+            @include max(1023) {
+                padding: 41px 17px 72px;
+            }
         }
 
         &__back-top {
@@ -19,6 +32,11 @@
             background-color: transparent;
             padding: 9.1px 29.2px;
             gap: 7.5px;
+
+            @include max(767) {
+                background-image: url(../img/angles_transparent_bg.png);
+                color: $c-accent;
+            }
 
             .btn__text {
                 font-size: 14px;
@@ -35,6 +53,11 @@
             color: $c-accent;
             font-size: 90px;
             line-height: 1.09em;
+
+            @include max(767) {
+                font-size: 40px;
+                margin-top: 28px;
+            }
         }
 
         &__city {
@@ -44,6 +67,10 @@
             font-size: 30px;
             line-height: 1.1em;
             font-weight: 700;
+
+            @include max(767) {
+                margin-top: 12px;
+            }
         }
 
         &__slider {
@@ -51,6 +78,14 @@
             margin: 63px auto 0;
             overflow: hidden;
             max-width: 881px;
+
+            @include max(767) {
+                margin: 22px auto 0;
+
+                .slider-controls {
+                    display: none;
+                }
+            }
         }
 
         &__img {
@@ -59,6 +94,11 @@
             border-radius: 10px;
             overflow: hidden;
             margin: 0 auto;
+
+            @include max(767) {
+                max-width: 100%;
+                aspect-ratio: 1.49 / 1;
+            }
 
             img {
                 width: 100%;
@@ -73,6 +113,11 @@
             margin: 90px auto 0;
             padding-bottom: 60px;
             border-bottom: 1px solid $c-accent;
+
+            @include max(767) {
+                margin-top: 73px;
+                padding-bottom: 158px;
+            }
         }
 
         &__text {
@@ -80,6 +125,11 @@
             font-size: 20px;
             font-weight: 400;
             line-height: 1.1em;
+            padding-right: 174px;
+
+            @include max(767) {
+                padding-right: 0;
+            }
         }
 
         &__decor {
@@ -88,6 +138,11 @@
             right: 0;
             width: 174px;
             aspect-ratio: 1 / 1;
+
+            @include max(767) {
+                width: 117px;
+                right: 30px;
+            }
 
             img {
                 width: 100%;
@@ -101,10 +156,19 @@
             margin: 139px auto 0;
             padding-bottom: 104px;
             border-bottom: 1px solid $c-accent;
+
+            @include max(767) {
+                margin-top: 61px;
+                padding-bottom: 72px;
+            }
         }
 
         &__menu {
             margin-top: 94px;
+
+            @include max(767) {
+                margin-top: 60px;
+            }
         }
 
         &__contacts {
@@ -117,6 +181,11 @@
             font-size: 15px;
             font-weight: 400;
             line-height: 1.2em;
+
+            @include max(1023) {
+                margin: 82px -17px 0;
+                border-radius: 10px;
+            }
         }
 
         &__btns {
@@ -125,6 +194,12 @@
             display: flex;
             align-items: center;
             gap: 164px;
+
+            @include max(1023) {
+                margin-top: 43px;
+                flex-direction: column-reverse;
+                gap: 26px;
+            }
         }
 
         &__btn {
@@ -164,6 +239,10 @@
             font-size: 20px;
             font-weight: 400;
             line-height: 1.1em;
+
+            @include max(767) {
+                margin-top: 22px;
+            }
         }
 
         &__photo {

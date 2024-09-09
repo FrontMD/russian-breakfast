@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     recipesListBuild() // строит список рецептов
     recipePageBuild() // наполняет страницу рецепта
 
+    const windowWidth = window.innerWidth
     
     /* КАРТА НА СТРАНИЦЕ ГОРОДА */
     async function initMap(currentRestaurantList) {
@@ -20,6 +21,11 @@ document.addEventListener("DOMContentLoaded", () => {
         await ymaps3.ready;
     
         const {YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer, YMapMarker} = ymaps3;
+
+        let zoom = 12;
+        if(windowWidth < 768) {
+            zoom = 14
+        }
     
     
         const map = new YMap(
@@ -27,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
             {
                 location: {
                     center: currentRestaurantList[0].coords,
-                    zoom: 12
+                    zoom: zoom
                 }
             },
             [
@@ -59,10 +65,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const restaurantSliderEx = new Swiper(restaurantSlider, {
             loop: true,
             speed: 400,
+            spaceBetween: 20,
             navigation: {
                 nextEl: sliderNext,
                 prevEl: sliderPrev,
-              },
+            },
+
+            breakpoints: {
+                767: {
+                    spaceBetween: 0
+                }
+            }
         });
     }
 
@@ -136,22 +149,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 currentCityObj = restaurantListArr.find(item => item.id == currentCityId) || restaurantListArr[0]
             }
 
-            
-            // ищем нужные рестораны с учётом пагинации
-            let currentRestaurantFullList = currentCityObj.restaurants
-            let currentRestaurantList = currentRestaurantFullList.slice(currentPaginationId * cardsOnPage, currentPaginationId * cardsOnPage + cardsOnPage)
-
-
             //ставим название города
             const cityNameEl = document.querySelector('[data-js=cityName]')
             if(cityNameEl) {
                 cityNameEl.innerHTML = currentCityObj.name
             }
+            
+            // ищем нужные рестораны с учётом пагинации
+            let currentRestaurantFullList = currentCityObj.restaurants
+            let currentRestaurantList = currentRestaurantFullList
+            if(windowWidth > 767) {
+                currentRestaurantList = currentRestaurantFullList.slice(currentPaginationId * cardsOnPage, currentPaginationId * cardsOnPage + cardsOnPage)
+            }
 
             // добавляем карточки ресторанов
             currentRestaurantList.forEach(restaurant => {
                 let restaurantCard = document.createElement('div')
-                restaurantCard.classList.add('city-list__card', 'restaurant-card')
+                restaurantCard.classList.add('city-list__card', 'restaurant-card', "swiper-slide")
                 
                 restaurantCard.innerHTML = `                              
                                         <div class="restaurant-card__img">
@@ -169,16 +183,35 @@ document.addEventListener("DOMContentLoaded", () => {
                                         </button>
                                     `
 
-                restaurantsListEl.appendChild(restaurantCard)
+                let restaurantsListWrapp = restaurantsListEl.querySelector('.swiper-wrapper')             
+                restaurantsListWrapp.appendChild(restaurantCard)
             })
 
 
-            // формируем пагинацию
-            const paginationContainer = document.querySelector('[data-js="paginationContainer"]')
-            let pagesCount = Math.ceil(currentRestaurantFullList.length / cardsOnPage)
+            if(windowWidth > 767) {
+                // формируем пагинацию
+                const paginationContainer = document.querySelector('[data-js="paginationContainer"]')
+                let pagesCount = Math.ceil(currentRestaurantFullList.length / cardsOnPage)
+    
+                if(paginationContainer && pagesCount > 1) {
+                    setPagination(paginationContainer, pagesCount, currentPaginationId, 'city.html?city-id=' + currentCityId)
+                }
+            } else {
+                //инициализируем слайдер
+                const sliderPrev = restaurantsListEl.querySelector('[data-js="sliderControlPrev"]')
+                const sliderNext = restaurantsListEl.querySelector('[data-js="sliderControlNext"]')
+        
+                const restaurantsListSlider = new Swiper(restaurantsListEl, {
+                    slidesPerView: 1,
+                    loop: true,
+                    speed: 400,
+                    spaceBetween: 20,
+                    navigation: {
+                        nextEl: sliderNext,
+                        prevEl: sliderPrev,
+                      },
+                });
 
-            if(paginationContainer && pagesCount > 1) {
-                setPagination(paginationContainer, pagesCount, currentPaginationId, 'city.html?city-id=' + currentCityId)
             }
 
             openRestauranModal(currentRestaurantList)

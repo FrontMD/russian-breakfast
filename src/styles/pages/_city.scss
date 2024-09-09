@@ -3,30 +3,101 @@
     padding-top: 202px;
     overflow: hidden;
 
+    @include max(1099) {
+        padding-top: 75px;
+    }
+
     .city-intro {
         &__container {
             display: flex;
             align-items: center;
             justify-content: flex-end;
+
+            @include max(1023) {
+                flex-direction: column;
+                padding-left: 0;
+                padding-right: 0;
+            }
         }
 
         &__img {
             margin-right: 11px;
             margin-left: -100px;
             flex: 0 0 434px;
+
+            @include max(1023) {
+                flex-basis: auto;
+                margin: 0;
+                margin-top: -40px;
+                z-index: 3;
+            }
+
+            @include max(767) {
+                margin-top: -20px;
+            }
+
+            img,
+            picture {
+                width: 100%;
+            }
         }
 
         &__logo {
             flex: 0 0 340px;
+
+            @include max(1023) {
+                order: -1;
+                flex-basis: auto;
+                width: 100%;
+                max-width: 680px;
+                z-index: 5;
+            }
+
+            @include max(767) {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
         }
 
         &__desc {
             flex: 0 0 400px;
             margin-left: 51px;
+
+            @include max(1023) {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 31px 20px 41px;
+                flex-basis: auto;
+                width: 100%;
+                margin: 0;
+                background-color: $c-blue-bg;
+            }
         }
 
         &__title {
             margin-top: 5px;
+
+            @include max(1023) {
+                font-size: 40px;
+                line-height: 1em;
+                margin-top: 17px;
+            }
+        }
+
+        &__subtitle {
+            display: none;
+
+            @include max(1023) {
+                display: block;
+                margin-top: 19px;
+                max-width: 350px;
+                font-size: 18px;
+                font-weight: 400;
+                line-height: 21.6px;
+                text-align: center;
+            }
         }
 
         &__date {
@@ -35,6 +106,13 @@
             font-weight: 400;
             line-height: 1.2em;
             color: $c-accent;
+
+            @include max(1023) {
+                order: -1;
+                color: $c-accent-2;
+                font-size: 18px;
+                margin-top: 0;
+            }
         }
     }
 
@@ -42,11 +120,21 @@
         padding-top: 140px;
         text-align: center;
 
+        @include max(767) {
+            padding-top: 38px;
+        }
+
         &__inner {
             position: relative;
             padding-top: 78px;
-            border: 2px solid #E42313;
+            border: 2px solid $c-accent;
             border-radius: 10px;
+
+            @include max(767) {
+                padding-top: 0;
+                border: none;
+                text-align: left;
+            }
         }
 
         &__decor {
@@ -55,6 +143,14 @@
             top: -79px;
             width: 183px;
             height: 190px;
+
+            @include max(767) {
+                left: auto;
+                right: -85px;
+                top: -85px;
+                width: 177px;
+                height: 183.77px;
+            }
 
             img {
                 width: 100%;
@@ -65,6 +161,15 @@
         &__text {
             max-width: 773px;
             margin: 33px auto 0;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 1.1em;
+            text-align: center;
+
+            @include max(767) {
+                margin: 15px auto 0;
+                text-align: left;
+            }
         }
 
         &__map {
@@ -73,6 +178,13 @@
             margin-top: 47px;
             border-radius: 10px;
             overflow: hidden;
+
+            @include max(767) {
+                margin-top: 33px;
+                height: 351px;
+                border: 2px solid $c-accent;
+
+            }
         }
     }
 
@@ -87,6 +199,25 @@
         padding-top: 133px;
         padding-bottom: 114px;
 
+        @include max(767) {
+            position: relative;
+            padding-top: 70px;
+            padding-bottom: 93px;
+
+            &::after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                top: 19px;
+                transform: translateX(-50%);
+                width: 36px;
+                height: 36px;
+                background-image: url(../img/decor.svg);
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+        }
+
         &__header {
             position: relative;
         }
@@ -100,6 +231,10 @@
             padding: 0;
             color: $c-accent;
             background-color: transparent;
+
+            @include max(767) {
+                gap: 5px;
+            }
 
             .btn__text {
                 font-size: 18px;
@@ -121,6 +256,11 @@
             text-align: center;
             font-size: 45px;
             line-height: 1.1em;
+
+            @include max(767) {
+                font-size: 40px;
+                line-height: 1;
+            }
         }
 
         &__list {
@@ -128,10 +268,60 @@
             grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 14px 22px;
             margin-top: 25px;
+
+            @include max(1023) {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            @include max(767) {
+                display: block;
+                margin-top: 48px;
+            }
+
+            .swiper-wrapper {
+                display: contents;
+
+                @include max(767) {
+                    display: flex;
+                }
+
+            }
+
+            .slider-controls {
+                display: none;
+
+                @include max(767) {
+                    display: block;
+
+                }
+            }
+
+            .slider-control {
+                background-color: $c-white;
+                width: 60px;
+                height: 60px;
+
+                svg {
+                    width: 30px;
+                }
+
+                &--prev {
+                    left: 33px;
+                }
+
+                &--next {
+                    right: 33px;
+                }
+            }
         }
 
         &__pagination {
             margin-top: 79px;
+
+            @include max(767) {
+                display: none;
+            }
+
         }
     }
 
@@ -143,9 +333,14 @@
         justify-content: flex-end;
         padding-bottom: 23px;
         border-radius: 10px;
-        height: 345px;
+        min-height: 345px;
         border: 2px solid $c-accent;
         overflow: hidden;
+
+        @include max(767) {
+            min-height: 373px;
+            padding-bottom: 28px;
+        }
 
         &__img {
             position: absolute;
@@ -169,6 +364,10 @@
             font-weight: 400;
             line-height: 1.09em;
             letter-spacing: 0.06em;
+
+            @include max(767) {
+                font-size: 30px;
+            }
         }
 
         &__text {
@@ -198,6 +397,14 @@
             background-color: transparent;
             z-index: 5;
             background-size: 171px 35px;
+
+            @include max(767) {
+                margin-top: 8px;
+            }
+
+            .btn__text {
+                font-size: 14px;
+            }
         }
 
         &:after {
@@ -211,22 +418,42 @@
             border-radius: 10px;
             z-index: 3;
 
+            @include max(767) {
+                height: 201px;
+            }
+
         }
     }
 
     &__bg {
         position: absolute;
 
+        @include max(1023) {
+            display: none;
+        }
+
         &--1 {
             right: 0;
             top: 202px;
             width: 222px;
+
+            @include max(1359) {
+                width: 190px;
+            }
+
+            @include max(1099) {
+                top: 75px;
+            }
         }
 
         &--2 {
             width: 141px;
             right: 0;
             top: 525px;
+
+            @include max(1099) {
+                top: 398px;
+            }
         }
 
         img {

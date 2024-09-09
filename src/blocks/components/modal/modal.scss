@@ -14,6 +14,10 @@
         transition: all 0.3s linear;
         transform: scale(1);
         opacity: 1;
+
+        @include max(1023) {
+            margin: 20px 0 0;
+        }
     }
 }
 
@@ -36,6 +40,12 @@
         z-index: 20;
         color: $c-accent;
 
+        @include max(1023) {
+            right: 17px;
+            top: 16px;
+            color: $c-white;
+        }
+
         svg {
             width: 100%;
             height: 100%;
@@ -48,6 +58,11 @@
         width: 100%;
         max-width: 736px;
         z-index: 9999;
+
+        @include max(1023) {
+            width: calc(100% - 40px);
+            margin: 0 auto;
+        }
     }
 }
 
@@ -62,6 +77,10 @@
         padding-bottom: 60px;
         overflow: hidden;
 
+        @include max(1023) {
+            padding-bottom: 36px;
+        }
+
         &:after {
             content: "";
             position: absolute;
@@ -72,6 +91,10 @@
             background-color: $c-blue-bg;
             border-radius: 10px;
             z-index: 3;
+
+            @include max(1023) {
+                height: calc(100% - 208px);
+            }
         }
     }
 
@@ -80,6 +103,10 @@
         width: 100%;
         height: 434px;
         z-index: 1;
+
+        @include max(1023) {
+            height: 250px;
+        }
 
         img {
             width: 100%;
@@ -100,6 +127,13 @@
         font-weight: 400;
         line-height: 1.09em;
         letter-spacing: 0.06em;
+
+        @include max(1023) {
+            font-size: 20px;
+            margin-top: -100px;
+            padding: 16px 72.3px;
+            margin-top: -68px;
+        }
     }
 
     &__text {
@@ -118,6 +152,11 @@
         line-height: 1em;
         letter-spacing: 0.06em;
         height: 3em;
+
+        @include max(1023) {
+            padding: 0 20px;
+            margin-top: 40px;
+        }
     }
 
     &__quote {
@@ -129,6 +168,12 @@
         font-weight: 700;
         font-size: 20px;
         line-height: 1.1em;
+
+        @include max(1023) {
+            padding: 0 20px;
+            margin-top: 22px;
+            text-align: left;
+        }
     }
 
     &__author {
@@ -140,6 +185,12 @@
         padding: 0 41px;
         font-size: 20px;
         line-height: 1.1em;
+
+        @include max(1023) {
+            padding: 0 20px;
+            margin-top: 39px;
+            gap: 24px;
+        }
     }
 
     &__photo {
@@ -167,6 +218,14 @@
         background-color: transparent;
         z-index: 5;
         background-size: 171px 35px;
+
+        .btn__text {
+            font-size: 14px;
+        }
+
+        @include max(1023) {
+            margin-top: 65px;
+        }
     }
 
 }

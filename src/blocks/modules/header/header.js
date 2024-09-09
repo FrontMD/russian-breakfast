@@ -1,5 +1,7 @@
 function headerControllInit() {
     const header = $('[data-js="header"]');
+
+    //анимация при скролее
     const initScroll = $(window).scrollTop();
     let oldScrollY = initScroll;
 
@@ -19,4 +21,14 @@ function headerControllInit() {
         oldScrollY = scroll
 
     });
+
+    //мобильное меню 
+    const headerBurger = header.find('[data-js="headerBurger"]');
+
+    if(headerBurger) {
+        headerBurger.on('click', () => {
+            header.toggleClass('isOpen')
+        })
+    }
+
 }

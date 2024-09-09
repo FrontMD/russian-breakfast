@@ -1,6 +1,10 @@
 .home-page {
     padding-top: 232px;
 
+    @include max(1099) {
+        padding-top: 75px;
+    }
+
     .home-intro {
 
         &__container {
@@ -16,11 +20,21 @@
             @include max(1359) {
                 gap: 60px
             }
+
+            @include max(767) {
+                width: 100%;
+                gap: 64vw;
+            }
         }
 
         &__title {
             font-size: 37px;
             color: $c-accent;
+
+            @include max(767) {
+                font-size: 35px;
+                max-width: 360px;
+            }
         }
 
         &__logo {
@@ -38,22 +52,50 @@
                 width: 100%;
                 height: 100%;
             }
+
+            @include max(1023) {
+                top: auto;
+                bottom: 0;
+                height: 57%;
+            }
+
+            @include max(767) {
+                left: 0;
+                bottom: 122px;
+                height: 77.7vw;
+            }
         }
     }
 
     .home-about {
         padding-top: 40px;
 
+        @include max(767) {
+            padding-top: 11px;
+        }
+
         &__container {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             gap: 40px;
+
+            @include max(1023) {
+                position: relative;
+                flex-direction: column;
+                padding-bottom: 95.5px;
+                gap: 28px;
+            }
         }
 
         &__left {
             flex: 1 1 50%;
             max-width: 447px;
+
+            @include max(1023) {
+                flex-basis: auto;
+                max-width: 100%;
+            }
         }
 
         &__text {
@@ -70,10 +112,19 @@
             max-width: 289px;
             margin-left: 6px;
             margin-top: 90px;
+            z-index: 5;
 
             img {
                 width: 100%;
                 height: auto;
+            }
+
+            @include max(1023) {
+                position: absolute;
+                bottom: 0;
+                right: 29px;
+                margin: 0;
+                max-width: 165px;
             }
         }
 
@@ -81,6 +132,17 @@
             padding-top: 16px;
             flex: 0 0 540px;
             max-width: 540px;
+
+            @include max(1099) {
+                flex: 0 0 490px;
+                max-width: 490px;
+            }
+
+            @include max(1023) {
+                flex-basis: auto;
+                max-width: 100%;
+                padding-top: 0;
+            }
         }
 
         .author-card {
@@ -93,6 +155,14 @@
             border: 1px solid $c-accent;
             border-radius: 10px;
             margin-top: 48px;
+
+            @include max(1099) {
+                padding: 60px 25px 66px;
+            }
+
+            @include max(767) {
+                padding: 15px 10px 70px;
+            }
 
             &__title {
                 font-family: $ff-title;
@@ -107,6 +177,11 @@
                 text-transform: uppercase;
                 white-space: nowrap;
                 z-index: 5;
+
+                @include max(767) {
+                    font-size: 35px;
+                    top: -23px;
+                }
             }
 
             &::before {
@@ -120,6 +195,11 @@
                 border-radius: 30px;
                 border: 1px solid $c-accent;
                 background-color: #fff;
+
+                @include max(767) {
+                    width: 230px;
+                    height: 111px;
+                }
             }
 
             &::after {
@@ -131,12 +211,18 @@
                 width: 360px;
                 height: 50px;
                 background-color: #fff;
+
+                @include max(767) {
+                    width: 270px;
+                    height: 70px;
+                }
             }
 
             &__photo {
                 width: 100px;
                 height: 100px;
                 border-radius: 50%;
+                z-index: 5;
 
                 img {
                     width: 100%;
@@ -150,6 +236,11 @@
                 font-weight: 400;
                 line-height: 1em;
                 text-transform: uppercase;
+
+                @include max(767) {
+                    margin-top: 21px;
+                    font-size: 18px;
+                }
             }
 
             &__position {
@@ -158,12 +249,20 @@
                 font-weight: 400;
                 line-height: 0.9em;
                 opacity: 0.5;
+
+                @include max(767) {
+                    font-size: 11px;
+                }
             }
 
             &__icon {
                 width: 50px;
                 height: 47px;
                 margin-top: 25px;
+
+                @include max(767) {
+                    margin-top: 10px;
+                }
 
                 svg {
                     width: 100%;
@@ -178,6 +277,11 @@
                 font-weight: 400;
                 line-height: 1.1em;
                 color: $c-accent;
+
+                @include max(767) {
+                    margin-top: 21px;
+                    font-size: 18px;
+                }
             }
 
         }
@@ -187,6 +291,14 @@
         padding-top: 148px;
         padding-bottom: 69px;
 
+        @include max(1023) {
+            padding-top: 42px;
+        }
+
+        @include max(767) {
+            padding-bottom: 106px;
+        }
+
         &__inner {
             padding: 13px 69px 45px;
             border-radius: 10px;
@@ -195,20 +307,68 @@
             background-repeat: no-repeat;
             background-position: top right;
             background-size: 555px;
+
+            @include max(1099) {
+                background-size: 495px;
+            }
+
+            @include max(1023) {
+                background-size: 305px;
+            }
+
+            @include max(767) {
+                position: relative;
+                background-size: 100% auto;
+                background-image: url(../img/home_banner_bg_mob.png);
+                background-position: bottom left;
+                padding: 10px 18px 57.44vw;
+
+                &::after {
+                    content: '';
+                    background-image: url(../img/decor_mob_1.png);
+                    position: absolute;
+                    left: 0;
+                    top: -54px;
+                    width: 103px;
+                    height: 107px;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    z-index: 1;
+
+                }
+            }
         }
 
         &__desc {
             max-width: 496px;
+
+            @include max(767) {
+                max-width: 100%;
+                display: flex;
+                flex-direction: column;
+            }
         }
 
         &__logo {
             width: 205px;
+
+            @include max(767) {
+                width: 117.5px;
+                margin: 0 auto;
+                order: -1;
+            }
         }
 
         &__title {
             color: $c-accent-2;
             font-size: 62px;
             margin-top: 12px;
+
+            @include max(767) {
+                margin-top: 6px;
+                font-size: 30px;
+                max-width: 250px;
+            }
         }
 
         &__date {
@@ -217,6 +377,12 @@
             font-size: 20px;
             font-weight: 400;
             line-height: 1.2em;
+
+            @include max(767) {
+                order: -1;
+                margin-top: 0;
+                font-size: 12px;
+            }
         }
 
         &__text {
@@ -225,10 +391,28 @@
             font-size: 26px;
             font-weight: 400;
             line-height: 0.91em;
+
+            @include max(767) {
+                margin-top: 6px;
+                font-size: 17px;
+                max-width: 280px;
+            }
         }
 
         &__btn {
             margin-top: 18px;
+
+
+            @include max(767) {
+                margin-top: 18px;
+                max-width: 100%;
+                padding: 11px 12px;
+
+                .btn__text {
+                    font-size: 12px;
+                }
+
+            }
         }
     }
 }

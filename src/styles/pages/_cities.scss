@@ -3,19 +3,144 @@
     padding-top: 237px;
     overflow: hidden;
 
+    @include max(1099) {
+        padding-top: 75px;
+    }
+
     .cities-intro {
+
+
+        @include max(1023) {
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                bottom: calc(100% - 40vw - 752px);
+                background-image: url("../img/cities/cities_intro_bg.png");
+                background-size: 100%;
+                background-repeat: no-repeat;
+                background-position: left bottom;
+                aspect-ratio: 1 / 0.562;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100%;
+                z-index: 2;
+
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: calc(100% - 40vw - 751px);
+                background-color: $c-blue-bg;
+                z-index: 3;
+            }
+
+        }
+
+        @include max(767) {
+            &::before {
+                bottom: calc(100% - 40vw - 99vw);
+            }
+
+            &::after {
+                height: calc(100% - 40vw - 99vw);
+            }
+        }
+
         &__top {
             display: flex;
             align-items: center;
             gap: 16px;
+
+            @include max(1023) {
+                position: relative;
+                flex-direction: column;
+                gap: 50vw;
+                z-index: 5;
+            }
         }
 
         &__logo {
             width: 353px;
+
+            @include max(1023) {
+                width: 100%;
+                max-width: 680px;
+            }
+        }
+
+        &__titleblock {
+            @include max(1023) {
+                display: flex;
+                flex-direction: column;
+            }
         }
 
         &__title {
             margin-top: 42px;
+
+            @include max(1023) {
+                margin-top: 17px;
+                text-align: center;
+            }
+
+            @include max(767) {
+                font-size: 40px;
+                line-height: 1em;
+            }
+        }
+
+        &__offer {
+            display: none;
+
+            @include max(1023) {
+                display: block;
+                max-width: 350px;
+                margin: 15px auto 0;
+                font-size: 18px;
+                font-weight: 400;
+                line-height: 1.2em;
+                text-align: center;
+            }
+        }
+
+        &__link {
+            display: none;
+
+            @include max(1023) {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                max-width: 145px;
+                margin: 38px auto 0;
+                color: $c-accent;
+                font-size: 18px;
+                font-weight: 400;
+                line-height: 1.2em;
+                text-align: center;
+
+                img {
+                    width: 36px;
+                    height: 36px;
+                }
+
+                svg {
+                    width: 25px;
+                    height: 6px;
+
+                    svg {
+                        width: 25px;
+                        height: 6px;
+                    }
+                }
+
+            }
         }
 
         &__date {
@@ -24,6 +149,17 @@
             font-weight: 400;
             line-height: 1.2em;
             color: $c-accent;
+
+            @include max(1023) {
+                color: $c-accent-2;
+                text-align: center;
+                order: -1;
+                margin-top: 0;
+            }
+
+            @include max(767) {
+                font-size: 18px;
+            }
         }
 
         &__bottom {
@@ -32,12 +168,25 @@
             max-width: 677px;
             gap: 24px;
             margin-top: 72px;
+
+            @include max(1023) {
+                position: relative;
+                z-index: 5;
+                margin: 44px auto 0;
+                padding-bottom: 64px;
+            }
         }
 
         &__icon {
             flex: 0 0 35px;
             width: 35px;
             height: 50.17px;
+
+            @include max(767) {
+                flex: 0 0 31px;
+                width: 31px;
+                height: 44.43px;
+            }
 
             svg {
                 width: 100%;
@@ -56,8 +205,32 @@
         padding-top: 133px;
         padding-bottom: 120px;
 
+        @include max(767) {
+            position: relative;
+            padding-top: 78px;
+            padding-bottom: 67px;
+
+            &::after {
+                content: '';
+                background-image: url(../img/decor_mob_2.png);
+                position: absolute;
+                right: -15px;
+                top: 8px;
+                width: 119px;
+                height: 120px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                z-index: 1;
+
+            }
+        }
+
         &__title {
             text-align: center;
+
+            @include max(767) {
+                text-align: left;
+            }
         }
 
         &__list {
@@ -65,6 +238,24 @@
             grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 36px 38px;
             margin-top: 62px;
+
+            @include max(1023) {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                max-width: 750px;
+                margin: 62px auto 0;
+            }
+
+            @include max(767) {
+                margin-top: 33px;
+                grid-template-columns: minmax(0, 1fr);
+                gap: 11px;
+            }
+        }
+
+        &__card:nth-child(even) {
+            @include max(767) {
+                background-color: #D3E4F6;
+            }
         }
     }
 
@@ -80,6 +271,12 @@
         border: 2px solid $c-accent;
         overflow: hidden;
 
+        @include max(767) {
+            height: auto;
+            min-height: 142px;
+            padding-bottom: 24px;
+        }
+
         &__img {
             position: absolute;
             top: 0;
@@ -87,6 +284,10 @@
             width: 100%;
             height: 273px;
             z-index: 1;
+
+            @include max(767) {
+                display: none;
+            }
 
             img {
                 width: 100%;
@@ -128,16 +329,32 @@
             aspect-ratio: 1 / 1;
             z-index: 3;
 
+            @include max(767) {
+                display: none;
+            }
+
         }
     }
 
     &__bg {
         position: absolute;
 
+        @include max(1023) {
+            display: none;
+        }
+
         &--1 {
             right: 0;
             top: 212px;
             width: 467px;
+
+            @include max(1360) {
+                width: 295px;
+            }
+
+            @include max(1099) {
+                top: 330px;
+            }
         }
 
         &--2 {

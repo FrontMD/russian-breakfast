@@ -34,12 +34,15 @@
           <div class="header-images__image"> <img src="./img/metro.svg" alt="Метро"></div>
         </div>
         <div class="header__bottom">
-          <div class="header__burger">
-            <svg>
+          <div class="header__burger" data-js="headerBurger">
+            <svg class="open-icon">
               <use xlink:href="./img/sprites/sprite.svg#burger"></use>
             </svg>
+            <svg class="close-icon">
+              <use xlink:href="./img/sprites/sprite.svg#close"></use>
+            </svg>
           </div>
-          <nav class="header-nav"><a class="header-nav__item" href="/">о проекте</a><a class="header-nav__item" href="cities.html">куда сходить на «Русский завтрак»?</a><a class="header-nav__item" href="recipe-categories.html">как приготовить «Русский завтрак»?</a><a class="header-nav__item header-nav__item--active" href="partners.html">партнеры проекта</a></nav>
+          <nav class="header-nav" data-js="headerNav"><a class="header-nav__item" href="/">о проекте</a><a class="header-nav__item" href="cities.html">куда сходить на «Русский завтрак»?</a><a class="header-nav__item" href="recipe-categories.html">как приготовить «Русский завтрак»?</a><a class="header-nav__item header-nav__item--active" href="partners.html">партнеры проекта</a></nav>
         </div>
       </div>
     </header>
@@ -226,133 +229,6 @@
     <noindex>
       <div>
         <!--код модалок сюда-->
-        <div class="mobile-menu hystmodal mobile-menu--main" id="mobileMenuMain" aria-hidden="true">
-          <div class="hystmodal__wrap">
-            <div class="hystmodal__window" role="dialog" aria-modal="true">
-              <div class="mobile-menu__content">
-                <div class="mobile-menu__header">
-                  <div class="mobile-menu__title">Меню</div><a class="btn mobile-menu__close" href="javascript:void(0)" target="" data-hystclose><span class="btn__text">Button</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#close"></use>
-                          </svg></span></a>
-                </div>
-                <div class="mobile-menu__body"><a class="btn mobile-menu__link" href="javascript:void(0)" target="" data-modal="#mobileMenuServices"><span class="btn__text">Button</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#card_arrow"></use>
-                          </svg></span></a><a class="btn mobile-menu__link" href="javascript:void(0)" target="" data-modal="#mobileMenuAbout"><span class="btn__text">Button</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#card_arrow"></use>
-                          </svg></span></a><a class="btn mobile-menu__link" href="javascript:void(0)" target=""><span class="btn__text">Button</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#card_arrow"></use>
-                          </svg></span></a><a class="btn mobile-menu__link" href="javascript:void(0)" target="" data-modal="#mobileMenuStaff"><span class="btn__text">Button</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#card_arrow"></use>
-                          </svg></span></a><a class="btn mobile-menu__link" href="javascript:void(0)" target=""><span class="btn__text">Button</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#card_arrow"></use>
-                          </svg></span></a><a class="btn mobile-menu__link" href="javascript:void(0)" target=""><span class="btn__text">Button</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#card_arrow"></use>
-                          </svg></span></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="mobile-menu hystmodal" id="mobileMenuServices" aria-hidden="true">
-          <div class="hystmodal__wrap">
-            <div class="hystmodal__window" role="dialog" aria-modal="true">
-              <div class="mobile-menu__content">
-                <div class="mobile-menu__header"><a class="mobile-menu__title" href="javascript:void(0)" data-modal="#mobileMenuMain">Продукция и услуги</a><a class="btn mobile-menu__close" href="javascript:void(0)" target="" data-hystclose><span class="btn__text">Button</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#close"></use>
-                          </svg></span></a>
-                </div>
-                <div class="mobile-menu__body"><a class="btn mobile-menu__link" href="javascript:void(0)" target=""><span class="btn__text">Button</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#card_arrow"></use>
-                          </svg></span></a><a class="btn mobile-menu__link" href="javascript:void(0)" target=""><span class="btn__text">Button</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#card_arrow"></use>
-                          </svg></span></a><a class="btn mobile-menu__link" href="javascript:void(0)" target=""><span class="btn__text">Button</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#card_arrow"></use>
-                          </svg></span></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="mobile-menu hystmodal" id="mobileMenuAbout" aria-hidden="true">
-          <div class="hystmodal__wrap">
-            <div class="hystmodal__window" role="dialog" aria-modal="true">
-              <div class="mobile-menu__content">
-                <div class="mobile-menu__header"><a class="mobile-menu__title" href="javascript:void(0)" data-modal="#mobileMenuMain">О компании</a><a class="btn mobile-menu__close" href="javascript:void(0)" target="" data-hystclose><span class="btn__text">Button</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#close"></use>
-                          </svg></span></a>
-                </div>
-                <div class="mobile-menu__body"><a class="btn mobile-menu__link" href="javascript:void(0)" target=""><span class="btn__text">Button</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#card_arrow"></use>
-                          </svg></span></a><a class="btn mobile-menu__link" href="javascript:void(0)" target=""><span class="btn__text">Button</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#card_arrow"></use>
-                          </svg></span></a><a class="btn mobile-menu__link" href="javascript:void(0)" target=""><span class="btn__text">Button</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#card_arrow"></use>
-                          </svg></span></a><a class="btn mobile-menu__link" href="javascript:void(0)" target=""><span class="btn__text">Button</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#card_arrow"></use>
-                          </svg></span></a><a class="btn mobile-menu__link" href="javascript:void(0)" target=""><span class="btn__text">Button</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#card_arrow"></use>
-                          </svg></span></a><a class="btn mobile-menu__link" href="javascript:void(0)" target=""><span class="btn__text">Button</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#card_arrow"></use>
-                          </svg></span></a><a class="btn mobile-menu__link" href="javascript:void(0)" target=""><span class="btn__text">Button</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#card_arrow"></use>
-                          </svg></span></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="mobile-menu hystmodal" id="mobileMenuStaff" aria-hidden="true">
-          <div class="hystmodal__wrap">
-            <div class="hystmodal__window" role="dialog" aria-modal="true">
-              <div class="mobile-menu__content">
-                <div class="mobile-menu__header"><a class="mobile-menu__title" href="javascript:void(0)" data-modal="#mobileMenuMain">Персонал</a><a class="btn mobile-menu__close" href="javascript:void(0)" target="" data-hystclose><span class="btn__text">Button</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#close"></use>
-                          </svg></span></a>
-                </div>
-                <div class="mobile-menu__body"><a class="btn mobile-menu__link" href="javascript:void(0)" target=""><span class="btn__text">Button</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#card_arrow"></use>
-                          </svg></span></a><a class="btn mobile-menu__link" href="javascript:void(0)" target=""><span class="btn__text">Button</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#card_arrow"></use>
-                          </svg></span></a><a class="btn mobile-menu__link" href="javascript:void(0)" target=""><span class="btn__text">Button</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#card_arrow"></use>
-                          </svg></span></a><a class="btn mobile-menu__link" href="javascript:void(0)" target=""><span class="btn__text">Button</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#card_arrow"></use>
-                          </svg></span></a><a class="btn mobile-menu__link" href="javascript:void(0)" target=""><span class="btn__text">Button</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#card_arrow"></use>
-                          </svg></span></a><a class="btn mobile-menu__link" href="javascript:void(0)" target=""><span class="btn__text">Button</span><span class="btn__icon">
-                          <svg>
-                            <use xlink:href="./img/sprites/sprite.svg#card_arrow"></use>
-                          </svg></span></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
             <div class="modal hystmodal restaurant-modal" id="myModal" aria-hidden="true" data-js="restaurantModal">
               <div class="hystmodal__wrap">
                 <div class="hystmodal__window" role="dialog" aria-modal="true">

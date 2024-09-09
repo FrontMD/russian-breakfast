@@ -2,17 +2,65 @@
     padding: 50px 0;
     background-color: $c-gray-bg;
 
+    @include max(1023) {
+        padding: 50px 0 80px;
+    }
+
+    @include max(767) {
+        padding: 61px 0 251px;
+    }
+
     &__container {
         display: flex;
+
+        @include max(1023) {
+            flex-wrap: wrap;
+            row-gap: 40px;
+        }
+
+        @include max(767) {
+            flex-wrap: nowrap;
+            flex-direction: column;
+            align-items: center;
+            row-gap: 0;
+        }
     }
 
     &__column {
+        @include max(767) {
+            width: 100%;
+            max-width: 100%;
+            text-align: center;
+        }
+
         &--1 {
             flex: 0 0 225px;
+
+            @include max(1099) {
+                flex-basis: 150px;
+            }
+
+            @include max(1023) {
+                flex-basis: 225px;
+            }
+
+            @include max(767) {
+                flex-basis: auto;
+            }
         }
 
         &--3 {
             flex: 0 0 180px;
+
+            @include max(1023) {
+                flex-basis: 35%;
+            }
+
+            @include max(767) {
+                flex-basis: auto;
+                margin-top: 31px;
+                max-width: 211px;
+            }
         }
 
         &--4 {
@@ -22,8 +70,27 @@
             justify-content: space-between;
             margin-left: 16px;
 
+            @include max(1023) {
+                flex-basis: 50%;
+                margin-left: auto;
+            }
+
+            @include max(767) {
+                flex-basis: auto;
+                flex-direction: column;
+                width: 100%;
+                max-width: 234px;
+                margin-top: 42.5px;
+                margin-right: auto;
+                align-items: center;
+            }
+
             .footer__title {
                 flex: 0 0 138px;
+
+                @include max(767) {
+                    flex-basis: auto;
+                }
             }
 
         }
@@ -38,7 +105,7 @@
     &__text {
         font-size: 12px;
         font-weight: 400;
-        line-height: 1.47em;
+        line-height: 1.5em;
     }
 
     &__socials {
@@ -47,14 +114,20 @@
         gap: 14px;
         margin-top: 14px;
         margin-bottom: 28px;
+
+        @include max(767) {
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 44px;
+        }
     }
 
     &__social {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 31px;
-        height: 31px;
+        width: 30px;
+        height: 30px;
         background-color: $c-accent;
         border-radius: 100%;
 
@@ -69,6 +142,15 @@
         flex-direction: column;
         margin-left: auto;
         margin-right: 51px;
+
+        @include max(1023) {
+            margin-right: 0;
+            min-width: 50%;
+        }
+
+        @include max(767) {
+            margin-top: 17px;
+        }
     }
 
     &__link {
@@ -89,11 +171,23 @@
             width: 100%;
             height: auto;
         }
+
+        @include max(767) {
+            max-width: 143px;
+            margin-left: 23px;
+            margin-top: 14px;
+        }
     }
 
     &__logos {
         flex: 1 1 100%;
         position: relative;
+
+        @include max(767) {
+            flex-basis: auto;
+            width: 100%;
+            margin-top: 33px;
+        }
     }
 
     &__logo {
@@ -108,6 +202,10 @@
             left: -30px;
             width: 153px;
             z-index: 1;
+
+            @include max(767) {
+                left: 0;
+            }
         }
 
         &--2 {
@@ -115,6 +213,10 @@
             left: 89.38px;
             width: 74.14px;
             z-index: 3;
+
+            @include max(767) {
+                left: 119.38px;
+            }
         }
 
         &--3 {
@@ -122,6 +224,10 @@
             left: 129.36px;
             width: 74.14px;
             z-index: 1;
+
+            @include max(767) {
+                left: 159.36px;
+            }
         }
 
         &--4 {
@@ -129,6 +235,10 @@
             left: 89.38px;
             width: 74.51px;
             z-index: 3;
+
+            @include max(767) {
+                left: 119.38px;
+            }
         }
 
         img {

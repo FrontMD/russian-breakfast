@@ -8,10 +8,12 @@ header.header(data-js="header")
             .header-images__image 
                 img(src="./img/metro.svg" alt="Метро")                                
         .header__bottom
-            .header__burger
-                svg
+            .header__burger(data-js="headerBurger")
+                svg.open-icon
                     use(xlink:href=`./img/sprites/sprite.svg#burger`)
-            nav.header-nav
+                svg.close-icon
+                    use(xlink:href=`./img/sprites/sprite.svg#close`)
+            nav.header-nav(data-js="headerNav")
                 a.header-nav__item(href="/" class = page=='main' ? 'header-nav__item--active' : "") о проекте
                 a.header-nav__item(href="cities.html" class = page=='cities' ? 'header-nav__item--active' : "") куда сходить на «Русский завтрак»?
                 a.header-nav__item(href="recipe-categories.html" class = page=='recipe-categories' ? 'header-nav__item--active' : "") как приготовить «Русский завтрак»?

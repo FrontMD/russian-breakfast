@@ -3,16 +3,38 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
+        @include max(1023) {
+            flex-direction: column;
+        }
     }
 
     &__img {
         margin-top: 6.5px;
         flex: 0 0 227.79px;
+
+        @include max(1023) {
+            order: 1;
+            width: 24vw;
+            flex-basis: auto;
+            margin-top: 40px;
+        }
     }
 
     &__logo {
         flex: 0 0 256px;
         margin: 0 30px 0 45px;
+
+        @include max(1099) {
+            margin: 0 20px 0 15px;
+        }
+
+        @include max(1023) {
+            order: -1;
+            flex-basis: auto;
+            width: 100%;
+            max-width: 680px;
+        }
     }
 
     &__title {
@@ -23,6 +45,18 @@
         font-weight: 400;
         line-height: 1.08em;
         color: $c-accent-2;
+
+        @include max(1023) {
+            flex-basis: auto;
+            width: 100%;
+            max-width: 680px;
+            text-align: center;
+            margin-top: 26px;
+        }
+
+        @include max(767) {
+            font-size: 30px;
+        }
     }
 
 }
