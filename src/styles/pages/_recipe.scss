@@ -4,8 +4,17 @@
     padding-bottom: 39px;
     overflow: hidden;
 
+    @include max(1099) {
+        padding-top: 75px;
+    }
+
+
     .recipe {
         padding-top: 108px;
+
+        @include max(767) {
+            padding-top: 83px;
+        }
 
         &__inner {
             max-width: 1076px;
@@ -13,6 +22,10 @@
             padding: 36px 0 48px;
             border: 0.82px solid $c-accent;
             border-radius: 10px;
+
+            @include max(767) {
+                padding: 41px 15px 75px;
+            }
         }
 
         &__back-top {
@@ -20,6 +33,11 @@
             background-color: transparent;
             padding: 9.1px 21px;
             gap: 3.5px;
+
+            @include max(767) {
+                background-image: url("../img/angles_transparent_bg.png");
+                color: $c-accent;
+            }
 
             .btn__text {
                 font-size: 14px;
@@ -36,6 +54,11 @@
             color: $c-accent;
             font-size: 90px;
             line-height: 1.09em;
+
+            @include max(767) {
+                margin-top: 28px;
+                font-size: 40px;
+            }
         }
 
         &__photos {
@@ -45,6 +68,13 @@
             gap: 50px;
             margin-top: 29px;
             padding-right: 26px;
+
+            @include max(767) {
+                flex-direction: column-reverse;
+                align-items: center;
+                gap: 40px;
+                padding: 0;
+            }
         }
 
         &__photo {
@@ -73,11 +103,25 @@
             max-width: 912px;
             padding-bottom: 65px;
             border-bottom: 1px solid $c-accent;
+
+            @include max(1023) {
+                padding: 0 25px 65px;
+            }
+
+            @include max(767) {
+                margin-top: 22px;
+                padding: 0 0 46px;
+            }
         }
 
         &__header {
             display: flex;
             align-items: flex-start;
+
+            @include max(767) {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
 
         .restaurant-logo {
@@ -86,6 +130,12 @@
             flex: 0 0 90px;
             width: 90px;
             height: 90px;
+
+            @include max(767) {
+                height: auto;
+                margin-left: 0;
+                flex-basis: auto;
+            }
 
             img {
                 width: 100%;
@@ -101,6 +151,10 @@
             font-weight: 400;
             line-height: 1.05em;
             text-transform: uppercase;
+
+            @include max(767) {
+                font-size: 35px;
+            }
         }
 
         &__info {
@@ -119,6 +173,11 @@
             font-weight: 400;
             line-height: 1.1em;
 
+            @include max(767) {
+                max-width: 100%;
+                margin-top: 10px;
+            }
+
         }
 
         &__stickers {
@@ -126,6 +185,10 @@
             align-items: center;
             gap: 9px;
             margin: -29px 0 0 73px;
+
+            @include max(767) {
+                display: none;
+            }
         }
 
         &__sticker {
@@ -159,6 +222,10 @@
             width: 174px;
             aspect-ratio: 1 / 1;
 
+            @include max(767) {
+                display: none;
+            }
+
             img {
                 width: 100%;
                 height: 100%;
@@ -169,11 +236,19 @@
         &__ingredients {
             margin: 61px auto 0;
             max-width: 912px;
+
+            @include max(767) {
+                margin-top: 49px;
+            }
         }
 
         &__process {
             margin: 66px auto 0;
             max-width: 912px;
+
+            @include max(767) {
+                margin: 40px auto 0;
+            }
         }
 
         &__btns {
@@ -182,6 +257,18 @@
             display: flex;
             align-items: center;
             gap: 238px;
+
+            @include max(1023) {
+                padding: 0 25px;
+                gap: 100px;
+            }
+
+            @include max(767) {
+                margin-top: 26px;
+                justify-content: center;
+                gap: 19px;
+                padding: 0;
+            }
         }
 
         &__back-bottom {
@@ -201,6 +288,10 @@
 
         &__logo {
             width: 132px;
+
+            @include max(767) {
+                width: 87px;
+            }
         }
     }
 
@@ -211,6 +302,16 @@
         padding-bottom: 37px;
         border-bottom: 1px solid $c-accent;
 
+        @include max(1023) {
+            flex-direction: column;
+            padding: 0 25px 37px;
+        }
+
+        @include max(767) {
+            padding: 0 0 40px;
+            gap: 30px;
+        }
+
         &__title {
             flex: 0 0 222px;
             margin-top: 84px;
@@ -219,6 +320,15 @@
             font-weight: 400;
             line-height: 1.05em;
             text-transform: uppercase;
+
+            @include max(1023) {
+                flex-basis: auto;
+                margin-top: 0;
+            }
+
+            @include max(767) {
+                font-size: 35px;
+            }
         }
 
         &__content {
@@ -236,15 +346,28 @@
             line-height: 0.8em;
             margin-bottom: 71px;
 
+            @include max(1023) {
+                margin-bottom: 25px;
+            }
+
+            @include max(767) {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
             span {
                 flex: 0 0 auto;
             }
-        }
 
-        &__count-line {
-            flex: 1 1 auto;
-            width: 252px;
-            border-bottom: 1px solid $c-accent;
+            .recipe-ingredients__count-line {
+                flex: 1 1 auto;
+                width: 252px;
+                border-bottom: 1px solid $c-accent;
+
+                @include max(767) {
+                    width: 100%;
+                }
+            }
         }
 
         &__subtitle {
@@ -254,11 +377,19 @@
             line-height: 1em;
             text-align: left;
             text-transform: uppercase;
+
+            @include max(767) {
+                font-size: 25px;
+            }
         }
 
         &__list {
             margin-top: 10px;
             margin-bottom: 25px;
+
+            @include max(767) {
+                margin-bottom: 30px;
+            }
 
             li {
                 position: relative;
@@ -291,6 +422,10 @@
             margin-top: 46px;
             width: 100%;
 
+            @include max(767) {
+                margin-top: 30px;
+            }
+
             img {
                 width: 100%;
             }
@@ -308,6 +443,17 @@
         align-items: flex-start;
         gap: 20px;
 
+        @include max(1023) {
+            flex-direction: column;
+            padding: 0 25px;
+            gap: 50px;
+        }
+
+        @include max(767) {
+            padding: 0;
+            gap: 30px;
+        }
+
         &__title {
             flex: 0 0 352px;
             font-family: $ff-title;
@@ -315,6 +461,14 @@
             font-weight: 400;
             line-height: 1.05em;
             text-transform: uppercase;
+
+            @include max(1023) {
+                flex-basis: auto;
+            }
+
+            @include max(767) {
+                font-size: 35px;
+            }
         }
 
         &__list {
@@ -326,6 +480,10 @@
             flex-direction: column;
             gap: 23px;
 
+            @include max(767) {
+                gap: 20px;
+            }
+
             li {
                 display: flex;
                 align-items: center;
@@ -336,6 +494,10 @@
                 line-height: 1.2em;
                 padding-left: 60px;
                 min-height: 48px;
+
+                @include max(767) {
+                    padding-left: 50px;
+                }
 
                 &:before {
                     content: counter(item) " ";
@@ -374,7 +536,7 @@
 
             &--dish {
                 border: none;
-                border-radius: none;
+                border-radius: 0;
             }
         }
 

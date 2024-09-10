@@ -146,31 +146,39 @@ block content
                     classes: "partners-media__title",
                     text: "СМИ о нас"
                 })
-                .partners-media__list
-                    .partners-media__card.media-card
-                        .media-card__inner
-                            .media-card__img
-                                img(src="./img/logo.svg" alt="")
-                            .media-card__text «Lorem ipsum dolor sit amet, consectetur adipiscing elit»
-                            +btn({
-                                classes: "media-card__btn",
-                                name: "Читать",
-                            })
-                    .partners-media__card.media-card
-                        .media-card__inner
-                            .media-card__img
-                                img(src="./img/logo.svg" alt="")
-                            .media-card__text «Lorem ipsum dolor sit amet, consectetur adipiscing elit»
-                            +btn({
-                                classes: "media-card__btn",
-                                name: "Читать",
-                            })                                                                                  
-                    .partners-media__card.media-card
-                        .media-card__inner
-                            .media-card__img
-                                img(src="./img/logo.svg" alt="")
-                            .media-card__text «Lorem ipsum dolor sit amet, consectetur adipiscing elit»
-                            +btn({
-                                classes: "media-card__btn",
-                                name: "Читать",
-                            })                                                     
+                .partners-media__list(data-js="partnersMediaList")
+                    .swiper-wrapper
+                        .partners-media__card.media-card.swiper-slide
+                            .media-card__inner
+                                .media-card__img
+                                    img(src="./img/logo.svg" alt="")
+                                .media-card__text «Lorem ipsum dolor sit amet, consectetur adipiscing elit»
+                                +btn({
+                                    classes: "media-card__btn",
+                                    name: "Читать",
+                                })
+                        .partners-media__card.media-card.swiper-slide
+                            .media-card__inner
+                                .media-card__img
+                                    img(src="./img/logo.svg" alt="")
+                                .media-card__text «Lorem ipsum dolor sit amet, consectetur adipiscing elit»
+                                +btn({
+                                    classes: "media-card__btn",
+                                    name: "Читать",
+                                })                                                                                  
+                        .partners-media__card.media-card.swiper-slide
+                            .media-card__inner
+                                .media-card__img
+                                    img(src="./img/logo.svg" alt="")
+                                .media-card__text «Lorem ipsum dolor sit amet, consectetur adipiscing elit»
+                                +btn({
+                                    classes: "media-card__btn",
+                                    name: "Читать",
+                                })
+                    .slider-controls
+                        .slider-control.slider-control--prev(data-js="sliderControlPrev")
+                            svg
+                                use(xlink:href="./img/sprites/sprite.svg#btn_arrow")
+                        .slider-control.slider-control--next(data-js="sliderControlNext")
+                            svg
+                                use(xlink:href="./img/sprites/sprite.svg#btn_arrow")
