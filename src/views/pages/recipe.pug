@@ -13,7 +13,7 @@ block content
                     img(src="./img/logo.svg" alt="Логотип Русский завтрак")
                 .m-intro__right(data-js="recipeHeaderRight")
                     //-.m-intro__title ЗАВТРАК КАК ТРАДИЦИЯ, ЗАВТРАК КАК НАСТОЯЩИЙ ПРАЗДНИК
-                    .m-intro__video
+                    //-.m-intro__video
                         <iframe src="https://vk.com/video_ext.php?oid=-104557233&id=456239219&hd=1" width="640" height="360" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
         section.recipe
             .m-container
@@ -83,7 +83,7 @@ block content
 
                     .recipe__process.recipe-process
                         .recipe-process__title Способ приготовления
-                        ul.recipe-process__list(data-js="recipeProcess")
+                        ul.recipe-process__content(data-js="recipeProcess")
                             //-li Смешиваем в миске творог, яйцо, муку, сахар и соль.
                             //-li Вымешиваем тесто до получения однородной консистенции.
                             //-li Формуем 3 сырника по 60 г каждый. Придаем им цилиндрическую форму.
@@ -94,6 +94,7 @@ block content
                             //-li Растапливаем ириски на медленном огне до полного растворения. Добавляем в соус щепотку соли.
                             //-li Выкладываем сырники в центр тарелки, поливаем соусом из ирисок, украшаем веточками мяты.
 
+                    .recipe__note(data-js="recipeNote")
                     .recipe__btns
                         +btn({
                             classes: "recipe__back-bottom",

@@ -65,4 +65,17 @@
         }
     }
 
+    &__video,
+    iframe {
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 0.5625;
+    }
+
+    &__video {
+        @include max(1023) {
+            margin-top: 20px;
+        }
+    }
+
 }

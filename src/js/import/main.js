@@ -488,6 +488,23 @@ document.addEventListener("DOMContentLoaded", () => {
             recipePage.querySelectorAll('[data-js="recipeBack"]').forEach(item => {
                 item.setAttribute('href', `recipes.html?category-id=${currentRecipe.categoryId}`)
             })
+
+            let recipeHeaderRight = recipePage.querySelector('[data-js="recipeHeaderRight"]')
+            if(currentRecipe.video.length > 1) {
+                let videoIdList = currentRecipe.video.split("_")
+                recipeHeaderRight.innerHTML = `
+                                            <div class="m-intro__video">
+                                                <iframe src="https://vk.com/video_ext.php?oid=-${videoIdList[0]}&id=${videoIdList[1]}&hd=1" width="640" height="360" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
+                                            </div>
+                                            `
+            } else {
+                recipeHeaderRight.innerHTML = `
+                                            <div class="m-intro__title">
+                                                ЗАВТРАК КАК ТРАДИЦИЯ, ЗАВТРАК КАК НАСТОЯЩИЙ ПРАЗДНИК
+                                            </div>
+                                            `
+            }
+            
             recipePage.querySelector('[data-js="recipeTitle"]').innerHTML = currentRecipe.name
             recipePage.querySelector('[data-js="chefPhoto"]').setAttribute('src', currentRecipe.chefPhoto)
             recipePage.querySelector('[data-js="dishPhoto"]').setAttribute('src', currentRecipe.dishPhoto)
@@ -544,11 +561,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
             currentRecipe.process.forEach(item => {
 
-                let li = document.createElement('li')
-                li.innerHTML = item
+                let subtitle = document.createElement('div') 
+                subtitle.classList.add('recipe-process__subtitle')
+                subtitle.innerHTML = item.name
 
-                recipeProcess.appendChild(li)
+                let list = document.createElement('ul')
+                list.classList.add('recipe-process__list')
+                
+                item.list.forEach(listItem => {
+                    let li = document.createElement('li')
+                    li.innerHTML = listItem
+                    list.appendChild(li)
+                })
+
+                recipeProcess.appendChild(subtitle)
+                recipeProcess.appendChild(list)
             })
+
+            recipePage.querySelector('[data-js="recipeNote"]').innerHTML = currentRecipe.note
         })
     }
 
