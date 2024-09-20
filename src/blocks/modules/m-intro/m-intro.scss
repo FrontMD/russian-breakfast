@@ -37,8 +37,17 @@
         }
     }
 
-    &__title {
+    &__right {
         flex: 0 0 503px;
+
+        @include max(1023) {
+            flex-basis: auto;
+            width: 100%;
+            max-width: 680px;
+        }
+    }
+
+    &__title {
         margin-top: 34px;
         font-family: $ff-title;
         font-size: 57px;
@@ -47,9 +56,6 @@
         color: $c-accent-2;
 
         @include max(1023) {
-            flex-basis: auto;
-            width: 100%;
-            max-width: 680px;
             text-align: center;
             margin-top: 26px;
         }

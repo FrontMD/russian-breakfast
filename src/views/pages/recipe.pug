@@ -5,7 +5,16 @@ block variables
 
 block content
     main.page.recipe-page(data-js="recipePage")
-        +m-intro
+        section.m-intro
+            .m-container.m-intro__container
+                .m-intro__img
+                    img(src="./img/home_about.png" alt="")
+                .m-intro__logo.logo
+                    img(src="./img/logo.svg" alt="Логотип Русский завтрак")
+                .m-intro__right(data-js="recipeHeaderRight")
+                    //-.m-intro__title ЗАВТРАК КАК ТРАДИЦИЯ, ЗАВТРАК КАК НАСТОЯЩИЙ ПРАЗДНИК
+                    .m-intro__video
+                        <iframe src="https://vk.com/video_ext.php?oid=-104557233&id=456239219&hd=1" width="640" height="360" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
         section.recipe
             .m-container
                 .recipe__inner
