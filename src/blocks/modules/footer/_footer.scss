@@ -7,7 +7,7 @@
     }
 
     @include max(767) {
-        padding: 61px 0 251px;
+        padding: 61px 0 178px;
     }
 
     &__container {
@@ -50,6 +50,27 @@
         }
 
         &--3 {
+            flex: 0 0 229px;
+            margin-right: 61px;
+
+            @include max(1023) {
+                flex-basis: 50%;
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            @include max(767) {
+                flex-basis: auto;
+                flex-direction: column;
+                width: 100%;
+                max-width: 229px;
+                margin-top: 49px;
+                align-items: center;
+            }
+
+        }
+
+        &--4 {
             flex: 0 0 180px;
 
             @include max(1023) {
@@ -58,41 +79,9 @@
 
             @include max(767) {
                 flex-basis: auto;
-                margin-top: 31px;
+                margin-top: 26px;
                 max-width: 211px;
             }
-        }
-
-        &--4 {
-            flex: 0 0 341px;
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            margin-left: 16px;
-
-            @include max(1023) {
-                flex-basis: 50%;
-                margin-left: auto;
-            }
-
-            @include max(767) {
-                flex-basis: auto;
-                flex-direction: column;
-                width: 100%;
-                max-width: 234px;
-                margin-top: 42.5px;
-                margin-right: auto;
-                align-items: center;
-            }
-
-            .footer__title {
-                flex: 0 0 138px;
-
-                @include max(767) {
-                    flex-basis: auto;
-                }
-            }
-
         }
     }
 
@@ -141,7 +130,7 @@
         display: flex;
         flex-direction: column;
         margin-left: auto;
-        margin-right: 51px;
+        margin-right: 110px;
 
         @include max(1023) {
             margin-right: 0;
@@ -180,18 +169,21 @@
     }
 
     &__logos {
-        flex: 1 1 100%;
+        margin-top: 14px;
         position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2.86px;
 
         @include max(767) {
             flex-basis: auto;
             width: 100%;
-            margin-top: 33px;
+            margin-top: 31px;
         }
     }
 
     &__logo {
-        position: absolute;
         display: block;
         aspect-ratio: 1 / 1;
         border-radius: 50%;
