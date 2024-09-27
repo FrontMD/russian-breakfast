@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     recipeCategoriesListBuild() // строит список категорий рецептов
     recipesListBuild() // строит список рецептов
     recipePageBuild() // наполняет страницу рецепта
+    spoilerController() // управляет спойлерами
     
     /* КАРТА НА СТРАНИЦЕ ГОРОДА */
     async function initMap(currentRestaurantList) {
@@ -57,28 +58,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* СЛАЙДЕР НА СТРАНИЦЕ РЕСТОРАНА */
     function restaurantSliderInit() {
-        const restaurantSlider = document.querySelector('[data-js="restaurantSlider"]')
+        const restaurantSliders = document.querySelectorAll('[data-js="restaurantSlider"]')
 
-        if(!restaurantSlider) return
+        if(!restaurantSliders.length < 1) return
 
-        const sliderPrev = restaurantSlider.querySelector('[data-js="sliderControlPrev"]')
-        const sliderNext = restaurantSlider.querySelector('[data-js="sliderControlNext"]')
-
-        const restaurantSliderEx = new Swiper(restaurantSlider, {
-            loop: true,
-            speed: 400,
-            spaceBetween: 20,
-            navigation: {
-                nextEl: sliderNext,
-                prevEl: sliderPrev,
-            },
-
-            breakpoints: {
-                767: {
-                    spaceBetween: 0
+        restaurantSliders.forEach(restaurantSlider => {
+            const sliderPrev = restaurantSlider.querySelector('[data-js="sliderControlPrev"]')
+            const sliderNext = restaurantSlider.querySelector('[data-js="sliderControlNext"]')
+    
+            const restaurantSliderEx = new Swiper(restaurantSlider, {
+                loop: true,
+                speed: 400,
+                spaceBetween: 20,
+                navigation: {
+                    nextEl: sliderNext,
+                    prevEl: sliderPrev,
+                },
+    
+                breakpoints: {
+                    767: {
+                        spaceBetween: 0
+                    }
                 }
-            }
-        });
+            });
+        })
     }
 
     /* СЛАЙДЕР НА СТРАНИЦЕ ПАРТНЕРЫ */
@@ -583,7 +586,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 })
 
-
 /* ФОРМИРОВАНИЕ ПАГИНАЦИИ */
 function setPagination(container, count, activePage, pageAddress) {
     container.innerHTML = `
@@ -653,6 +655,23 @@ function openRestauranModal(currentRestaurantList) {
 
             modals.open(modal)
         }
+    })
+}
+
+/* УПРАВЛЕНИЕ СПОЙЛЕРАМИ */
+function spoilerController() {
+    const spoilers = document.querySelectorAll('[data-js="spoiler"]')
+
+    if(spoilers.length < 1) return
+
+    spoilers.forEach(spoiler => {
+        const spoilerOpen = spoiler.querySelector('[data-js="spoilerOpen"]');
+        const spoilerContent = spoiler.querySelector('[data-js="spoilerContent"]');
+
+        $(spoilerOpen).on('click', function() {
+            $(spoilerContent).show(400)
+            $(spoilerOpen).hide(400)
+        })
     })
 }
 

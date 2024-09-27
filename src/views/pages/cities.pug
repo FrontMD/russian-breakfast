@@ -24,19 +24,22 @@ block content
                         })
                         .cities-intro__date 1 октября — 30 ноября
                         .cities-intro__offer Станьте новой точкой на карте всероссийского Культурно-гастрономического проекта
+                        .cities-intro__timer.cities-intro__timer--mobile
+                            <iframe src="https://horeca.russkiyzavtrak.ru/timer" width="100%" height="100%"></iframe>
                         a.cities-intro__link(href="#")
                             img(src="./img/decor.svg")
                             span На сайт Русского завтрака
                             svg
                                 use(xlink:href=`./img/sprites/sprite.svg#btn_arrow`)
 
-
-
                 .cities-intro__bottom
                     .cities-intro__icon
                         svg
                             use(xlink:href="./img/sprites/sprite.svg#location")
                     .cities-intro__text Москва, Санкт-Петербург, Астрахань, Волгоград, Воронеж, Екатеринбург, Казань, Калуга, Краснодар, Красноярск, Нижний Новгород, Новосибирск, Ростов-на-Дону, Рязань, Самара, Сочи, Тула, Тюмень, Уфа, Ярославль
+
+                .cities-intro__timer.cities-intro__timer--desktop
+                    <iframe src="https://horeca.russkiyzavtrak.ru/timer" width="100%" height="100%"></iframe>
 
         section.cities-list
             .m-container

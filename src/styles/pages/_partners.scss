@@ -458,4 +458,40 @@
         }
     }
 
+    .spoiler {
+        &__header {
+            border-top: 1px solid $c-accent;
+            padding: 32px 0;
+        }
+
+        &__sticker {
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 178.4px;
+            height: 178.4px;
+            background-color: $c-accent;
+            border-radius: 100%;
+            font-family: $ff-title;
+            font-size: 40px;
+            font-weight: 400;
+            line-height: 1.2em;
+            letter-spacing: 0.09em;
+            text-align: center;
+            color: #fff;
+            cursor: pointer;
+
+            @include max(768) {
+                width: 126.29px;
+                height: 126.29px;
+                font-size: 30px;
+            }
+        }
+
+        &__content {
+            display: none;
+        }
+    }
+
 }

@@ -365,6 +365,10 @@
             line-height: 1.09em;
             letter-spacing: 0.06em;
             text-align: center;
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
             @include max(767) {
                 font-size: 30px;

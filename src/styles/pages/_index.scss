@@ -491,4 +491,149 @@
             }
         }
     }
+
+    .home-cooks {
+        padding-bottom: 161px;
+
+        @include max(768) {
+            padding-bottom: 77px;
+        }
+
+        &__title {
+            font-family: $ff-title;
+            max-width: 880px;
+            font-size: 50px;
+            font-weight: 400;
+            line-height: 1.05em;
+
+            @include max(1023) {
+                font-size: 35px;
+                max-width: 550px;
+            }
+
+            br {
+                @include max(768) {
+                    display: none;
+                }
+            }
+
+            span {
+                font-size: 100px;
+                font-weight: 400;
+                line-height: 1.05em;
+                color: $c-accent;
+                text-transform: uppercase;
+
+                @include max(1023) {
+                    font-size: 55px;
+                    line-height: 1em;
+                }
+
+                @include max(768) {
+                    display: block;
+                }
+            }
+        }
+
+        &__list {
+            position: relative;
+            margin-top: 37px;
+            display: grid;
+            grid-template-columns: repeat(10, minmax(0, 1fr));
+            gap: 20px 22px;
+
+            @include max(1023) {
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+            }
+
+            @include max(768) {
+                margin-top: 78px;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 20px 21px;
+            }
+        }
+
+        &__note {
+            position: absolute;
+            right: 0;
+            bottom: calc(100% + 45px);
+            width: 258px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 1em;
+
+            @include max(1023) {
+                bottom: calc(100% + 23px);
+            }
+
+            @include max(768) {
+                right: auto;
+                left: 0;
+            }
+
+            svg {
+                flex: 0 0 25px;
+                width: 25px;
+                height: 33px;
+            }
+        }
+
+        &__item {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            cursor: pointer;
+
+            &:hover {
+                .home-cooks__info {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+
+        &__photo {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 100%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        &__info {
+            position: absolute;
+            left: 50%;
+            bottom: calc(100% + 10px);
+            transform: translateX(-50%);
+            width: 250px;
+            padding: 10px 15px;
+            background-color: #F9F5F1;
+            border-radius: 5px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s linear;
+        }
+
+        &__name {
+            font-family: $ff-title;
+            font-size: 15px;
+            font-weight: 500;
+            line-height: 1.08em;
+            text-transform: uppercase;
+        }
+
+        &__text {
+            margin-top: 5px;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 1.08em;
+        }
+    }
 }

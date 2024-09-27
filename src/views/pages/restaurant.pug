@@ -23,7 +23,7 @@ block content
                     })(data-js="restaurantTitle")
                     .restaurant__city(data-js="restaurantCity")
 
-                    .restaurant__slider(data-js="restaurantSlider")
+                    .restaurant__slider(data-js="restaurantSlider" data-id="restaurantPhotosSlider")
                         .swiper-wrapper
                             //-.restaurant__slide.swiper-slide
                                 .restaurant__img
@@ -67,6 +67,15 @@ block content
                             //-.restaurant-menu__item Каша «Гурьевская» с брусникой и клюквой моченой
                             //-.restaurant-menu__item Яичница-болтунья в печи с полевыми травами
                             //-.restaurant-menu__item Молочный десерт из парного молочка с желе из морошки
+                        .restaurant__slider(data-js="restaurantSlider" data-id="dishesPhotosSlider")
+                            .swiper-wrapper
+                            .slider-controls 
+                                .slider-control.slider-control--prev(data-js="sliderControlPrev")
+                                    svg
+                                        use(xlink:href="./img/sprites/sprite.svg#btn_arrow")
+                                .slider-control.slider-control--next(data-js="sliderControlNext")
+                                    svg
+                                        use(xlink:href="./img/sprites/sprite.svg#btn_arrow")    
 
                     .restaurant__contacts
                         .restaurant__address(data-js="restaurantAddress")
