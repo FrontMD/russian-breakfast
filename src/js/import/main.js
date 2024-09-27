@@ -270,7 +270,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 item.setAttribute('href', `city.html?city-id=${currentRestaurant.cityId}`)
             })
             restaurantPage.querySelector('[data-js="restaurantTitle"]').innerHTML = currentRestaurant.name
-            restaurantPage.querySelector('[data-js="restaurantCity"]').innerHTML = citiesListArr.find(item => item.id = currentRestaurant.cityId).name
+            restaurantPage.querySelector('[data-js="restaurantCity"]').innerHTML = citiesListArr.find(item => item.id == currentRestaurant.cityId).name
     
             let restaurantSlider = document.querySelector('[data-js="restaurantSlider"] .swiper-wrapper')
             currentRestaurant.photos.forEach(item => {
