@@ -16,46 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
     spoilerController() // управляет спойлерами
     
     /* КАРТА НА СТРАНИЦЕ ГОРОДА */
-    /*async function initMap(currentRestaurantList, currentCityArr) {
-        const mapContainer = document.querySelector('[data-js="cityMap"]')
-
-        if(!mapContainer) return
-        
-        await ymaps3.ready;
-    
-        const {YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer, YMapMarker} = ymaps3;
-
-        let zoom = 11;
-        if(windowWidth < 768) {
-            zoom = 13
-        }
-    
-    
-        const map = new YMap(
-            mapContainer,
-            {
-                location: {
-                    center: currentCityArr.coords,
-                    zoom: zoom
-                }
-            },
-            [
-                new YMapDefaultSchemeLayer({}),
-                new YMapDefaultFeaturesLayer({})
-              ]
-        );
-    
-        currentRestaurantList.forEach(item => {        
-            const markerElement = document.createElement('img');
-              markerElement.className = 'map-block__placemark';
-              markerElement.setAttribute('data-js', 'openRestaurantBtn')
-              markerElement.setAttribute('data-id', item.id)
-              markerElement.src = "./img/placemark.png";
-              map.addChild(new YMapMarker({coordinates: item.coords}, markerElement));
-        });
-    
-    }*/
-
     function initMap(currentRestaurantList, currentCityArr) {
         const mapContainer = document.querySelector('[data-js="cityMap"]')
 
@@ -84,15 +44,27 @@ document.addEventListener("DOMContentLoaded", () => {
                     {
                       iconLayout: 'default#image',
                       iconImageHref: './img/placemark.png',
-                      iconImageSize: [20, 30],
-                      iconImageOffset: [-10, -20]
+                      iconImageSize: [42, 60,5],
+                      iconImageOffset: [-21, -40]
                     }
                   );
+
+                  const modal = document.querySelector('[data-js="restaurantModal"]')
+                  console.log(modal)
+
+                  if(modal) {
+                      currentPlacemark.events.add('click', function () {
+                        openRestauranModalById(modal, item)
+                      })
+                  }
 
                   myGeoObjects.push(currentPlacemark)
             });
 
-            var clusterer = new ymaps.Clusterer();
+            var clusterer = new ymaps.Clusterer({
+                gridSize: 120,
+                preset: 'islands#redClusterIcons'
+            });
             clusterer.add(myGeoObjects);
             map.geoObjects.add(clusterer);
 
@@ -702,16 +674,7 @@ function openRestauranModal(currentRestaurantList) {
 
             let currentRestaurant = currentRestaurantList.find(item => item.id == e.target.closest('[data-js="openRestaurantBtn"]').dataset.id)
 
-            modal.querySelector('[data-js="restaurantModalImg"]').setAttribute('src', currentRestaurant.photos[0])
-            modal.querySelector('[data-js="restaurantModalTitle"]').innerHTML = currentRestaurant.name
-            modal.querySelector('[data-js="restaurantModalText"]').innerHTML = currentRestaurant.modalText
-            modal.querySelector('[data-js="restaurantModalQuote"]').innerHTML = currentRestaurant.quote
-            modal.querySelector('[data-js="restaurantModalPhoto"]').setAttribute('src', currentRestaurant.authorPhoto)
-            modal.querySelector('[data-js="restaurantModalName"]').innerHTML = currentRestaurant.authorName
-            modal.querySelector('[data-js="restaurantModalPosition"]').innerHTML = currentRestaurant.authorPosition
-            modal.querySelector('[data-js="restaurantModalBtn"]').setAttribute('href', `restaurant.html?rest-id=${currentRestaurant.id}`)
-
-            modals.open(modal)
+            openRestauranModalById(modal, currentRestaurant)
         }
     })
 }
@@ -731,6 +694,21 @@ function spoilerController() {
             $(spoilerOpen).hide(400)
         })
     })
+}
+
+/* НАПОЛНЕНИЕ И ОТКРЫТИЕ МОДАЛКИ РЕСТОРАНА ПО ID */
+function openRestauranModalById(modal, currentRestaurant) {
+
+    modal.querySelector('[data-js="restaurantModalImg"]').setAttribute('src', currentRestaurant.photos[0])
+    modal.querySelector('[data-js="restaurantModalTitle"]').innerHTML = currentRestaurant.name
+    modal.querySelector('[data-js="restaurantModalText"]').innerHTML = currentRestaurant.modalText
+    modal.querySelector('[data-js="restaurantModalQuote"]').innerHTML = currentRestaurant.quote
+    modal.querySelector('[data-js="restaurantModalPhoto"]').setAttribute('src', currentRestaurant.authorPhoto)
+    modal.querySelector('[data-js="restaurantModalName"]').innerHTML = currentRestaurant.authorName
+    modal.querySelector('[data-js="restaurantModalPosition"]').innerHTML = currentRestaurant.authorPosition
+    modal.querySelector('[data-js="restaurantModalBtn"]').setAttribute('href', `restaurant.html?rest-id=${currentRestaurant.id}`)
+
+    modals.open(modal)
 }
 
 /*const restaurantsList = [
