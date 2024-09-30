@@ -20,3 +20,12 @@ noindex
                     icon: true,
                     iconName: 'btn_arrow',
                 })(data-js="restaurantModalBtn")
+
+        +modal({id:"cookModal", classes:"cook-modal"})(data-js="cookModal")
+            .cook-modal__inner
+                .cook-modal__content
+                    .cook-modal__photo
+                        img(src="" alt="" data-js="cookModalPhoto")
+                    .cook-modal__name(data-js="cookModalName")
+                    .cook-modal__text(data-js="cookModalText")
+                    .cook-modal__city(data-js="cookModalCity")               

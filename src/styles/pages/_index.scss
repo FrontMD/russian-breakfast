@@ -586,10 +586,12 @@
             aspect-ratio: 1 / 1;
             cursor: pointer;
 
-            &:hover {
-                .home-cooks__info {
-                    opacity: 1;
-                    visibility: visible;
+            @include min(1280) {
+                &:hover {
+                    .home-cooks__info {
+                        opacity: 1;
+                        visibility: visible;
+                    }
                 }
             }
         }
@@ -619,6 +621,7 @@
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s linear;
+            text-align: center;
         }
 
         &__name {
@@ -634,6 +637,15 @@
             font-size: 12px;
             font-weight: 400;
             line-height: 1.08em;
+        }
+
+        &__city {
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 1.08em;
+            color: $c-accent;
+            text-transform: uppercase;
+            margin-top: 4px;
         }
     }
 }

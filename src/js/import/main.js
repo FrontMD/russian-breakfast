@@ -14,6 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
     recipesListBuild() // строит список рецептов
     recipePageBuild() // наполняет страницу рецепта
     spoilerController() // управляет спойлерами
+
+    if(windowWidth < 1280) {
+        openCookModal() // открывает модалку повара
+    }
     
     /* КАРТА НА СТРАНИЦЕ ГОРОДА */
     function initMap(currentRestaurantList, currentCityArr) {
@@ -709,6 +713,32 @@ function openRestauranModalById(modal, currentRestaurant) {
     modal.querySelector('[data-js="restaurantModalBtn"]').setAttribute('href', `restaurant.html?rest-id=${currentRestaurant.id}`)
 
     modals.open(modal)
+}
+
+/* НАПОЛНЕНИЕ И ОТКРЫТИЕ МОДАЛКИ ПОВАРА */
+function openCookModal() {
+    const homeCooksItems = document.querySelectorAll('[data-js="homeCooksItem"]')
+    const modal = document.querySelector('[data-js="cookModal"]')
+
+    if(homeCooksItems.length < 1 || !modal) return
+
+    homeCooksItems.forEach(item => {
+        item.addEventListener('click', () => {
+            let targetCookCard = item
+
+            let cookPhoto = targetCookCard.querySelector('[data-js="homeCooksPhoto"]').getAttribute('src')
+            let cookName = targetCookCard.querySelector('[data-js="homeCooksName"]').innerHTML
+            let cookText = targetCookCard.querySelector('[data-js="homeCooksText"]').innerHTML
+            let cookCity = targetCookCard.querySelector('[data-js="homeCooksCity"]').innerHTML
+
+            modal.querySelector('[data-js="cookModalPhoto"]').setAttribute('src', cookPhoto)
+            modal.querySelector('[data-js="cookModalName"]').innerHTML = cookName
+            modal.querySelector('[data-js="cookModalText"]').innerHTML = cookText
+            modal.querySelector('[data-js="cookModalCity"]').innerHTML = cookCity
+
+            modals.open(modal)
+        })
+    })
 }
 
 /*const restaurantsList = [
