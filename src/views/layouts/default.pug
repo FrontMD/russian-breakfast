@@ -2,39 +2,39 @@ block variables
 
 doctype html
 html(lang="ru")
-	head
-		meta(charset="utf-8")
-		meta(http-equiv="X-UA-Compatible" content="IE=edge")
-		title #{title}
-		meta(name="theme-color" content="#fff")
-		meta(name="apple-mobile-web-app-status-bar-style" content="black-translucent")
-		meta(name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
-		link(rel="shortcut icon" href="img/favicons/favicon.ico" type="image/x-icon")
-		link(rel="icon" sizes="16x16" href="img/favicons/favicon-16x16.png" type="image/png")
-		link(rel="icon" sizes="32x32" href="img/favicons/favicon-32x32.png" type="image/png")
-		link(rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png")
-		link(rel="apple-touch-icon" sizes="150x150" href="img/favicons/apple-touch-icon-150x150.png")
-		link(rel="apple-touch-icon" sizes="192x192" href="img/favicons/apple-touch-icon-192x192.png")
-		link(rel="apple-touch-icon" sizes="512x512" href="img/favicons/apple-touch-icon-512x512.png")
-		link(rel="stylesheet" href="styles/main.css")
+    head
+        meta(charset="utf-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        title #{title}
+        meta(name="theme-color" content="#fff")
+        meta(name="apple-mobile-web-app-status-bar-style" content="black-translucent")
+        meta(name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+        link(rel="shortcut icon" href="img/favicons/favicon.ico" type="image/x-icon")
+        link(rel="icon" sizes="16x16" href="img/favicons/favicon-16x16.png" type="image/png")
+        link(rel="icon" sizes="32x32" href="img/favicons/favicon-32x32.png" type="image/png")
+        link(rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png")
+        link(rel="apple-touch-icon" sizes="150x150" href="img/favicons/apple-touch-icon-150x150.png")
+        link(rel="apple-touch-icon" sizes="192x192" href="img/favicons/apple-touch-icon-192x192.png")
+        link(rel="apple-touch-icon" sizes="512x512" href="img/favicons/apple-touch-icon-512x512.png")
+        link(rel="stylesheet" href="styles/main.css")
 
-		if(page === "city")
-			script(src="https://api-maps.yandex.ru/v3/?apikey=ec8353bc-e4c0-44ee-8f5b-822d005a189e&lang=ru_RU")
+        if(page === "city")
+            script(src="https://api-maps.yandex.ru/2.1/?apikey=ec8353bc-e4c0-44ee-8f5b-822d005a189e&lang=ru_RU")
 
 
-	body
-		include ../helpers/mixins
-		+mixins()
-		block header
-			include ../../blocks/modules/header/header
+    body
+        include ../helpers/mixins
+        +mixins()
+        block header
+            include ../../blocks/modules/header/header
 
-		main.site-main
-			block content
+        main.site-main
+            block content
 
-		block footer
-			include ../../blocks/modules/footer/footer
+        block footer
+            include ../../blocks/modules/footer/footer
 
-		include ../../blocks/modules/modals/modals
+        include ../../blocks/modules/modals/modals
 
-		block scripts
-			script(src="js/main.js")
+        block scripts
+            script(src="js/main.js")
