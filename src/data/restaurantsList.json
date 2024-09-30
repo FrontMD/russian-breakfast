@@ -1,6 +1,10 @@
 [
     {
         "id": "0",
+        "coords": [
+            37.617698,
+            55.755864
+        ],
         "name": "Москва",
         "photo": "./img/cities/moskva.jpg",
         "restaurants": [
@@ -603,6 +607,10 @@
     },
     {
         "id": "1",
+        "coords": [
+            30.314997,
+            59.938784
+        ],
         "name": "Санкт-Петербург",
         "photo": "./img/cities/sankt_peterburg.jpg",
         "restaurants": [
@@ -855,108 +863,180 @@
     },
     {
         "id": "2",
+        "coords": [
+            48.030178,
+            46.347614
+        ],
         "name": "Астрахань",
         "photo": "./img/cities/rostov-na-donu.jpg",
         "restaurants": []
     },
     {
         "id": "3",
+        "coords": [
+            44.516975,
+            48.707067
+        ],
         "name": "Волгоград",
         "photo": "./img/cities/sochi.jpg",
         "restaurants": []
     },
     {
         "id": "4",
+        "coords": [
+            39.200296,
+            51.660781
+        ],
         "name": "Воронеж",
         "photo": "./img/cities/moskva.jpg",
         "restaurants": []
     },
     {
         "id": "5",
+        "coords": [
+            60.597474,
+            56.838011
+        ],
         "name": "Екатеринбург",
         "photo": "./img/cities/rostov-na-donu.jpg",
         "restaurants": []
     },
     {
         "id": "6",
+        "coords": [
+            49.106414,
+            55.796127
+        ],
         "name": "Казань",
         "photo": "./img/cities/krasnodar.jpg",
         "restaurants": []
     },
     {
         "id": "7",
+        "coords": [
+            36.261341,
+            54.513678
+        ],
         "name": "Калуга",
         "photo": "./img/cities/rostov-na-donu.jpg",
         "restaurants": []
     },
     {
         "id": "8",
+        "coords": [
+            38.975313,
+            45.035470
+        ],
         "name": "Краснодар",
         "photo": "./img/cities/krasnodar.jpg",
         "restaurants": []
     },
     {
         "id": "9",
+        "coords": [
+            92.852581,
+            56.010543
+        ],
         "name": "Красноярск",
         "photo": "./img/cities/krasnodar.jpg",
         "restaurants": []
     },
     {
         "id": "10",
+        "coords": [
+            44.006516,
+            56.326797
+        ],
         "name": "Нижний Новгород",
         "photo": "./img/cities/sankt_peterburg.jpg",
         "restaurants": []
     },
     {
         "id": "11",
+        "coords": [
+            82.920430,
+            55.030204
+        ],
         "name": "Новосибирск",
         "photo": "./img/cities/samara.jpg",
         "restaurants": []
     },
     {
         "id": "12",
+        "coords": [
+            39.718813,
+            47.222109
+        ],
         "name": "Ростов-на-Дону",
         "photo": "./img/cities/rostov-na-donu.jpg",
         "restaurants": []
     },
     {
         "id": "13",
+        "coords": [
+            39.737111,
+            54.629221
+        ],
         "name": "Рязань",
         "photo": "./img/cities/sochi.jpg",
         "restaurants": []
     },
     {
         "id": "14",
+        "coords": [
+            50.100202,
+            53.195878
+        ],
         "name": "Самара",
         "photo": "./img/cities/samara.jpg",
         "restaurants": []
     },
     {
         "id": "15",
+        "coords": [
+            39.723098,
+            43.585472
+        ],
         "name": "Сочи",
         "photo": "./img/cities/sochi.jpg",
         "restaurants": []
     },
     {
         "id": "16",
+        "coords": [
+            37.617348,
+            54.193122
+        ],
         "name": "Тула",
         "photo": "./img/cities/samara.jpg",
         "restaurants": []
     },
     {
         "id": "17",
+        "coords": [
+            65.541227,
+            57.152985
+        ],
         "name": "Тюмень",
         "photo": "./img/cities/moskva.jpg",
         "restaurants": []
     },
     {
         "id": "18",
+        "coords": [
+            55.958736,
+            54.735152
+        ],
         "name": "Уфа",
         "photo": "./img/cities/sochi.jpg",
         "restaurants": []
     },
     {
         "id": "19",
+        "coords": [
+            39.893813,
+            57.626559
+        ],
         "name": "Ярославль",
         "photo": "./img/cities/sankt_peterburg.jpg",
         "restaurants": []
