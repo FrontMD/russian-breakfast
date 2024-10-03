@@ -40,29 +40,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
             let myGeoObjects = []
             
-            currentRestaurantList.forEach(item => {    
+            currentRestaurantList.forEach(item => {
+                
+                item.coords.forEach(coordsItem => {
+                    let currentPlacemark = new ymaps.Placemark(
+                        coordsItem,
+                        {},
+                        {
+                          iconLayout: 'default#image',
+                          iconImageHref: './img/placemark.png',
+                          iconImageSize: [42, 60,5],
+                          iconImageOffset: [-21, -40]
+                        }
+                      );
+    
+                      const modal = document.querySelector('[data-js="restaurantModal"]')
+    
+                      if(modal) {
+                          currentPlacemark.events.add('click', function () {
+                            openRestauranModalById(modal, item)
+                          })
+                      }
+    
+                      myGeoObjects.push(currentPlacemark)
+                })
 
-                let currentPlacemark = new ymaps.Placemark(
-                    item.coords,
-                    {},
-                    {
-                      iconLayout: 'default#image',
-                      iconImageHref: './img/placemark.png',
-                      iconImageSize: [42, 60,5],
-                      iconImageOffset: [-21, -40]
-                    }
-                  );
-
-                  const modal = document.querySelector('[data-js="restaurantModal"]')
-                  console.log(modal)
-
-                  if(modal) {
-                      currentPlacemark.events.add('click', function () {
-                        openRestauranModalById(modal, item)
-                      })
-                  }
-
-                  myGeoObjects.push(currentPlacemark)
             });
 
             var clusterer = new ymaps.Clusterer({
@@ -338,7 +340,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 menuSlider.appendChild(slide)
             })
 
-            restaurantPage.querySelector('[data-js="restaurantAddress"]').innerHTML = currentRestaurant.address
+            let addressListEl = restaurantPage.querySelector('[data-js="restaurantAddress"]')
+            currentRestaurant.address.forEach(address => {
+                let currentAddress = document.createElement('p')
+                currentAddress.innerHTML = address
+                addressListEl.appendChild(currentAddress)
+            })
+
             restaurantPage.querySelector('[data-js="restaurantMode"]').innerHTML = currentRestaurant.mode
             restaurantPage.querySelector('[data-js="restaurantPhone"]').setAttribute('href', 'tel:' + currentRestaurant.phone.replace(/[^+\d]/g, ""))
             restaurantPage.querySelector('[data-js="restaurantPhone"]').innerHTML = currentRestaurant.phone
