@@ -261,7 +261,7 @@ document.addEventListener("DOMContentLoaded", () => {
             openRestauranModal(currentRestaurantList)
 
             // строим карту
-            initMap(currentRestaurantList, currentCityObj);
+            initMap(currentRestaurantFullList, currentCityObj);
         })
     }
 
