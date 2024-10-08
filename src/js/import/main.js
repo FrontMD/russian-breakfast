@@ -350,12 +350,19 @@ document.addEventListener("DOMContentLoaded", () => {
             restaurantPage.querySelector('[data-js="restaurantMode"]').innerHTML = currentRestaurant.mode
             restaurantPage.querySelector('[data-js="restaurantPhone"]').setAttribute('href', 'tel:' + currentRestaurant.phone.replace(/[^+\d]/g, ""))
             restaurantPage.querySelector('[data-js="restaurantPhone"]').innerHTML = currentRestaurant.phone
-            restaurantPage.querySelectorAll('[data-js="restaurantSite"]').forEach(item => {
-                item.setAttribute('href', currentRestaurant.site)
-                if(item.classList.contains('restaurant__site')) {
-                    item.innerHTML = currentRestaurant.site
-                }
+
+            let restaurantSiteList = restaurantPage.querySelector('[data-js="restaurantSites"]')
+            currentRestaurant.site.forEach(currentSite => {
+                let linkEl = document.createElement('a')
+                linkEl.setAttribute('href', currentSite)
+                linkEl.innerHTML = currentSite
+
+                restaurantSiteList.appendChild(linkEl)
             })
+
+            let restaurantSiteBtn = restaurantPage.querySelector('[data-js="restaurantSite"]')
+            restaurantSiteBtn.setAttribute('href', currentRestaurant.site[0])
+            restaurantSiteBtn.innerHTML = currentRestaurant.site[0]
         })
 
     }
