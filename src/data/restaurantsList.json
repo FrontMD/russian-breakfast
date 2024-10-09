@@ -6,7 +6,7 @@
             37.617698
         ],
         "name": "Москва",
-        "photo": "./img/cities/moskva.jpg",
+        "photo": "./img/cities/moskva.png",
         "restaurants": [
             {
                 "id": "0",
@@ -758,7 +758,7 @@
             30.314997
         ],
         "name": "Санкт-Петербург",
-        "photo": "./img/cities/sankt_peterburg.jpg",
+        "photo": "./img/cities/sankt-peterburg.png",
         "restaurants": [
             {
                 "id": "17",
@@ -1070,7 +1070,7 @@
             48.030178
         ],
         "name": "Астрахань",
-        "photo": "./img/cities/rostov-na-donu.jpg",
+        "photo": "./img/cities/astrahan.png",
         "restaurants": []
     },
     {
@@ -1080,7 +1080,7 @@
             44.516975
         ],
         "name": "Волгоград",
-        "photo": "./img/cities/sochi.jpg",
+        "photo": "./img/cities/volgograd.png",
         "restaurants": []
     },
     {
@@ -1090,7 +1090,7 @@
             39.200296
         ],
         "name": "Воронеж",
-        "photo": "./img/cities/moskva.jpg",
+        "photo": "./img/cities/voronez.png",
         "restaurants": []
     },
     {
@@ -1100,7 +1100,7 @@
             60.597474
         ],
         "name": "Екатеринбург",
-        "photo": "./img/cities/rostov-na-donu.jpg",
+        "photo": "./img/cities/ekaterinburg.png",
         "restaurants": []
     },
     {
@@ -1110,7 +1110,7 @@
             49.106414
         ],
         "name": "Казань",
-        "photo": "./img/cities/krasnodar.jpg",
+        "photo": "./img/cities/kazan.png",
         "restaurants": []
     },
     {
@@ -1120,7 +1120,7 @@
             36.261341
         ],
         "name": "Калуга",
-        "photo": "./img/cities/rostov-na-donu.jpg",
+        "photo": "./img/cities/kaluga.png",
         "restaurants": []
     },
     {
@@ -1130,7 +1130,7 @@
             38.975313
         ],
         "name": "Краснодар",
-        "photo": "./img/cities/krasnodar.jpg",
+        "photo": "./img/cities/krasnodar.png",
         "restaurants": []
     },
     {
@@ -1140,7 +1140,7 @@
             92.852581
         ],
         "name": "Красноярск",
-        "photo": "./img/cities/krasnodar.jpg",
+        "photo": "./img/cities/krasnoyarsk.png",
         "restaurants": []
     },
     {
@@ -1150,7 +1150,7 @@
             44.006516
         ],
         "name": "Нижний Новгород",
-        "photo": "./img/cities/sankt_peterburg.jpg",
+        "photo": "./img/cities/nizniy-novgorod.png",
         "restaurants": []
     },
     {
@@ -1160,7 +1160,7 @@
             82.920430
         ],
         "name": "Новосибирск",
-        "photo": "./img/cities/samara.jpg",
+        "photo": "./img/cities/novosibirsk.png",
         "restaurants": []
     },
     {
@@ -1170,7 +1170,7 @@
             39.718813
         ],
         "name": "Ростов-на-Дону",
-        "photo": "./img/cities/rostov-na-donu.jpg",
+        "photo": "./img/cities/rostov-na-donu.png",
         "restaurants": []
     },
     {
@@ -1180,7 +1180,7 @@
             39.737111
         ],
         "name": "Рязань",
-        "photo": "./img/cities/sochi.jpg",
+        "photo": "./img/cities/ryazan.png",
         "restaurants": []
     },
     {
@@ -1190,7 +1190,7 @@
             50.100202
         ],
         "name": "Самара",
-        "photo": "./img/cities/samara.jpg",
+        "photo": "./img/cities/samara.png",
         "restaurants": []
     },
     {
@@ -1200,7 +1200,7 @@
             39.723098
         ],
         "name": "Сочи",
-        "photo": "./img/cities/sochi.jpg",
+        "photo": "./img/cities/sochi.png",
         "restaurants": []
     },
     {
@@ -1210,7 +1210,7 @@
             37.617348
         ],
         "name": "Тула",
-        "photo": "./img/cities/samara.jpg",
+        "photo": "./img/cities/tula.png",
         "restaurants": []
     },
     {
@@ -1220,7 +1220,7 @@
             65.541227
         ],
         "name": "Тюмень",
-        "photo": "./img/cities/moskva.jpg",
+        "photo": "./img/cities/tumen.png",
         "restaurants": []
     },
     {
@@ -1230,7 +1230,7 @@
             55.958736
         ],
         "name": "Уфа",
-        "photo": "./img/cities/sochi.jpg",
+        "photo": "./img/cities/ufa.png",
         "restaurants": []
     },
     {
@@ -1240,7 +1240,7 @@
             39.893813
         ],
         "name": "Ярославль",
-        "photo": "./img/cities/sankt_peterburg.jpg",
+        "photo": "./img/cities/yaroslavl.png",
         "restaurants": []
     }
 ]
