@@ -12,7 +12,7 @@ function headerControllInit() {
     $(window).scroll(function() {
         const scroll = $(window).scrollTop();
 
-        if(scroll > oldScrollY) {
+        if(scroll > oldScrollY + 30) {
             header.addClass("header--small");
         } else {
             header.removeClass("header--small");
