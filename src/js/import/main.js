@@ -145,15 +145,17 @@ document.addEventListener("DOMContentLoaded", () => {
                                         <div class="cities-card__img">
                                             <img src="${city.photo}" alt="${city.name}">
                                         </div>
-                                        <div class="cities-card__title">${city.name}</div>
-                                        <a class="btn cities-card__btn with-angles" href="city.html?city-id=${city.id}" target="">
-                                            <span class="btn__text">смотреть</span>
-                                            <span class="btn__icon">
-                                                <svg>
-                                                    <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                                                </svg>
-                                            </span>
-                                        </a> 
+                                        <div>
+                                            <div class="cities-card__title">${city.name}</div>
+                                            <a class="btn cities-card__btn with-angles" href="city.html?city-id=${city.id}" target="">
+                                                <span class="btn__text">смотреть</span>
+                                                <span class="btn__icon">
+                                                    <svg>
+                                                        <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
+                                                    </svg>
+                                                </span>
+                                            </a> 
+                                        </div>
                                     `
     
                 citiesList.appendChild(cityCard)

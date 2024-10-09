@@ -229,8 +229,10 @@
     }
 
     .cities-list {
+        position: relative;
         padding-top: 133px;
         padding-bottom: 120px;
+        z-index: 3;
 
         @include max(767) {
             position: relative;
@@ -299,9 +301,14 @@
         overflow: hidden;
 
         @include max(767) {
+            flex-direction: row;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 8px;
             height: auto;
             min-height: 142px;
             padding-bottom: 24px;
+            padding-right: 13px;
         }
 
         &__img {
@@ -309,17 +316,28 @@
             top: 0;
             bottom: 0;
             width: 100%;
-            height: 273px;
+            height: 219px;
             z-index: 1;
+            padding: 20px;
 
             @include max(767) {
-                display: none;
+                position: relative;
+                padding: 10px 0 0 8px;
+                height: auto;
+                margin: 0;
+                flex-basis: 119px;
             }
 
             img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
+                width: auto;
+                height: 180px;
+                margin: auto;
+
+                @include max(767) {
+                    height: auto;
+                    max-height: 98px;
+                    max-width: 112px;
+                }
             }
         }
 
@@ -331,6 +349,11 @@
             font-weight: 400;
             line-height: 1.09em;
             letter-spacing: 0.06em;
+            text-align: center;
+
+            @include max(767) {
+                font-size: 30px;
+            }
         }
 
         &__btn {
@@ -338,22 +361,24 @@
             width: 171px;
             height: 35px;
             padding: 0;
-            margin-top: 11px;
+            margin: 11px auto 0;
             background-color: transparent;
             z-index: 5;
             background-size: 171px 35px;
+
+            @include max(767) {
+                margin: 18px 17px 0;
+            }
         }
 
         &:after {
             content: "";
             position: absolute;
-            left: 50%;
-            top: 173px;
-            transform: translateX(-50%);
-            width: 120%;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 126px;
             background-color: $c-blue-bg;
-            border-radius: 100%;
-            aspect-ratio: 1 / 1;
             z-index: 3;
 
             @include max(767) {
