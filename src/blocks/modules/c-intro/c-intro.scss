@@ -1,0 +1,51 @@
+.c-intro {
+    padding-top: 248px;
+
+    @include max(1099) {
+        padding-top: 84px;
+    }
+
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        @include max(1023) {
+            flex-direction: column;
+        }
+    }
+
+    &__logo {
+        flex: 0 0 448px;
+        margin: 0 30px 0 45px;
+
+        @include max(1099) {
+            margin: 0 20px 0 15px;
+        }
+
+        @include max(1023) {
+            order: -1;
+            flex-basis: auto;
+            width: 100%;
+            max-width: 680px;
+        }
+    }
+
+    &__img {
+
+        flex: 0 0 801px;
+
+        @include max(1023) {
+            width: 103px;
+            flex-basis: auto;
+        }
+
+        img,
+        picture {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+
+}

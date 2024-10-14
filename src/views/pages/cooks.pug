@@ -1,0 +1,108 @@
+extends ../layouts/default.pug
+
+block variables
+    - let page = 'cooks'
+
+block content
+    main.page.cooks-page
+        +c-intro
+        section.cooks
+            .m-container
+                +title({
+                    tag: "h1",
+                    classes: "cooks-page__title",
+                    text: "Для проекта были отобраны шеф-повара и&nbsp;рестораторы, которые делают яркие коллаборации в&nbsp;разных сегментах туристической инфраструктуры. Смотрите их кулинарные мастер-классы и&nbsp;узнавайте, каким может быть завтрак в&nbsp;русском стиле."
+                })
+
+                .cooks__list 
+                    .cooks__card.cooks-card
+                        .cooks-card__content
+                            .cooks-card__photo
+                                img(src='./img/cooks/person_1.jpg' alt='')
+                            .cooks-card__name Александр Волков-Медведев
+                            .cooks-card__info!= 'шеф-повар ресторана <br>Ruski, Москва'
+                            .cooks-card__city Москва
+                            .cooks-card__image
+                                img(src='./img/cities/moskva.png' alt='')
+                            +btn({
+                                name: 'Узнать больше',
+                                classes: 'cooks-card__btn with-angles',
+                                icon: true,
+                                iconName: 'btn_arrow',
+                            })
+                    .cooks__card.cooks-card
+                        .cooks-card__content
+                            .cooks-card__photo
+                                img(src='./img/cooks/person_1.jpg' alt='')
+                            .cooks-card__name Анна Жукова
+                            .cooks-card__info!= 'со-владелица Гостиничного комплекса «Пушкарская слобода» (Суздаль), Парк-отеля «Вознесенская слобода» (Владимир), Туристического комплекса ГТК Суздаль'
+                            .cooks-card__city СУЗДАЛЬ
+                            .cooks-card__image
+                                img(src='./img/cities/moskva.png' alt='')
+                            +btn({
+                                name: 'Узнать больше',
+                                classes: 'cooks-card__btn with-angles',
+                                icon: true,
+                                iconName: 'btn_arrow',
+                            })
+                    .cooks__card.cooks-card
+                        .cooks-card__content
+                            .cooks-card__year 2023
+                            .cooks-card__photo
+                                img(src='./img/cooks/person_1.jpg' alt='')
+                            .cooks-card__name Александр Волков-Медведев
+                            .cooks-card__info!= 'шеф-повар ресторана <br>Ruski, Москва'
+                            .cooks-card__city Москва
+                            .cooks-card__image
+                                img(src='./img/cities/moskva.png' alt='')
+                            +btn({
+                                name: 'Узнать больше',
+                                classes: 'cooks-card__btn with-angles',
+                                icon: true,
+                                iconName: 'btn_arrow',
+                            })
+                    .cooks__card.cooks-card
+                        .cooks-card__content
+                            .cooks-card__photo
+                                img(src='./img/cooks/person_1.jpg' alt='')
+                            .cooks-card__name Александр Волков-Медведев
+                            .cooks-card__info!= 'шеф-повар ресторана <br>Ruski, Москва'
+                            .cooks-card__city Москва
+                            .cooks-card__image
+                                img(src='./img/cities/moskva.png' alt='')
+                            +btn({
+                                name: 'Узнать больше',
+                                classes: 'cooks-card__btn with-angles',
+                                icon: true,
+                                iconName: 'btn_arrow',
+                            })
+                    .cooks__card.cooks-card
+                        .cooks-card__content
+                            .cooks-card__photo
+                                img(src='./img/cooks/person_1.jpg' alt='')
+                            .cooks-card__name Александр Волков-Медведев
+                            .cooks-card__info!= 'шеф-повар ресторана <br>Ruski, Москва'
+                            .cooks-card__city Москва
+                            .cooks-card__image
+                                img(src='./img/cities/moskva.png' alt='')
+                            +btn({
+                                name: 'Узнать больше',
+                                classes: 'cooks-card__btn with-angles',
+                                icon: true,
+                                iconName: 'btn_arrow',
+                            })
+                    .cooks__card.cooks-card
+                        .cooks-card__content
+                            .cooks-card__photo
+                                img(src='./img/cooks/person_1.jpg' alt='')
+                            .cooks-card__name Александр Волков-Медведев
+                            .cooks-card__info!= 'шеф-повар ресторана <br>Ruski, Москва'
+                            .cooks-card__city Москва
+                            .cooks-card__image
+                                img(src='./img/cities/moskva.png' alt='')
+                            +btn({
+                                name: 'Узнать больше',
+                                classes: 'cooks-card__btn with-angles',
+                                icon: true,
+                                iconName: 'btn_arrow',
+                            })

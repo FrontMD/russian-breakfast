@@ -1,0 +1,58 @@
+extends ../layouts/default.pug
+
+block variables
+    - let page = 'cook'
+
+block content
+    main.page.cooks-page
+        +c-intro
+        section.cook
+            .m-container
+                +title({
+                    tag: "h1",
+                    classes: "cooks-page__title",
+                    text: "Узнайте, как приготовить вкусные блюда на завтрак с&nbsp;учётом кулинарных особенностей регионов России."
+                })
+                .cook__content
+                    .cook__main
+                        +btn({
+                            name: 'ко всем шеф-поварам',
+                            classes: 'cook__back with-angles',
+                            icon: true,
+                            positionIcon: 'left',
+                            link: 'cooks.html',
+                            iconName: 'btn_arrow',
+                        })
+                        .cook__photo
+                            img(src='./img/cooks/person_1.jpg' alt='')
+                            .cook__year 2023
+                        .cook__name Александр Волков-Медведев
+                        .cook__info!= 'шеф-повар ресторана Ruski, Москва'
+                        .cook__city Москва
+                        .cook__logo
+                            img(src='./img/recipes/recipe_logo.png' alt='')
+                        .cook__quote!= 'Панорамный ресторан Ruski принадлежит 354 Restaurant Group братьев Васильчуков. Самый высокий ресторан Европы занимает весь 85-ый этаж небоскреба «Око», где расположена одна из самых популярных смотровых площадок Москвы #Вышетольколюбовь. С момента открытия в 2016 году ресторан русской кухни с ледяным баром и 8-тонной русской печью стал туристической достопримечательностью столицы.'
+                    .cook__recipes
+                        .cook__category.cook-category
+                            .cook-category__img
+                                img(src='./img/recipes/recipe_category2_img.jpg' alt='')
+                            .cook-category__content
+                                .cook-category__name блюда из творога
+                                +btn({
+                                    name: 'узнать рецепт',
+                                    classes: 'cook__back with-angles',
+                                    icon: true,
+                                    iconName: 'btn_arrow',
+                                })
+                        .cook__category.cook-category
+                            .cook-category__content
+                                .cook-category__name каши
+                                .cook-category__tag Скоро!
+                        .cook__category.cook-category
+                            .cook-category__content
+                                .cook-category__name Блюда из яиц и сыра
+                                .cook-category__tag Скоро!
+                        .cook__category.cook-category
+                            .cook-category__content
+                                .cook-category__name Молочные десерты
+                                .cook-category__tag Скоро!

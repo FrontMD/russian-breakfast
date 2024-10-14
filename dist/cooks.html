@@ -15,7 +15,6 @@
     <link rel="apple-touch-icon" sizes="192x192" href="img/favicons/apple-touch-icon-192x192.png">
     <link rel="apple-touch-icon" sizes="512x512" href="img/favicons/apple-touch-icon-512x512.png">
     <link rel="stylesheet" href="styles/main.min.css">
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=ec8353bc-e4c0-44ee-8f5b-822d005a189e&amp;lang=ru_RU"></script>
   </head>
   <body>
     <header class="header" data-js="header">
@@ -30,63 +29,100 @@
               <use xlink:href="./img/sprites/sprite.svg#close"></use>
             </svg>
           </div>
-          <nav class="header-nav" data-js="headerNav"><a class="header-nav__item" href="/">о проекте</a><a class="header-nav__item" href="cooks.html">герои проекта</a><a class="header-nav__item" href="cities.html">куда сходить на «Русский завтрак»?</a><a class="header-nav__item" href="recipe-categories.html">как приготовить «Русский завтрак»?</a><a class="header-nav__item" href="partners.html">партнеры проекта</a></nav>
+          <nav class="header-nav" data-js="headerNav"><a class="header-nav__item" href="/">о проекте</a><a class="header-nav__item header-nav__item--active" href="cooks.html">герои проекта</a><a class="header-nav__item" href="cities.html">куда сходить на «Русский завтрак»?</a><a class="header-nav__item" href="recipe-categories.html">как приготовить «Русский завтрак»?</a><a class="header-nav__item" href="partners.html">партнеры проекта</a></nav>
         </div>
       </div>
     </header>
     <main class="site-main">
-      <main class="page city-page" data-js="cityPage">
-        <div class="city-page__bg city-page__bg--1"><img src="./img/cities/city_bg_1.png" alt=""></div>
-        <div class="city-page__bg city-page__bg--2"><img src="./img/cities/city_bg_2.png" alt=""></div>
-        <section class="city-intro">
-          <div class="m-container city-intro__container">
-            <div class="city-intro__img">
-              <picture>
-                <source srcset="./img/cities/cities_intro_bg.png" media="(max-width: 1023px)"><img src="./img/cities/city_intro.png" alt="">
-              </picture>
-            </div>
-            <div class="city-intro__logo logo"><img src="./img/logo.svg" alt="Логотип Русский завтрак"></div>
-            <div class="city-intro__desc">
-                  <h1 class="title title--h1 city-intro__title">фестиваль <br>в гостиницах, <br>кафе и ресторанах</h1>
-              <div class="city-intro__subtitle">Станьте новой точкой на карте всероссийского Культурно-гастрономического проекта</div>
-              <div class="city-intro__date">1 октября — 30 ноября</div>
-            </div>
-          </div>
-        </section>
-        <section class="city-map">
-          <div class="m-container">
-            <div class="city-map__inner">
-              <div class="city-map__decor"><img src="./img/cities/city_map.png"></div>
-                  <h2 class="title title--h2 city-map__title">Где попробовать «Русский завтрак»?</h2>
-              <div class="city-map__text">Если вы собрались поехать в один из ХХ городов, обязательно остановитесь в гостинице с «Русским завтраком». А если захотите узнать о местной кухне, посетите один из ресторанов-участников, где откроете для себя гастрономические традиции региона.</div>
-              <div class="city-map__map" data-js="cityMap"></div>
-            </div>
-          </div>
-        </section>
-        <section class="city-list">
-          <div class="m-container">
-            <div class="city-list__header">
-                  <h2 class="title title--h2 city-list__title" data-js="cityName">Название города</h2><a class="btn city-list__back" href="cities.html" target=""><span class="btn__text">Назад</span><span class="btn__icon">
-                      <svg>
-                        <use xlink:href="./img/sprites/sprite.svg#btn_back_arrow"></use>
-                      </svg></span></a>
-            </div>
-            <div class="city-list__list" data-js="restaurantList">
-              <div class="slider-controls"> 
-                <div class="slider-control slider-control--prev" data-js="sliderControlPrev">
-                  <svg>
-                    <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                  </svg>
-                </div>
-                <div class="slider-control slider-control--next" data-js="sliderControlNext">
-                  <svg>
-                    <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                  </svg>
+      <main class="page cooks-page">
+            <section class="c-intro">
+              <div class="m-container c-intro__container">
+                <div class="c-intro__logo logo"><img src="./img/logo.svg" alt="Логотип Русский завтрак"></div>
+                <div class="c-intro__img"><picture>
+<source srcset="./img/cooks/c_intro_img_mob.png" media="(max-width: 1023px)" />
+<img src="./img/cooks/c_intro_img.png" alt="" />
+</picture>
                 </div>
               </div>
-              <div class="swiper-wrapper"></div>
+            </section>
+        <section class="cooks">
+          <div class="m-container">
+                <h1 class="title title--h1 cooks-page__title">Для проекта были отобраны шеф-повара и&nbsp;рестораторы, которые делают яркие коллаборации в&nbsp;разных сегментах туристической инфраструктуры. Смотрите их кулинарные мастер-классы и&nbsp;узнавайте, каким может быть завтрак в&nbsp;русском стиле.</h1>
+            <div class="cooks__list"> 
+              <div class="cooks__card cooks-card">
+                <div class="cooks-card__content">
+                  <div class="cooks-card__photo"><img src="./img/cooks/person_1.jpg" alt=""></div>
+                  <div class="cooks-card__name">Александр Волков-Медведев</div>
+                  <div class="cooks-card__info">шеф-повар ресторана <br>Ruski, Москва</div>
+                  <div class="cooks-card__city">Москва</div>
+                  <div class="cooks-card__image"><img src="./img/cities/moskva.png" alt=""></div><a class="btn cooks-card__btn with-angles" href="javascript:void(0)" target=""><span class="btn__text">Узнать больше</span><span class="btn__icon">
+                          <svg>
+                            <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
+                          </svg></span></a>
+                </div>
+              </div>
+              <div class="cooks__card cooks-card">
+                <div class="cooks-card__content">
+                  <div class="cooks-card__photo"><img src="./img/cooks/person_1.jpg" alt=""></div>
+                  <div class="cooks-card__name">Анна Жукова</div>
+                  <div class="cooks-card__info">со-владелица Гостиничного комплекса «Пушкарская слобода» (Суздаль), Парк-отеля «Вознесенская слобода» (Владимир), Туристического комплекса ГТК Суздаль</div>
+                  <div class="cooks-card__city">СУЗДАЛЬ</div>
+                  <div class="cooks-card__image"><img src="./img/cities/moskva.png" alt=""></div><a class="btn cooks-card__btn with-angles" href="javascript:void(0)" target=""><span class="btn__text">Узнать больше</span><span class="btn__icon">
+                          <svg>
+                            <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
+                          </svg></span></a>
+                </div>
+              </div>
+              <div class="cooks__card cooks-card">
+                <div class="cooks-card__content">
+                  <div class="cooks-card__year">2023</div>
+                  <div class="cooks-card__photo"><img src="./img/cooks/person_1.jpg" alt=""></div>
+                  <div class="cooks-card__name">Александр Волков-Медведев</div>
+                  <div class="cooks-card__info">шеф-повар ресторана <br>Ruski, Москва</div>
+                  <div class="cooks-card__city">Москва</div>
+                  <div class="cooks-card__image"><img src="./img/cities/moskva.png" alt=""></div><a class="btn cooks-card__btn with-angles" href="javascript:void(0)" target=""><span class="btn__text">Узнать больше</span><span class="btn__icon">
+                          <svg>
+                            <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
+                          </svg></span></a>
+                </div>
+              </div>
+              <div class="cooks__card cooks-card">
+                <div class="cooks-card__content">
+                  <div class="cooks-card__photo"><img src="./img/cooks/person_1.jpg" alt=""></div>
+                  <div class="cooks-card__name">Александр Волков-Медведев</div>
+                  <div class="cooks-card__info">шеф-повар ресторана <br>Ruski, Москва</div>
+                  <div class="cooks-card__city">Москва</div>
+                  <div class="cooks-card__image"><img src="./img/cities/moskva.png" alt=""></div><a class="btn cooks-card__btn with-angles" href="javascript:void(0)" target=""><span class="btn__text">Узнать больше</span><span class="btn__icon">
+                          <svg>
+                            <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
+                          </svg></span></a>
+                </div>
+              </div>
+              <div class="cooks__card cooks-card">
+                <div class="cooks-card__content">
+                  <div class="cooks-card__photo"><img src="./img/cooks/person_1.jpg" alt=""></div>
+                  <div class="cooks-card__name">Александр Волков-Медведев</div>
+                  <div class="cooks-card__info">шеф-повар ресторана <br>Ruski, Москва</div>
+                  <div class="cooks-card__city">Москва</div>
+                  <div class="cooks-card__image"><img src="./img/cities/moskva.png" alt=""></div><a class="btn cooks-card__btn with-angles" href="javascript:void(0)" target=""><span class="btn__text">Узнать больше</span><span class="btn__icon">
+                          <svg>
+                            <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
+                          </svg></span></a>
+                </div>
+              </div>
+              <div class="cooks__card cooks-card">
+                <div class="cooks-card__content">
+                  <div class="cooks-card__photo"><img src="./img/cooks/person_1.jpg" alt=""></div>
+                  <div class="cooks-card__name">Александр Волков-Медведев</div>
+                  <div class="cooks-card__info">шеф-повар ресторана <br>Ruski, Москва</div>
+                  <div class="cooks-card__city">Москва</div>
+                  <div class="cooks-card__image"><img src="./img/cities/moskva.png" alt=""></div><a class="btn cooks-card__btn with-angles" href="javascript:void(0)" target=""><span class="btn__text">Узнать больше</span><span class="btn__icon">
+                          <svg>
+                            <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
+                          </svg></span></a>
+                </div>
+              </div>
             </div>
-                <div class="pagination city-list__pagination" data-js="paginationContainer"></div>
           </div>
         </section>
       </main>

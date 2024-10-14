@@ -1,0 +1,20 @@
+-
+    const defaultCIntroProps = {
+        classes: ''
+    }
+
+mixin c-intro(props = defaultCIntroProps)
+    -
+        const checkProps = {
+            classes: props.classes ? props.classes : defaultCIntroProps.classes
+        }
+
+    section.c-intro(class= checkProps.classes)
+        .m-container.c-intro__container
+            .c-intro__logo.logo
+                img(src="./img/logo.svg" alt="Логотип Русский завтрак")
+            .c-intro__img
+                <picture>
+                    <source srcset="./img/cooks/c_intro_img_mob.png" media="(max-width: 1023px)" />
+                    <img src="./img/cooks/c_intro_img.png" alt="" />
+                </picture>

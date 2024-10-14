@@ -48,6 +48,7 @@
             font-size: 50px;
             line-height: 1.05em;
             color: #000;
+            text-transform: none;
 
 
             @include max(767) {
