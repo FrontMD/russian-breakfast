@@ -261,7 +261,7 @@
 
         &__back {
             background-color: transparent;
-            padding: 9px 18px;
+            padding: 9.1px 18px;
 
             .btn__text {
                 font-size: 14px;
@@ -350,13 +350,41 @@
         }
 
         &__quote {
+            position: relative;
             max-width: 540px;
             margin: 23px auto 0;
+            padding: 30px 60px;
             font-size: 20px;
             font-weight: 400;
             line-height: 1.1em;
             text-align: center;
+            color: $c-accent;
 
+            &::before {
+                content: '';
+                background-image: url("data:image/svg+xml,%3Csvg width='53' height='48' viewBox='0 0 53 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M27.2114 46.7934L26.8907 47.5L27.6667 47.5L36.6667 47.5L36.9064 47.5L37.0566 47.313L52.3899 28.2156L52.5 28.0784L52.5 27.9025L52.5 1L52.5 0.5L52 0.5L36.3334 0.499999L35.8334 0.499999L35.8334 0.999999L35.8334 27.7944L27.2114 46.7934ZM1.54469 46.7934L1.22401 47.5L2 47.5L11 47.5L11.2398 47.5L11.3899 47.313L26.7232 28.2156L26.8334 28.0784L26.8334 27.9025L26.8334 0.999998L26.8334 0.499998L26.3334 0.499998L10.6667 0.499996L10.1667 0.499996L10.1667 0.999996L10.1667 27.7944L1.54469 46.7934Z' stroke='%23E42313'/%3E%3C/svg%3E%0A");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 50px;
+                height: 46px;
+            }
+
+            &::after {
+                content: '';
+                background-image: url("data:image/svg+xml,%3Csvg width='53' height='48' viewBox='0 0 53 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M27.2114 46.7934L26.8907 47.5L27.6667 47.5L36.6667 47.5L36.9064 47.5L37.0566 47.313L52.3899 28.2156L52.5 28.0784L52.5 27.9025L52.5 1L52.5 0.5L52 0.5L36.3334 0.499999L35.8334 0.499999L35.8334 0.999999L35.8334 27.7944L27.2114 46.7934ZM1.54469 46.7934L1.22401 47.5L2 47.5L11 47.5L11.2398 47.5L11.3899 47.313L26.7232 28.2156L26.8334 28.0784L26.8334 27.9025L26.8334 0.999998L26.8334 0.499998L26.3334 0.499998L10.6667 0.499996L10.1667 0.499996L10.1667 0.999996L10.1667 27.7944L1.54469 46.7934Z' stroke='%23E42313'/%3E%3C/svg%3E%0A");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 100%;
+                position: absolute;
+                right: 0;
+                bottom: 28px;
+                width: 50px;
+                height: 46px;
+            }
         }
 
         &__recipes {
@@ -364,6 +392,66 @@
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 20px;
+        }
+
+        .cook-category {
+            min-height: 500px;
+            border: 1px solid $c-accent;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            &__img {
+                width: 100%;
+                aspect-ratio: 1.7931 / 1;
+                flex-shrink: 0;
+            }
+
+            &__content {
+                flex: 1 1 auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            &__name {
+                font-family: $ff-title;
+                font-size: 60px;
+                font-weight: 400;
+                line-height: 1.15em;
+                text-align: center;
+            }
+
+            &__btn {
+                margin-top: 11px;
+                background-color: transparent;
+                padding: 9.1px 24.7px;
+
+                .btn__text {
+                    font-size: 14px;
+                }
+            }
+
+            &__tag {
+                margin-top: 16px;
+                min-width: 150px;
+                min-height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: $ff-title;
+                font-size: 25px;
+                font-weight: 400;
+                line-height: 1.2em;
+                text-align: center;
+                text-transform: uppercase;
+                color: $c-accent;
+                border: 1px solid $c-accent;
+                border-radius: 40px;
+            }
         }
     }
 }
