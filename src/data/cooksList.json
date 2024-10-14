@@ -176,7 +176,7 @@
         ]
     },
     {
-        "id": "0",
+        "id": "6",
         "cityId": "0",
         "name": "Александр Волков-Медведев",
         "photo": "./img/cooks/person_1.jpg",
@@ -204,7 +204,7 @@
         ]
     },
     {
-        "id": "1",
+        "id": "7",
         "cityId": "1",
         "name": "Максим Титов",
         "photo": "./img/cooks/person_2.jpg",
@@ -240,7 +240,7 @@
         ]
     },
     {
-        "id": "2",
+        "id": "8",
         "cityId": "2",
         "name": "Артем Прокудин",
         "photo": "./img/cooks/person_3.jpg",
@@ -268,7 +268,7 @@
         ]
     },
     {
-        "id": "3",
+        "id": "9",
         "cityId": "3",
         "name": "Евгений Матусевич",
         "photo": "./img/cooks/person_4.jpg",
@@ -296,7 +296,7 @@
         ]
     },
     {
-        "id": "4",
+        "id": "10",
         "cityId": "4",
         "name": "Анна Жукова",
         "photo": "./img/cooks/person_5.jpg",
@@ -324,7 +324,7 @@
         ]
     },
     {
-        "id": "5",
+        "id": "11",
         "cityId": "5",
         "name": "Антон Рубцов",
         "photo": "./img/cooks/person_6.jpg",
