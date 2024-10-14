@@ -67,7 +67,7 @@
                 "name": "Ресторан 2",
                 "modalText": "Название Ресторана - краткое описание заведение одним предложением в 2-3 строки.",
                 "quote": "«Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt imperdiet mauris, id placerat libero sodales vitae. Morbi eget turpis ut leo.»",
-                "authorName": "Фамилия Имя",
+                "authorName": "",
                 "authorPosition": "шеф-повар",
                 "authorPhoto": "./img/modal_photo.jpg",
                 "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla justo lectus, dapibus in leo eget, mattis interdum dui. Nullam cursus porttitor feugiat. Etiam sollicitudin semper urna, at tempus nisi pulvinar vel. Donec velit augue, fringilla at auctor quis, elementum id tellus. Aenean ornare tempor enim id volutpat. Nulla molestie tortor sit amet nibh eleifend, ut eleifend elit consectetur. Aliquam quis molestie purus. Donec vitae ipsum neque. In ac fermentum lectus. Vestibulum placerat dolor sit amet ligula pulvinar, sit amet ullamcorper nulla placerat. Nullam luctus tellus eu sem iaculis, pulvinar congue turpis rutrum. Quisque tincidunt fermentum ligula, sed luctus tortor blandit at. Etiam luctus augue eu tortor dictum convallis eu non ante. Proin lectus lorem, pulvinar a tincidunt et, egestas nec risus.",
@@ -112,7 +112,7 @@
                 "quote": "«Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt imperdiet mauris, id placerat libero sodales vitae. Morbi eget turpis ut leo.»",
                 "authorName": "Фамилия Имя",
                 "authorPosition": "шеф-повар",
-                "authorPhoto": "./img/modal_photo.jpg",
+                "authorPhoto": "",
                 "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla justo lectus, dapibus in leo eget, mattis interdum dui. Nullam cursus porttitor feugiat. Etiam sollicitudin semper urna, at tempus nisi pulvinar vel. Donec velit augue, fringilla at auctor quis, elementum id tellus. Aenean ornare tempor enim id volutpat. Nulla molestie tortor sit amet nibh eleifend, ut eleifend elit consectetur. Aliquam quis molestie purus. Donec vitae ipsum neque. In ac fermentum lectus. Vestibulum placerat dolor sit amet ligula pulvinar, sit amet ullamcorper nulla placerat. Nullam luctus tellus eu sem iaculis, pulvinar congue turpis rutrum. Quisque tincidunt fermentum ligula, sed luctus tortor blandit at. Etiam luctus augue eu tortor dictum convallis eu non ante. Proin lectus lorem, pulvinar a tincidunt et, egestas nec risus.",
                 "photos": [
                     "./img/restaurant_img.jpg",
