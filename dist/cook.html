@@ -34,7 +34,7 @@
       </div>
     </header>
     <main class="site-main">
-      <main class="page cooks-page">
+      <main class="page cooks-page" data-js="cookPage">
             <section class="c-intro">
               <div class="m-container c-intro__container">
                 <div class="c-intro__logo logo"><img src="./img/logo.svg" alt="Логотип Русский завтрак"></div>
@@ -53,44 +53,16 @@
                         <svg>
                           <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
                         </svg></span><span class="btn__text">ко всем шеф-поварам</span></a>
-                <div class="cook__photo"><img src="./img/cooks/person_1.jpg" alt="">
-                  <div class="cook__year">2023</div>
+                <div class="cook__photo" data-js="cookPhoto"><img src="" alt="">
+                  <div class="cook__year" data-js="cookYear"></div>
                 </div>
-                <div class="cook__name">Александр Волков-Медведев</div>
-                <div class="cook__info">шеф-повар ресторана Ruski, Москва</div>
-                <div class="cook__city">Москва</div>
-                <div class="cook__logo"><img src="./img/recipes/recipe_logo.png" alt=""></div>
-                <div class="cook__quote">Панорамный ресторан Ruski принадлежит 354 Restaurant Group братьев Васильчуков. Самый высокий ресторан Европы занимает весь 85-ый этаж небоскреба «Око», где расположена одна из самых популярных смотровых площадок Москвы #Вышетольколюбовь. С момента открытия в 2016 году ресторан русской кухни с ледяным баром и 8-тонной русской печью стал туристической достопримечательностью столицы.</div>
+                <div class="cook__name" data-js="cookName"></div>
+                <div class="cook__info" data-js="cookInfo"></div>
+                <div class="cook__city" data-js="cookCity"></div>
+                <div class="cook__logo" data-js="cookLogo"><img src="" alt=""></div>
+                <div class="cook__quote" data-js="cookQuote"></div>
               </div>
-              <div class="cook__recipes">
-                <div class="cook__category cook-category">
-                  <div class="cook-category__img"><img src="./img/recipes/recipe_category2_img.jpg" alt=""></div>
-                  <div class="cook-category__content">
-                    <div class="cook-category__name">блюда из творога</div><a class="btn cook-category__btn with-angles" href="javascript:void(0)" target=""><span class="btn__text">узнать рецепт</span><span class="btn__icon">
-                            <svg>
-                              <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                            </svg></span></a>
-                  </div>
-                </div>
-                <div class="cook__category cook-category">
-                  <div class="cook-category__content">
-                    <div class="cook-category__name">каши</div>
-                    <div class="cook-category__tag">Скоро!</div>
-                  </div>
-                </div>
-                <div class="cook__category cook-category">
-                  <div class="cook-category__content">
-                    <div class="cook-category__name">Блюда из яиц и сыра</div>
-                    <div class="cook-category__tag">Скоро!</div>
-                  </div>
-                </div>
-                <div class="cook__category cook-category">
-                  <div class="cook-category__content">
-                    <div class="cook-category__name">Молочные десерты</div>
-                    <div class="cook-category__tag">Скоро!</div>
-                  </div>
-                </div>
-              </div>
+              <div class="cook__recipes" data-js="cookRecipes"></div>
             </div>
           </div>
         </section>

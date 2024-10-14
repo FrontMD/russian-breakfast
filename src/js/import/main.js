@@ -1,5 +1,6 @@
 const restaurantsListPath = 'https://raw.githubusercontent.com/FrontMD/russian-breakfast/master/dist/data/restaurantsList.json';
 const recipesListPath = 'https://raw.githubusercontent.com/FrontMD/russian-breakfast/master/dist/data/recipesList.json';
+const cooksListPath = 'https://raw.githubusercontent.com/FrontMD/russian-breakfast/refs/heads/master/src/data/cooksList.json';
 
 document.addEventListener("DOMContentLoaded", () => {
     const windowWidth = window.innerWidth
@@ -13,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     recipeCategoriesListBuild() // строит список категорий рецептов
     recipesListBuild() // строит список рецептов
     recipePageBuild() // наполняет страницу рецепта
+    cookPageBuild() // наполняет страницу повара
     spoilerController() // управляет спойлерами
 
     if(windowWidth < 1280) {
@@ -644,6 +646,114 @@ document.addEventListener("DOMContentLoaded", () => {
             })
 
             recipePage.querySelector('[data-js="recipeNote"]').innerHTML = currentRecipe.note
+        })
+    }
+
+    /* НАПОЛНЕНИЕ СТРАНИЦЫ ПОВАРА */
+    function cookPageBuild() {
+        const cookPage = document.querySelector('[data-js="cookPage"]');
+
+        if(!cookPage) return
+
+        let currentPageParams = window.location.search.slice(1).split("&")
+        let currentCookParam = currentPageParams.find(item => /^cook-id=/.test(item));
+
+        fetch(cooksListPath, {
+            method: 'get'
+        }).then(response => response.json()).then(json => {
+
+            let cooksListArr = json
+
+            let currentCook = cooksListArr[0]
+            
+            if(currentCookParam !== undefined) {
+                currentCook = cooksListArr.find(item => item.id == currentCookParam.split("=")[1])
+            }
+
+            let cookPhoto = cookPage.querySelector('[data-js="cookPhoto"]')
+
+            if(!currentCook.photo) {
+                cookPhoto.style.display = 'none'
+            } else {
+                cookPhoto.querySelector('img').setAttribute('src', currentCook.photo)
+
+                let cookYear = cookPage.querySelector('[data-js="cookYear"]')
+
+                if(currentCook.year == 2024) {
+                    cookYear.style.display = 'none'
+                } else {
+                    cookYear.innerHTML = currentCook.year
+                }
+            }
+
+            cookPage.querySelector('[data-js="cookName"]').innerHTML = currentCook.name
+            cookPage.querySelector('[data-js="cookInfo"]').innerHTML = currentCook.info
+
+            fetch(restaurantsListPath, {
+                method: 'get'
+            }).then(response => response.json()).then(json => {
+    
+                let citiesListArr = json
+                let currentCity = citiesListArr.find(item => item.id == currentCook.cityId)
+    
+                cookPage.querySelector('[data-js="cookCity"]').innerHTML = currentCity.name
+            })
+
+            let cookLogo = cookPage.querySelector('[data-js="cookLogo"]')
+
+            if(!currentCook.logo) {
+                cookLogo.style.display = 'none'
+            } else {
+                cookLogo.querySelector('img').setAttribute('src', currentCook.logo)
+            }
+            
+            cookPage.querySelector('[data-js="cookQuote"]').innerHTML = currentCook.quote
+
+            if(currentCook.categories.length > 0) {
+                fetch(recipesListPath, {
+                    method: 'get'
+                }).then(response => response.json()).then(json => {
+        
+                    let recipesListArr = json
+                    let categoriesList = cookPage.querySelector('[data-js="cookRecipes"]')
+
+                    currentCook.categories.forEach(category => {
+                        let currentCategory = recipesListArr.find(item => item.id == category.id)
+                        let categoryCard = document.createElement('div')
+                        categoryCard.classList.add('cook__category')
+                        categoryCard.classList.add('cook-category')
+
+                        if(category.recipeId) {
+                            categoryCard.innerHTML = `
+                                                        <div class="cook-category__img">
+                                                            <img src="${currentCategory.img}" alt="">
+                                                        </div>
+                                                        <div class="cook-category__content">
+                                                            <div class="cook-category__name">${currentCategory.name}</div>
+                                                            <a class="btn cook-category__btn with-angles" href="recipe.html?recipe-id=${category.recipeId}" target="">
+                                                                <span class="btn__text">узнать рецепт</span><span class="btn__icon">
+                                                                    <svg>
+                                                                        <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
+                                                                    </svg>
+                                                                </span>
+                                                            </a>
+                                                        </div>
+                                                    `
+                        } else {
+                            categoryCard.innerHTML = ` 
+                                                        <div class="cook-category__content">
+                                                            <div class="cook-category__name">${currentCategory.name}</div>
+                                                            <div class="cook-category__tag">Скоро!</div>
+                                                        </div>
+                                                    `
+                        }
+
+                        categoriesList.appendChild(categoryCard)
+                    })
+
+                })
+            }
+
         })
     }
 
