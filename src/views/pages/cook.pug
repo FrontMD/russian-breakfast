@@ -32,4 +32,24 @@ block content
                         .cook__logo(data-js="cookLogo")
                             img(src='' alt='')
                         .cook__quote(data-js="cookQuote")
+
                     .cook__recipes(data-js="cookRecipes")
+
+                    .cook__menu.cook-menu(data-js="cookMenu")
+                        +title({
+                            tag: "h2",
+                            classes: "cook-menu__title",
+                            text: "Меню «Русского&nbsp;завтрака»"
+                        })
+
+                        .cook-menu__list(data-js="restaurantMenu")
+
+                        .cook-menu__slider(data-js="restaurantSlider" data-id="dishPhotosSlider")
+                            .swiper-wrapper
+                            .slider-controls 
+                                .slider-control.slider-control--prev(data-js="sliderControlPrev")
+                                    svg
+                                        use(xlink:href="./img/sprites/sprite.svg#btn_arrow")
+                                .slider-control.slider-control--next(data-js="sliderControlNext")
+                                    svg
+                                        use(xlink:href="./img/sprites/sprite.svg#btn_arrow")   
