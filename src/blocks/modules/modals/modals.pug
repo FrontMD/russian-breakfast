@@ -28,4 +28,10 @@ noindex
                         img(src="" alt="" data-js="cookModalPhoto")
                     .cook-modal__name(data-js="cookModalName")
                     .cook-modal__text(data-js="cookModalText")
-                    .cook-modal__city(data-js="cookModalCity")               
+                    .cook-modal__city(data-js="cookModalCity")
+                    +btn({
+                        classes: 'cook-modal__btn with-angles',
+                        name: "Узнать больше",
+                        icon: true,
+                        iconName: 'btn_arrow'
+                    })(data-js="cookModalBtn")             

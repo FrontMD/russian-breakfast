@@ -321,4 +321,14 @@
         color: $c-accent;
         text-transform: uppercase;
     }
+
+    &__btn {
+        background-color: transparent;
+        padding: 9px 23px;
+        margin: 5px auto 0;
+
+        .btn__text {
+            font-size: 14px;
+        }
+    }
 }
