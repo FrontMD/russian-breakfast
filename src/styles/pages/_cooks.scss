@@ -312,7 +312,13 @@
             border-bottom: 1px solid $c-accent;
 
             @include max(767) {
-                padding: 40px 15px 79px;
+                border: none;
+            }
+        }
+
+        &__mob-wrap {
+            @include max(767) {
+                padding: 40px 15px 70px;
                 border: 0.82px solid $c-accent;
                 border-radius: 10px;
             }
@@ -489,6 +495,15 @@
             }
         }
 
+        &__menu {
+            display: none;
+            margin-top: 50px;
+
+            @include max(767) {
+                margin-top: 70px;
+            }
+        }
+
         .cook-category {
             aspect-ratio: 1.04 / 1;
             border: 1px solid $c-accent;
@@ -572,6 +587,10 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+
+                @include max(767) {
+                    gap: 28px;
+                }
             }
 
             &__item {
@@ -588,14 +607,50 @@
                 position: relative;
                 margin: 63px auto 0;
                 overflow: hidden;
-                max-width: 881px;
+                max-width: 888px;
+
+                .slider-control {
+                    width: 60px;
+                    height: 60px;
+                }
 
                 @include max(767) {
                     margin: 22px auto 0;
+                    padding-bottom: 74px;
 
-                    .slider-controls {
-                        display: none;
+                    .slider-control {
+                        top: auto;
+                        bottom: 0px;
                     }
+
+                    .slider-control--prev {
+                        left: 50%;
+                        transform: translateX(-79px);
+                    }
+
+                    .slider-control--next {
+                        right: 50%;
+                        transform: translateX(79px);
+                    }
+                }
+            }
+
+            &__img {
+                max-width: calc(100% - 188px);
+                aspect-ratio: 1.762 / 1;
+                border-radius: 10px;
+                overflow: hidden;
+                margin: 0 auto;
+
+                @include max(767) {
+                    max-width: 100%;
+                    aspect-ratio: 1.49 / 1;
+                }
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
                 }
             }
         }

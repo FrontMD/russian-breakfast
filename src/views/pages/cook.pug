@@ -14,42 +14,43 @@ block content
                     text: "Узнайте, как приготовить вкусные блюда на завтрак с&nbsp;учётом кулинарных особенностей регионов России."
                 })
                 .cook__content
-                    .cook__main
-                        +btn({
-                            name: 'ко всем шеф-поварам',
-                            classes: 'cook__back with-angles',
-                            icon: true,
-                            positionIcon: 'left',
-                            link: 'cooks.html',
-                            iconName: 'btn_arrow',
-                        })
-                        .cook__photo(data-js="cookPhoto")
-                            img(src='' alt='')
-                            .cook__year(data-js="cookYear")
-                        .cook__name(data-js="cookName")
-                        .cook__info(data-js="cookInfo")
-                        .cook__city(data-js="cookCity")
-                        .cook__logo(data-js="cookLogo")
-                            img(src='' alt='')
-                        .cook__quote(data-js="cookQuote")
+                    .cook__mob-wrap
+                        .cook__main
+                            +btn({
+                                name: 'ко всем шеф-поварам',
+                                classes: 'cook__back with-angles',
+                                icon: true,
+                                positionIcon: 'left',
+                                link: 'cooks.html',
+                                iconName: 'btn_arrow',
+                            })
+                            .cook__photo(data-js="cookPhoto")
+                                img(src='' alt='')
+                                .cook__year(data-js="cookYear")
+                            .cook__name(data-js="cookName")
+                            .cook__info(data-js="cookInfo")
+                            .cook__city(data-js="cookCity")
+                            .cook__logo(data-js="cookLogo")
+                                img(src='' alt='')
+                            .cook__quote(data-js="cookQuote")
+
+                        .cook__menu.cook-menu(data-js="cookMenu")
+                            +title({
+                                tag: "h2",
+                                classes: "cook-menu__title",
+                                text: "Меню «Русского&nbsp;завтрака»"
+                            })
+
+                            .cook-menu__list(data-js="restaurantMenu")
+
+                            .cook-menu__slider(data-js="restaurantSlider" data-id="dishPhotosSlider")
+                                .swiper-wrapper
+                                .slider-controls 
+                                    .slider-control.slider-control--prev(data-js="sliderControlPrev")
+                                        svg
+                                            use(xlink:href="./img/sprites/sprite.svg#btn_arrow")
+                                    .slider-control.slider-control--next(data-js="sliderControlNext")
+                                        svg
+                                            use(xlink:href="./img/sprites/sprite.svg#btn_arrow")
 
                     .cook__recipes(data-js="cookRecipes")
-
-                    .cook__menu.cook-menu(data-js="cookMenu")
-                        +title({
-                            tag: "h2",
-                            classes: "cook-menu__title",
-                            text: "Меню «Русского&nbsp;завтрака»"
-                        })
-
-                        .cook-menu__list(data-js="restaurantMenu")
-
-                        .cook-menu__slider(data-js="restaurantSlider" data-id="dishPhotosSlider")
-                            .swiper-wrapper
-                            .slider-controls 
-                                .slider-control.slider-control--prev(data-js="sliderControlPrev")
-                                    svg
-                                        use(xlink:href="./img/sprites/sprite.svg#btn_arrow")
-                                .slider-control.slider-control--next(data-js="sliderControlNext")
-                                    svg
-                                        use(xlink:href="./img/sprites/sprite.svg#btn_arrow")   

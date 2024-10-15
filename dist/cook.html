@@ -49,39 +49,41 @@
           <div class="m-container">
                 <h1 class="title title--h1 cooks-page__title">Узнайте, как приготовить вкусные блюда на завтрак с&nbsp;учётом кулинарных особенностей регионов России.</h1>
             <div class="cook__content">
-              <div class="cook__main"><a class="btn cook__back with-angles" href="cooks.html" target=""><span class="btn__icon">
+              <div class="cook__mob-wrap">
+                <div class="cook__main"><a class="btn cook__back with-angles" href="cooks.html" target=""><span class="btn__icon">
+                          <svg>
+                            <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
+                          </svg></span><span class="btn__text">ко всем шеф-поварам</span></a>
+                  <div class="cook__photo" data-js="cookPhoto"><img src="" alt="">
+                    <div class="cook__year" data-js="cookYear"></div>
+                  </div>
+                  <div class="cook__name" data-js="cookName"></div>
+                  <div class="cook__info" data-js="cookInfo"></div>
+                  <div class="cook__city" data-js="cookCity"></div>
+                  <div class="cook__logo" data-js="cookLogo"><img src="" alt=""></div>
+                  <div class="cook__quote" data-js="cookQuote"></div>
+                </div>
+                <div class="cook__menu cook-menu" data-js="cookMenu">
+                      <h2 class="title title--h2 cook-menu__title">Меню «Русского&nbsp;завтрака»</h2>
+                  <div class="cook-menu__list" data-js="restaurantMenu"></div>
+                  <div class="cook-menu__slider" data-js="restaurantSlider" data-id="dishPhotosSlider">
+                    <div class="swiper-wrapper"></div>
+                    <div class="slider-controls"> 
+                      <div class="slider-control slider-control--prev" data-js="sliderControlPrev">
                         <svg>
                           <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                        </svg></span><span class="btn__text">ко всем шеф-поварам</span></a>
-                <div class="cook__photo" data-js="cookPhoto"><img src="" alt="">
-                  <div class="cook__year" data-js="cookYear"></div>
-                </div>
-                <div class="cook__name" data-js="cookName"></div>
-                <div class="cook__info" data-js="cookInfo"></div>
-                <div class="cook__city" data-js="cookCity"></div>
-                <div class="cook__logo" data-js="cookLogo"><img src="" alt=""></div>
-                <div class="cook__quote" data-js="cookQuote"></div>
-              </div>
-              <div class="cook__recipes" data-js="cookRecipes"></div>
-              <div class="cook__menu cook-menu" data-js="cookMenu">
-                    <h2 class="title title--h2 cook-menu__title">Меню «Русского&nbsp;завтрака»</h2>
-                <div class="cook-menu__list" data-js="restaurantMenu"></div>
-                <div class="cook-menu__slider" data-js="restaurantSlider" data-id="dishPhotosSlider">
-                  <div class="swiper-wrapper"></div>
-                  <div class="slider-controls"> 
-                    <div class="slider-control slider-control--prev" data-js="sliderControlPrev">
-                      <svg>
-                        <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                      </svg>
-                    </div>
-                    <div class="slider-control slider-control--next" data-js="sliderControlNext">
-                      <svg>
-                        <use xlink:href="./img/sprites/sprite.svg#btn_arrow">  </use>
-                      </svg>
+                        </svg>
+                      </div>
+                      <div class="slider-control slider-control--next" data-js="sliderControlNext">
+                        <svg>
+                          <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
+                        </svg>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <div class="cook__recipes" data-js="cookRecipes"></div>
             </div>
           </div>
         </section>

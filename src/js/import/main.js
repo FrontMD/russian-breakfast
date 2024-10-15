@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 },
     
                 breakpoints: {
-                    767: {
+                    768: {
                         spaceBetween: 0
                     }
                 }
@@ -841,17 +841,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 })
             }
 
-            console.log(currentCook)
-
             if(currentCook.restaurantId.length > 0) {
                 fetch(restaurantsListPath, {
                     method: 'get'
                 }).then(response => response.json()).then(json => {
         
-                    let restaurantsListArr = json
-                    let currentRestaurant = restaurantsListArr.map(item => item.restaurants)
-
-                    console.log(currentRestaurant)
+                    let citiesListArr = json
+                    let restaurantsListArr = citiesListArr.map(item => item.restaurants)
+                    restaurantsListArr = [].concat(...restaurantsListArr)
+                    let currentRestaurant = restaurantsListArr.find(item => item.id == currentCook.restaurantId)
 
                     let menuBlock = cookPage.querySelector('[data-js="cookMenu"]')
 
@@ -865,10 +863,11 @@ document.addEventListener("DOMContentLoaded", () => {
             
                         menuItem.innerHTML = item
             
-                        restaurantMenu.appendChild(menuItem)
+                        cookMenu.appendChild(menuItem)
                     })
         
                     let menuSlider = document.querySelector('[data-id="dishPhotosSlider"] .swiper-wrapper')
+
                     currentRestaurant.dishPhotos.forEach(item => {
                         let slide = document.createElement('div')
                         slide.classList.add('cook-menu__slide', 'swiper-slide')
