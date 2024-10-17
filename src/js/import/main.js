@@ -137,45 +137,39 @@ document.addEventListener("DOMContentLoaded", () => {
             method: 'get'
         }).then(response => response.json()).then(json => {
             let cooksListArr = json
-
-            fetch(restaurantsListPath, {
-                method: 'get'
-            }).then(response => response.json()).then(json => {
-    
-                let citiesListArr = json
                 
-                cooksListArr.forEach(cook => {
-                    if(cook.year != "2024") {
-                        let currentCity = citiesListArr.find(item => item.id == cook.cityId)
-                        let cookListItem = document.createElement('div')
-                        cookListItem.classList.add('home-cooks__item')
-                        cookListItem.setAttribute('data-js', 'homeCooksItem')
-    
-                        cookListItem.innerHTML = `
-                                                    <div class="home-cooks__info">
-                                                        <div class="home-cooks__name" data-js="homeCooksName">${cook.name}</div>
-                                                        <div class="home-cooks__text" data-js="homeCooksText">${cook.info}</div>
-                                                        <div class="home-cooks__city" data-js="homeCooksCity">${currentCity.name}</div>
-                                                        <a class="btn home-cooks__btn with-angles" href="cook.html?cook-id=${cook.id}" target="" data-js="homeCooksBtn">
-                                                            <span class="btn__text">Узнать больше</span>
-                                                            <span class="btn__icon">
-                                                                <svg>
-                                                                    <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                                                                </svg>
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="home-cooks__photo"><img src="${cook.photo}" alt="${cook.name}" data-js="homeCooksPhoto"></div>
-                                                `
-    
-                        homeCooksList.appendChild(cookListItem)
-                    }
-                })
-    
-                if(windowWidth < 1280) {
-                    openCookModal() // открывает модалку повара
+            cooksListArr.forEach(cook => {
+                if(cook.year != "2024") {
+                    
+                    let cookListItem = document.createElement('div')
+                    cookListItem.classList.add('home-cooks__item')
+                    cookListItem.setAttribute('data-js', 'homeCooksItem')
+
+                    cookListItem.innerHTML = `
+                                                <div class="home-cooks__info">
+                                                    <div class="home-cooks__name" data-js="homeCooksName">${cook.name}</div>
+                                                    <div class="home-cooks__text" data-js="homeCooksText">${cook.info}</div>
+                                                    <div class="home-cooks__city" data-js="homeCooksCity">${cook.cityName}</div>
+                                                    <a class="btn home-cooks__btn with-angles" href="cook.html?cook-id=${cook.id}" target="" data-js="homeCooksBtn">
+                                                        <span class="btn__text">Узнать больше</span>
+                                                        <span class="btn__icon">
+                                                            <svg>
+                                                                <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
+                                                            </svg>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="home-cooks__photo"><img src="${cook.photo}" alt="${cook.name}" data-js="homeCooksPhoto"></div>
+                                            `
+
+                    homeCooksList.appendChild(cookListItem)
                 }
             })
+
+            if(windowWidth < 1280) {
+                openCookModal() // открывает модалку повара
+            }
+         
 
         })
 
@@ -715,71 +709,63 @@ document.addEventListener("DOMContentLoaded", () => {
             let cooksListArr = json
             let slide23 = cooksPage.querySelector('[data-js="cooksSlide23"]')
             let slide24 = cooksPage.querySelector('[data-js="cooksSlide24"]')
-
-            fetch(restaurantsListPath, {
-                method: 'get'
-            }).then(response => response.json()).then(json => {
-    
-                let citiesListArr = json
                 
-                cooksListArr.forEach(cook => {
-                    
-                    let cooksCard = document.createElement('div')
-                    cooksCard.classList.add('cooks__card')
-                    cooksCard.classList.add('cooks-card')
-                    
-                    let currentCity = citiesListArr.find(item => item.id == cook.cityId)
-    
-                    if(cook.year == 2024) {
-                        cooksCard.innerHTML = `
-                                                <div class="cooks-card__content">
-                                                    <div class="cooks-card__photo">
-                                                        <img src="${cook.photo}" alt="">
-                                                    </div>
-                                                    <div class="cooks-card__name">${cook.name}</div>
-                                                    <div class="cooks-card__info">${cook.info}</div>
-                                                    <div class="cooks-card__city">${currentCity.name}</div>
-                                                    <div class="cooks-card__image">
-                                                        <img src="${currentCity.photo}" alt="">
-                                                    </div>
-                                                    <a class="btn cooks-card__btn with-angles" href="cook.html?cook-id=${cook.id}" target="">
-                                                        <span class="btn__text">Узнать больше</span>
-                                                        <span class="btn__icon">
-                                                            <svg>
-                                                                <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                                                            </svg>
-                                                        </span>
-                                                    </a>
+            cooksListArr.forEach(cook => {
+                
+                let cooksCard = document.createElement('div')
+                cooksCard.classList.add('cooks__card')
+                cooksCard.classList.add('cooks-card')
+
+                if(cook.year == 2024) {
+                    cooksCard.innerHTML = `
+                                            <div class="cooks-card__content">
+                                                <div class="cooks-card__photo">
+                                                    <img src="${cook.photo}" alt="">
                                                 </div>
-                                            `
-                        slide24.appendChild(cooksCard)
-                    } else {
-                        cooksCard.innerHTML = `
-                                                <div class="cooks-card__content">
-                                                    <div class="cooks-card__year">${cook.year}</div>
-                                                    <div class="cooks-card__photo">
-                                                        <img src="${cook.photo}" alt="">
-                                                    </div>
-                                                    <div class="cooks-card__name">${cook.name}</div>
-                                                    <div class="cooks-card__info">${cook.info}</div>
-                                                    <div class="cooks-card__city">${currentCity.name}</div>
-                                                    <div class="cooks-card__image">
-                                                        <img src="${currentCity.photo}" alt="">
-                                                    </div>
-                                                    <a class="btn cooks-card__btn with-angles" href="cook.html?cook-id=${cook.id}" target="">
-                                                        <span class="btn__text">Узнать больше</span>
-                                                        <span class="btn__icon">
-                                                            <svg>
-                                                                <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                                                            </svg>
-                                                        </span>
-                                                    </a>
+                                                <div class="cooks-card__name">${cook.name}</div>
+                                                <div class="cooks-card__info">${cook.info}</div>
+                                                <div class="cooks-card__city">${cook.cityName}</div>
+                                                <div class="cooks-card__image">
+                                                    <img src="${cook.cityPhoto}" alt="">
                                                 </div>
-                                            `
-                        slide23.appendChild(cooksCard)
-                    }
-                })
+                                                <a class="btn cooks-card__btn with-angles" href="cook.html?cook-id=${cook.id}" target="">
+                                                    <span class="btn__text">Узнать больше</span>
+                                                    <span class="btn__icon">
+                                                        <svg>
+                                                            <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
+                                                        </svg>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        `
+                    slide24.appendChild(cooksCard)
+                } else {
+                    cooksCard.innerHTML = `
+                                            <div class="cooks-card__content">
+                                                <div class="cooks-card__year">${cook.year}</div>
+                                                <div class="cooks-card__photo">
+                                                    <img src="${cook.photo}" alt="">
+                                                </div>
+                                                <div class="cooks-card__name">${cook.name}</div>
+                                                <div class="cooks-card__info">${cook.info}</div>
+                                                <div class="cooks-card__city">${cook.cityName}</div>
+                                                <div class="cooks-card__image">
+                                                    <img src="${cook.cityPhoto}" alt="">
+                                                </div>
+                                                <a class="btn cooks-card__btn with-angles" href="cook.html?cook-id=${cook.id}" target="">
+                                                    <span class="btn__text">Узнать больше</span>
+                                                    <span class="btn__icon">
+                                                        <svg>
+                                                            <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
+                                                        </svg>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        `
+                    slide23.appendChild(cooksCard)
+                }
             })
+            
             
         
         })
@@ -824,16 +810,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             cookPage.querySelector('[data-js="cookName"]').innerHTML = currentCook.name
             cookPage.querySelector('[data-js="cookInfo"]').innerHTML = currentCook.info
-
-            fetch(restaurantsListPath, {
-                method: 'get'
-            }).then(response => response.json()).then(json => {
-    
-                let citiesListArr = json
-                let currentCity = citiesListArr.find(item => item.id == currentCook.cityId)
-    
-                cookPage.querySelector('[data-js="cookCity"]').innerHTML = currentCity.name
-            })
+            cookPage.querySelector('[data-js="cookCity"]').innerHTML = currentCook.cityName
 
             let cookLogo = cookPage.querySelector('[data-js="cookLogo"]')
 
