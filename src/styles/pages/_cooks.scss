@@ -79,6 +79,14 @@
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
         }
+
+        &__list.swiper-slide {
+            opacity: 0 !important;
+        }
+
+        &__list.swiper-slide-active {
+            opacity: 1 !important;
+        }
     }
 
     .cooks-card {
