@@ -29,12 +29,47 @@
 
         &__header {
             position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &__tabs {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            width: fit-content;
+            margin: 60px auto 18px;
+
+            @include max(450) {
+                flex-direction: column;
+                gap: 32px;
+            }
+        }
+
+        &__tab {
+            background-color: transparent;
+            font-weight: 400;
+            line-height: 1em;
+            text-align: center;
+            padding: 4.5px 53px;
+            background-image: url("../img/tab.png");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: all 0.3s linear;
+
+            &.active {
+                background-image: url("../img/tab_active.png");
+            }
+
+            .btn__text {
+                font-size: 20px;
+            }
         }
 
         &__back {
-            position: absolute;
-            left: 0;
-            top: 12px;
+            align-self: flex-start;
             gap: 12px;
             padding: 0;
             color: $c-accent;

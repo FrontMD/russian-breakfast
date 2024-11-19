@@ -16,6 +16,18 @@ block content
                         classes: "recipes__title",
                         text: "название раздела"
                     })(data-js="categoryName")
+                    .recipes__tabs
+                        +btn({
+                            name: 'рецепт от шефа',
+                            classes: 'recipes__tab',
+                            link: '',
+                            icon: false,
+                        })(data-js='recipesTab' data-author='chef')
+                        +btn({
+                            name: 'народный рецепт',
+                            classes: 'recipes__tab',
+                            icon: false,
+                        })(data-js='recipesTab' data-author='member')
                     +btn({
                         classes: "recipes__back",
                         name: "назад",
@@ -34,158 +46,6 @@ block content
                             svg
                                 use(xlink:href="./img/sprites/sprite.svg#btn_long_arrow")
                     .swiper-wrapper
-                        //-.recipes__card.recipe-card
-                            .recipe-card__inner
-                                .recipe-card__img
-                                    img(src="./img/recipes/recipe_img.jpg" alt="")
-                                +title({
-                                    tag: "h2",
-                                    classes: "recipe-card__title",
-                                    text: "название <br>блюда и краткое <br>описание" 
-                                })
-                                .recipe-card__city город
-                                +btn({
-                                    classes: "recipe-card__btn with-angles",
-                                    name: "узнать рецепт",
-                                    icon: true,
-                                    iconName: 'btn_arrow',
-                                })
-
-                        //-.recipes__card.recipe-card.recipe-card--sticker
-                            .recipe-card__inner
-                                .recipe-card__img
-                                    img(src="./img/recipes/recipe_img.jpg" alt="")
-                                +title({
-                                    tag: "h2",
-                                    classes: "recipe-card__title",
-                                    text: "название <br>блюда и краткое <br>описание" 
-                                })
-                                .recipe-card__city город
-                                +btn({
-                                    classes: "recipe-card__btn with-angles",
-                                    name: "узнать рецепт",
-                                    icon: true,
-                                    iconName: 'btn_arrow',
-                                })
-
-                        //-.recipes__card.recipe-card
-                            .recipe-card__inner
-                                .recipe-card__img
-                                    img(src="./img/recipes/recipe_img.jpg" alt="")
-                                +title({
-                                    tag: "h2",
-                                    classes: "recipe-card__title",
-                                    text: "название <br>блюда и краткое <br>описание" 
-                                })
-                                .recipe-card__city город
-                                +btn({
-                                    classes: "recipe-card__btn with-angles",
-                                    name: "узнать рецепт",
-                                    icon: true,
-                                    iconName: 'btn_arrow',
-                                })
-
-                        //-.recipes__card.recipe-card.recipe-card--sticker
-                            .recipe-card__inner
-                                .recipe-card__img
-                                    img(src="./img/recipes/recipe_img.jpg" alt="")
-                                +title({
-                                    tag: "h2",
-                                    classes: "recipe-card__title",
-                                    text: "название <br>блюда и краткое <br>описание" 
-                                })
-                                .recipe-card__city город
-                                +btn({
-                                    classes: "recipe-card__btn with-angles",
-                                    name: "узнать рецепт",
-                                    icon: true,
-                                    iconName: 'btn_arrow',
-                                }) 
-
-                        //-.recipes__card.recipe-card
-                            .recipe-card__inner
-                                .recipe-card__img
-                                    img(src="./img/recipes/recipe_img.jpg" alt="")
-                                +title({
-                                    tag: "h2",
-                                    classes: "recipe-card__title",
-                                    text: "название <br>блюда и краткое <br>описание" 
-                                })
-                                .recipe-card__city город
-                                +btn({
-                                    classes: "recipe-card__btn with-angles",
-                                    name: "узнать рецепт",
-                                    icon: true,
-                                    iconName: 'btn_arrow',
-                                })
-
-                        //-.recipes__card.recipe-card.recipe-card--sticker
-                            .recipe-card__inner
-                                .recipe-card__img
-                                    img(src="./img/recipes/recipe_img.jpg" alt="")
-                                +title({
-                                    tag: "h2",
-                                    classes: "recipe-card__title",
-                                    text: "название <br>блюда и краткое <br>описание" 
-                                })
-                                .recipe-card__city город
-                                +btn({
-                                    classes: "recipe-card__btn with-angles",
-                                    name: "узнать рецепт",
-                                    icon: true,
-                                    iconName: 'btn_arrow',
-                                })
-
-                        //-.recipes__card.recipe-card
-                            .recipe-card__inner
-                                .recipe-card__img
-                                    img(src="./img/recipes/recipe_img.jpg" alt="")
-                                +title({
-                                    tag: "h2",
-                                    classes: "recipe-card__title",
-                                    text: "название <br>блюда и краткое <br>описание" 
-                                })
-                                .recipe-card__city город
-                                +btn({
-                                    classes: "recipe-card__btn with-angles",
-                                    name: "узнать рецепт",
-                                    icon: true,
-                                    iconName: 'btn_arrow',
-                                })
-
-                        //-.recipes__card.recipe-card.recipe-card--sticker
-                            .recipe-card__inner
-                                .recipe-card__img
-                                    img(src="./img/recipes/recipe_img.jpg" alt="")
-                                +title({
-                                    tag: "h2",
-                                    classes: "recipe-card__title",
-                                    text: "название <br>блюда и краткое <br>описание" 
-                                })
-                                .recipe-card__city город
-                                +btn({
-                                    classes: "recipe-card__btn with-angles",
-                                    name: "узнать рецепт",
-                                    icon: true,
-                                    iconName: 'btn_arrow',
-                                })
-
-                        //-.recipes__card.recipe-card.recipe-card--sticker
-                            .recipe-card__inner
-                                .recipe-card__img
-                                    img(src="./img/recipes/recipe_img.jpg" alt="")
-                                +title({
-                                    tag: "h2",
-                                    classes: "recipe-card__title",
-                                    text: "название <br>блюда и краткое <br>описание" 
-                                })
-                                .recipe-card__city город
-                                +btn({
-                                    classes: "recipe-card__btn with-angles",
-                                    name: "узнать рецепт",
-                                    icon: true,
-                                    iconName: 'btn_arrow',
-                                })
 
                 +pagination({
                     classes: "recipes__pagination"

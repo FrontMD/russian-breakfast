@@ -486,10 +486,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let currentCategoryId = false
         let currentPaginationId = 0
+        let currentAuthorType = 'chef'
+
+        let recipesTabs = document.querySelectorAll('[data-js="recipesTab"]')
 
         let currentPageParams = window.location.search.slice(1).split("&")
         let currentCategoryParam = currentPageParams.find(item => /^category-id=/.test(item));
         let currentPaginationParam = currentPageParams.find(item => /^pagination=/.test(item));
+        let currentAuthorParam = currentPageParams.find(item => /^author=/.test(item));
 
         if(currentCategoryParam !== undefined) {
             currentCategoryId = currentCategoryParam.split("=")[1]
@@ -499,89 +503,109 @@ document.addEventListener("DOMContentLoaded", () => {
             currentPaginationId = currentPaginationParam.split("=")[1]
         }
 
-        fetch(recipesListPath, {
-            method: 'get'
-        }).then(response => response.json()).then(json => {
+        if(currentAuthorParam !== undefined) {
+            currentAuthorType = currentAuthorParam.split("=")[1]
+        }
 
-            let recipesListArr = json
-            let currentCategoryObj = recipesListArr[0]
-
-            if(currentCategoryId) {
-                currentCategoryObj = recipesListArr.find(item => item.id == currentCategoryId) || recipesListArr[0]
-            }
-
-            
-            // ищем нужные рецепты с учётом пагинации
-            let currentRecipesFullList = currentCategoryObj.recipes
-            let currentRecipesList = currentRecipesFullList
-            
-            if(windowWidth > 767) {
-                currentRecipesList = currentRecipesFullList.slice(currentPaginationId * cardsOnPage, currentPaginationId * cardsOnPage + cardsOnPage)
-            }
-
-
-            //ставим название категории
-            const categoryNameEl = document.querySelector('[data-js=categoryName]')
-            if(categoryNameEl) {
-                categoryNameEl.innerHTML = currentCategoryObj.name
-            }
-
-            // добавляем карточки ресторанов
-            currentRecipesList.forEach(recipe => {
-                let recipeCard = document.createElement('div')
-                if(recipe.author == "chef") {
-                    recipeCard.classList.add('recipes__card', 'recipe-card', "recipe-card--sticker", 'swiper-slide')
-                } else {
-                    recipeCard.classList.add('recipes__card', 'recipe-card', 'swiper-slide')
-                }
-                
-                recipeCard.innerHTML = `                                          
-                                    <div class="recipe-card__inner">
-                                        <div class="recipe-card__img">
-                                            <img src=${recipe.img} alt=""></div>
-                                        <h2 class="title title--h2 recipe-card__title">${recipe.name}</h2>
-                                        <div class="recipe-card__city">${recipe.city}</div>
-                                        <a class="btn recipe-card__btn with-angles" href="recipe.html?recipe-id=${recipe.id}" target="">
-                                            <span class="btn__text">узнать рецепт</span>
-                                            <span class="btn__icon">
-                                                <svg>
-                                                    <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
-                                                </svg>
-                                            </span>
-                                        </a>
-                                    </div>
-                                    `
-
-                let recipesListWrap = recipesListEl.querySelector('.swiper-wrapper')
-                recipesListWrap.appendChild(recipeCard)
-            })
-
-            if(windowWidth > 767) {
-                // формируем пагинацию
-                const paginationContainer = document.querySelector('[data-js="paginationContainer"]')
-                let pagesCount = Math.ceil(currentRecipesFullList.length / cardsOnPage)
-
-                if(paginationContainer && pagesCount > 1) {
-                    setPagination(paginationContainer, pagesCount, currentPaginationId, 'recipes.html?category-id=' + currentCategoryId)
-                }
+        recipesTabs.forEach(recipesTab => {
+            if(recipesTab.dataset.author == currentAuthorType) {
+                recipesTab.classList.add('active')
             } else {
-                //инициализируем слайдер
-                const sliderPrev = recipesListEl.querySelector('[data-js="sliderControlPrev"]')
-                const sliderNext = recipesListEl.querySelector('[data-js="sliderControlNext"]')
-        
-                const recipesListSlider = new Swiper(recipesListEl, {
-                    slidesPerView: 1,
-                    loop: true,
-                    speed: 400,
-                    spaceBetween: 20,
-                    navigation: {
-                        nextEl: sliderNext,
-                        prevEl: sliderPrev,
-                      },
-                });
-
+                recipesTab.classList.remove('active')
             }
+
+            let targetAuthor = recipesTab.dataset.author
+
+            recipesTab.setAttribute('href', 'recipes.html?category-id=' + currentCategoryId + '&author=' + targetAuthor)
         })
+
+        buildList(currentAuthorType)
+
+        function buildList(currentAuthorType) {
+
+            fetch(recipesListPath, {
+                method: 'get'
+            }).then(response => response.json()).then(json => {
+    
+                let recipesListArr = json
+                let currentCategoryObj = recipesListArr[0]
+    
+                if(currentCategoryId) {
+                    currentCategoryObj = recipesListArr.find(item => item.id == currentCategoryId) || recipesListArr[0]
+                }
+    
+                // ищем нужные рецепты с учётом пагинации
+                let currentRecipesFullList = currentCategoryObj.recipes.filter(item => item.author == currentAuthorType)
+                let currentRecipesList = currentRecipesFullList
+                
+                if(windowWidth > 767) {
+                    currentRecipesList = currentRecipesFullList.slice(currentPaginationId * cardsOnPage, currentPaginationId * cardsOnPage + cardsOnPage)
+                }
+    
+                //ставим название категории
+                const categoryNameEl = document.querySelector('[data-js=categoryName]')
+                if(categoryNameEl) {
+                    categoryNameEl.innerHTML = currentCategoryObj.name
+                }
+    
+                // добавляем карточки ресторанов
+                currentRecipesList.forEach(recipe => {
+                    let recipeCard = document.createElement('div')
+                    if(recipe.author == "chef") {
+                        recipeCard.classList.add('recipes__card', 'recipe-card', "recipe-card--sticker", 'swiper-slide')
+                    } else {
+                        recipeCard.classList.add('recipes__card', 'recipe-card', 'swiper-slide')
+                    }
+                    
+                    recipeCard.innerHTML = `                                          
+                                        <div class="recipe-card__inner">
+                                            <div class="recipe-card__img">
+                                                <img src=${recipe.img} alt=""></div>
+                                            <h2 class="title title--h2 recipe-card__title">${recipe.name}</h2>
+                                            <div class="recipe-card__city">${recipe.city}</div>
+                                            <a class="btn recipe-card__btn with-angles" href="recipe.html?recipe-id=${recipe.id}" target="">
+                                                <span class="btn__text">узнать рецепт</span>
+                                                <span class="btn__icon">
+                                                    <svg>
+                                                        <use xlink:href="./img/sprites/sprite.svg#btn_arrow"></use>
+                                                    </svg>
+                                                </span>
+                                            </a>
+                                        </div>
+                                        `
+    
+                    let recipesListWrap = recipesListEl.querySelector('.swiper-wrapper')
+                    recipesListWrap.appendChild(recipeCard)
+                })
+    
+                if(windowWidth > 767) {
+                    // формируем пагинацию
+                    const paginationContainer = document.querySelector('[data-js="paginationContainer"]')
+                    let pagesCount = Math.ceil(currentRecipesFullList.length / cardsOnPage)
+    
+                    if(paginationContainer && pagesCount > 1) {
+                        setPagination(paginationContainer, pagesCount, currentPaginationId, 'recipes.html?category-id=' + currentCategoryId, currentAuthorType)
+                    }
+                } else {
+                    //инициализируем слайдер
+                    const sliderPrev = recipesListEl.querySelector('[data-js="sliderControlPrev"]')
+                    const sliderNext = recipesListEl.querySelector('[data-js="sliderControlNext"]')
+            
+                    const recipesListSlider = new Swiper(recipesListEl, {
+                        slidesPerView: 1,
+                        loop: true,
+                        speed: 400,
+                        spaceBetween: 20,
+                        navigation: {
+                            nextEl: sliderNext,
+                            prevEl: sliderPrev,
+                          },
+                    });
+    
+                }
+            })
+        }
+
 
     }
     
@@ -930,7 +954,7 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 /* ФОРМИРОВАНИЕ ПАГИНАЦИИ */
-function setPagination(container, count, activePage, pageAddress) {
+function setPagination(container, count, activePage, pageAddress, author = false) {
     container.innerHTML = `
                             <a class="pagination__control pagination__prev" href="javascript:void(0)" data-js="prevBtn">
                                 <svg>
@@ -953,7 +977,7 @@ function setPagination(container, count, activePage, pageAddress) {
         let paginationItem = document.createElement('a')
         paginationItem.classList.add('pagination__item')
         paginationItem.setAttribute('data-page', i)
-        paginationItem.setAttribute('href', `${pageAddress}&pagination=${i}`)
+        paginationItem.setAttribute('href', `${pageAddress}&pagination=${i}${author ? '&author=' + author : ''}`)
 
         if(activePage == i) {
             paginationItem.classList.add('pagination__item--active')
@@ -965,11 +989,11 @@ function setPagination(container, count, activePage, pageAddress) {
     }
 
     if(activePage > 0) {
-        container.querySelector('[data-js="prevBtn"]').setAttribute("href", `${pageAddress}&pagination=${activePage - 1}`)
+        container.querySelector('[data-js="prevBtn"]').setAttribute("href", `${pageAddress}&pagination=${activePage - 1}${author ? '&author=' + author : ''}`)
     }
 
     if(activePage < count - 1) {
-        container.querySelector('[data-js="nextBtn"]').setAttribute("href", `${pageAddress}&pagination=${activePage + 1}`)
+        container.querySelector('[data-js="nextBtn"]').setAttribute("href", `${pageAddress}&pagination=${activePage + 1}${author ? '&author=' + author : ''}`)
     }
 }
 
