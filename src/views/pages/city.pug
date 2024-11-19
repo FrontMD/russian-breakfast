@@ -56,113 +56,15 @@ block content
                     })
 
                 .city-list__list(data-js="restaurantList")
-                    .slider-controls 
+                    .swiper-wrapper
+                    .slider-controls
                         .slider-control.slider-control--prev(data-js="sliderControlPrev")
                             svg
                                 use(xlink:href="./img/sprites/sprite.svg#btn_arrow")
+                        .slider-pagination(data-js="sliderPagination")
                         .slider-control.slider-control--next(data-js="sliderControlNext")
                             svg
                                 use(xlink:href="./img/sprites/sprite.svg#btn_arrow")
-                    .swiper-wrapper
-                        //-.city-list__card.restaurant-card
-                            .restaurant-card__img
-                                img(src="./img/cities/sankt_peterburg.jpg" alt="")
-                            .restaurant-card__title Название заведения
-                            .restaurant-card__text!= "Дополнительный <br>текст"
-                            +btn({
-                                classes: "restaurant-card__btn with-angles",
-                                name: "смотреть",
-                                icon: true,
-                                iconName: 'btn_arrow',
-                            })(data-js="openRestaurantBtn")
-                        //-.city-list__card.restaurant-card
-                            .restaurant-card__img
-                                img(src="./img/cities/sankt_peterburg.jpg" alt="")
-                            .restaurant-card__title Название заведения
-                            .restaurant-card__text!= "Дополнительный <br>текст"
-                            +btn({
-                                classes: "restaurant-card__btn with-angles",
-                                name: "смотреть",
-                                icon: true,
-                                iconName: 'btn_arrow',
-                            })(data-js="openRestaurantBtn")
-                        //-.city-list__card.restaurant-card
-                            .restaurant-card__img
-                                img(src="./img/cities/sankt_peterburg.jpg" alt="")
-                            .restaurant-card__title Название заведения
-                            .restaurant-card__text!= "Дополнительный <br>текст"
-                            +btn({
-                                classes: "restaurant-card__btn with-angles",
-                                name: "смотреть",
-                                icon: true,
-                                iconName: 'btn_arrow',
-                            })(data-js="openRestaurantBtn")
-                        //-.city-list__card.restaurant-card
-                            .restaurant-card__img
-                                img(src="./img/cities/sankt_peterburg.jpg" alt="")
-                            .restaurant-card__title Название заведения
-                            .restaurant-card__text!= "Дополнительный <br>текст"
-                            +btn({
-                                classes: "restaurant-card__btn with-angles",
-                                name: "смотреть",
-                                icon: true,
-                                iconName: 'btn_arrow',
-                            })(data-js="openRestaurantBtn")
-                        //-.city-list__card.restaurant-card
-                            .restaurant-card__img
-                                img(src="./img/cities/sankt_peterburg.jpg" alt="")
-                            .restaurant-card__title Название заведения
-                            .restaurant-card__text!= "Дополнительный <br>текст"
-                            +btn({
-                                classes: "restaurant-card__btn with-angles",
-                                name: "смотреть",
-                                icon: true,
-                                iconName: 'btn_arrow',
-                            })(data-js="openRestaurantBtn")
-                        //-.city-list__card.restaurant-card
-                            .restaurant-card__img
-                                img(src="./img/cities/sankt_peterburg.jpg" alt="")
-                            .restaurant-card__title Название заведения
-                            .restaurant-card__text!= "Дополнительный <br>текст"
-                            +btn({
-                                classes: "restaurant-card__btn with-angles",
-                                name: "смотреть",
-                                icon: true,
-                                iconName: 'btn_arrow',
-                            })(data-js="openRestaurantBtn")
-                        //-.city-list__card.restaurant-card
-                            .restaurant-card__img
-                                img(src="./img/cities/sankt_peterburg.jpg" alt="")
-                            .restaurant-card__title Название заведения
-                            .restaurant-card__text!= "Дополнительный <br>текст"
-                            +btn({
-                                classes: "restaurant-card__btn with-angles",
-                                name: "смотреть",
-                                icon: true,
-                                iconName: 'btn_arrow',
-                            })(data-js="openRestaurantBtn")
-                        //-.city-list__card.restaurant-card
-                            .restaurant-card__img
-                                img(src="./img/cities/sankt_peterburg.jpg" alt="")
-                            .restaurant-card__title Название заведения
-                            .restaurant-card__text!= "Дополнительный <br>текст"
-                            +btn({
-                                classes: "restaurant-card__btn with-angles",
-                                name: "смотреть",
-                                icon: true,
-                                iconName: 'btn_arrow',
-                            })(data-js="openRestaurantBtn")
-                        //-.city-list__card.restaurant-card
-                            .restaurant-card__img
-                                img(src="./img/cities/sankt_peterburg.jpg" alt="")
-                            .restaurant-card__title Название заведения
-                            .restaurant-card__text!= "Дополнительный <br>текст"
-                            +btn({
-                                classes: "restaurant-card__btn with-angles",
-                                name: "смотреть",
-                                icon: true,
-                                iconName: 'btn_arrow',
-                            })(data-js="openRestaurantBtn")
 
                 +pagination({
                     classes: "city-list__pagination"

@@ -297,16 +297,28 @@ document.addEventListener("DOMContentLoaded", () => {
                 //инициализируем слайдер
                 const sliderPrev = restaurantsListEl.querySelector('[data-js="sliderControlPrev"]')
                 const sliderNext = restaurantsListEl.querySelector('[data-js="sliderControlNext"]')
+                const sliderPagination = restaurantsListEl.querySelector('[data-js="sliderPagination"]')
         
                 const restaurantsListSlider = new Swiper(restaurantsListEl, {
                     slidesPerView: 1,
+                    grid: {
+                        rows: 3,
+                    },
                     loop: true,
                     speed: 400,
-                    spaceBetween: 20,
+                    spaceBetween: 10,
                     navigation: {
                         nextEl: sliderNext,
                         prevEl: sliderPrev,
-                      },
+                    },
+                    pagination: {
+                        el: sliderPagination,
+                        clickable: true,
+                        renderBullet: function (index, className) {
+                            return '<span class="' + className + '">' + (index + 1) + "</span>";
+                        },
+                    },
+
                 });
 
             }

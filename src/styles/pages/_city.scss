@@ -269,6 +269,7 @@
             @include max(767) {
                 display: block;
                 margin-top: 48px;
+                overflow: hidden;
             }
 
             .swiper-wrapper {
@@ -276,6 +277,7 @@
 
                 @include max(767) {
                     display: flex;
+                    height: calc(180px * 3 + 20px) !important;
                 }
 
             }
@@ -284,27 +286,52 @@
                 display: none;
 
                 @include max(767) {
-                    display: block;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 16px;
+                    position: relative;
+                    margin-top: 35px;
 
                 }
             }
 
             .slider-control {
+                position: relative;
                 background-color: $c-white;
                 width: 60px;
                 height: 60px;
+                top: 0;
+                transform: none;
+                flex-shrink: 0;
 
                 svg {
                     width: 30px;
                 }
+            }
 
-                &--prev {
-                    left: 33px;
-                }
+            .slider-pagination {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+                row-gap: 10px;
+                width: fit-content;
+                color: $c-accent;
+                max-width: calc(100% - 120px - 32px);
+            }
 
-                &--next {
-                    right: 33px;
-                }
+            .swiper-pagination-bullet {
+                margin: 0;
+                width: 25px;
+                height: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 20px;
+                border-radius: 0;
+                background-color: transparent;
+                padding: 0;
             }
         }
 
@@ -331,7 +358,7 @@
         overflow: hidden;
 
         @include max(767) {
-            min-height: 373px;
+            min-height: 160px;
             padding-bottom: 28px;
         }
 
@@ -342,6 +369,10 @@
             width: 100%;
             height: 273px;
             z-index: 1;
+
+            @include max(767) {
+                display: none;
+            }
 
             img {
                 width: 100%;
@@ -417,7 +448,7 @@
             z-index: 3;
 
             @include max(767) {
-                height: 201px;
+                display: none;
             }
 
         }
